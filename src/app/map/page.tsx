@@ -173,7 +173,7 @@ export default function InteractiveMapPage() {
         </div>
 
         <p className="mt-4 text-xs text-text-gray leading-relaxed">
-          Hotspot data is stored in your browser. Use "Export Hotspot Data" regularly
+          Hotspot data is stored in your browser. Use &quot;Export Hotspot Data&quot; regularly
           to back up your annotations as a JSON file.
         </p>
       </div>

@@ -77,7 +77,7 @@ export default function HomePage() {
           />
           <p className="mt-8 max-w-3xl font-serif text-xl md:text-2xl leading-relaxed text-ink">
             How do object placement, gallery layout, and curatorial text in the
-            Korean Gallery at the Metropolitan Museum of Art shape visitors'
+            Korean Gallery at the Metropolitan Museum of Art shape visitors&rsquo;
             understanding of Korean art?
           </p>
         </div>

@@ -71,7 +71,7 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
             {hotspot.curatorialInterpretation || "—"}
           </dd>
           <p className="mt-2 text-[11px] text-text-gray leading-relaxed">
-            This section reflects the research team's analysis of why this object
+            This section reflects the research team&rsquo;s analysis of why this object
             occupies this position within the gallery, and how its placement shapes
             visitor interpretation.
           </p>

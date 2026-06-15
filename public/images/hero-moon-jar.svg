@@ -1,0 +1,21 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" xmlns="http://www.w3.org/2000/svg">
+  <!-- PLACEHOLDER IMAGE — replace public/images/hero-moon-jar.svg (or change the src in src/app/page.tsx)
+       with a high-resolution photograph of the Korean Moon Jar (white porcelain jar). -->
+  <rect width="1200" height="1500" fill="#F8F8F8"/>
+  <ellipse cx="600" cy="1480" rx="320" ry="30" fill="#E7E7E7" opacity="0.6"/>
+  <path d="M420 360
+           C 360 420, 330 540, 340 700
+           C 350 900, 380 1100, 430 1260
+           C 460 1340, 520 1380, 600 1380
+           C 680 1380, 740 1340, 770 1260
+           C 820 1100, 850 900, 860 700
+           C 870 540, 840 420, 780 360
+           C 740 320, 660 300, 600 300
+           C 540 300, 460 320, 420 360 Z"
+        fill="#FFFFFF" stroke="#E7E7E7" stroke-width="2"/>
+  <ellipse cx="600" cy="330" rx="95" ry="34" fill="#FFFFFF" stroke="#E7E7E7" stroke-width="2"/>
+  <ellipse cx="600" cy="800" rx="2" ry="2" fill="none"/>
+  <text x="600" y="1470" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#6B7280" letter-spacing="4">
+    PLACEHOLDER — REPLACE WITH MOON JAR PHOTOGRAPH
+  </text>
+</svg>

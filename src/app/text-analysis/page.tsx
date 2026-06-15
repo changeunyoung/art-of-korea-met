@@ -1,0 +1,145 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import SectionHeading from "@/components/SectionHeading";
+import StatsOverview from "@/components/textanalysis/StatsOverview";
+import InteractiveWordCloud from "@/components/textanalysis/InteractiveWordCloud";
+import ContextPanel from "@/components/textanalysis/ContextPanel";
+import TopKeywordsChart from "@/components/textanalysis/TopKeywordsChart";
+import ThemeExplorer from "@/components/textanalysis/ThemeExplorer";
+import CuratorialInterpretation from "@/components/textanalysis/CuratorialInterpretation";
+import FinalInsightPanel from "@/components/textanalysis/FinalInsightPanel";
+import {
+  loadDefaultFrequencies,
+  loadLabelFullText,
+  loadLabelObjects,
+  getThemeForWord,
+  tokenize,
+} from "@/lib/textAnalysis";
+import { WordFrequency, LabelObject } from "@/lib/types";
+
+export default function TextAnalysisPage() {
+  const [frequencies, setFrequencies] = useState<WordFrequency[]>([]);
+  const [fullText, setFullText] = useState("");
+  const [objects, setObjects] = useState<LabelObject[]>([]);
+
+  const [displayedTerms, setDisplayedTerms] = useState(50);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedWord, setSelectedWord] = useState<string | null>(null);
+  const [selectedTheme, setSelectedTheme] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadDefaultFrequencies().then(setFrequencies).catch(() => {});
+    loadLabelFullText().then(setFullText).catch(() => {});
+    loadLabelObjects<LabelObject>().then(setObjects).catch(() => {});
+  }, []);
+
+  const handleSelectWord = (word: string) => {
+    setSelectedWord(word.toLowerCase());
+  };
+
+  const handleSelectTheme = (theme: string | null) => {
+    setSelectedTheme(theme);
+  };
+
+  const topKeywordFrequencies = useMemo(() => {
+    if (!selectedTheme) return frequencies;
+    return frequencies.filter((f) => getThemeForWord(f.text) === selectedTheme);
+  }, [frequencies, selectedTheme]);
+
+  // Full corpus of analyzed museum labels: 47 object captions + 5 wall texts.
+  // (Separate from `objects`, the smaller curated set used for Related Objects.)
+  const totalLabels = 52;
+  const totalWords = useMemo(() => tokenize(fullText).length, [fullText]);
+  const uniqueWords = frequencies.length;
+
+  return (
+    <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
+      <SectionHeading
+        eyebrow="Method 03 — Curatorial Language"
+        title="Text Analysis"
+        description="How Does the Korean Gallery Describe Korean Art?"
+      />
+      <p className="mt-6 max-w-2xl text-text-gray leading-relaxed text-base md:text-lg">
+        This section explores the language used throughout the Korean Gallery&rsquo;s object
+        labels. By analyzing recurring words, themes, and patterns, visitors can discover how
+        curatorial language shapes the interpretation of Korean art, history, religion,
+        craftsmanship, and cultural identity.
+      </p>
+
+      <div className="mt-12 space-y-16">
+        <section>
+          <StatsOverview totalLabels={totalLabels} totalWords={totalWords} uniqueWords={uniqueWords} />
+        </section>
+
+        <section>
+          <SectionHeading
+            title="Word Cloud"
+            description="The most frequently used words in the Korean Gallery's object labels."
+          />
+          <div className="mt-8">
+            <InteractiveWordCloud
+              frequencies={frequencies}
+              displayedTerms={displayedTerms}
+              onDisplayedTermsChange={setDisplayedTerms}
+              searchQuery={searchQuery}
+              onSearchQueryChange={setSearchQuery}
+              selectedWord={selectedWord}
+              onSelectWord={handleSelectWord}
+              selectedTheme={selectedTheme}
+            />
+            <ContextPanel
+              selectedWord={selectedWord}
+              frequencies={frequencies}
+              fullText={fullText}
+              objects={objects}
+              onSelectWord={handleSelectWord}
+            />
+          </div>
+        </section>
+
+        <section>
+          <SectionHeading
+            title="Top Keywords"
+            description="Most frequently occurring words across the Korean Gallery labels."
+          />
+          <div className="mt-8">
+            <TopKeywordsChart
+              frequencies={topKeywordFrequencies}
+              selectedWord={selectedWord}
+              onSelectWord={handleSelectWord}
+            />
+          </div>
+        </section>
+
+        <section>
+          <SectionHeading
+            title="Theme Explorer"
+            description="Six thematic lenses through which the Korean Gallery frames its objects. Select a theme to filter the analysis above."
+          />
+          <div className="mt-8">
+            <ThemeExplorer
+              selectedTheme={selectedTheme}
+              onSelectTheme={handleSelectTheme}
+              onSelectKeyword={handleSelectWord}
+            />
+          </div>
+        </section>
+
+        <section>
+          <SectionHeading
+            title="What Does This Language Tell Us?"
+            description="The patterns revealed by the text analysis help explain how the Korean Gallery constructs meaning through curatorial language."
+          />
+          <div className="mt-8">
+            <CuratorialInterpretation />
+          </div>
+        </section>
+      </div>
+
+      <div className="mt-16 -mx-6 md:-mx-10">
+        <FinalInsightPanel />
+      </div>
+    </div>
+  );
+}

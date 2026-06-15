@@ -1,0 +1,839 @@
+[
+  {
+    "id": "gallery233-walltext-A",
+    "x": 23.53,
+    "y": 4.58,
+    "type": "wallText",
+    "label": "A",
+    "objectName": "Wall Text A — Replace Me",
+    "objectNumber": "",
+    "period": "",
+    "description": "Replace with a transcription of this wall text panel's curatorial label copy.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of how this wall text frames the surrounding objects and shapes visitor understanding.",
+    "keywords": [
+      "placeholder",
+      "wall text",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-walltext-E",
+    "x": 23.53,
+    "y": 96.67,
+    "type": "wallText",
+    "label": "E",
+    "objectName": "Wall Text E — Replace Me",
+    "objectNumber": "",
+    "period": "",
+    "description": "Replace with a transcription of this wall text panel's curatorial label copy.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of how this wall text frames the surrounding objects and shapes visitor understanding.",
+    "keywords": [
+      "placeholder",
+      "wall text",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-walltext-B",
+    "x": 38.19,
+    "y": 26.38,
+    "type": "wallText",
+    "label": "B",
+    "objectName": "Wall Text B — Replace Me",
+    "objectNumber": "",
+    "period": "",
+    "description": "Replace with a transcription of this wall text panel's curatorial label copy.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of how this wall text frames the surrounding objects and shapes visitor understanding.",
+    "keywords": [
+      "placeholder",
+      "wall text",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-walltext-C",
+    "x": 38.19,
+    "y": 75.29,
+    "type": "wallText",
+    "label": "C",
+    "objectName": "Wall Text C — Replace Me",
+    "objectNumber": "",
+    "period": "",
+    "description": "Replace with a transcription of this wall text panel's curatorial label copy.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of how this wall text frames the surrounding objects and shapes visitor understanding.",
+    "keywords": [
+      "placeholder",
+      "wall text",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-walltext-D",
+    "x": 31.27,
+    "y": 90.25,
+    "type": "wallText",
+    "label": "D",
+    "objectName": "Wall Text D — Replace Me",
+    "objectNumber": "",
+    "period": "",
+    "description": "Replace with a transcription of this wall text panel's curatorial label copy.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of how this wall text frames the surrounding objects and shapes visitor understanding.",
+    "keywords": [
+      "placeholder",
+      "wall text",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-1",
+    "x": 32.98,
+    "y": 3.92,
+    "type": "object",
+    "label": "1",
+    "objectName": "Object 1 — Replace Me",
+    "objectNumber": "1",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-9",
+    "x": 36.64,
+    "y": 7.83,
+    "type": "object",
+    "label": "9",
+    "objectName": "Object 9 — Replace Me",
+    "objectNumber": "9",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-10",
+    "x": 46.66,
+    "y": 7.83,
+    "type": "object",
+    "label": "10",
+    "objectName": "Object 10 — Replace Me",
+    "objectNumber": "10",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-11",
+    "x": 56.6,
+    "y": 7.83,
+    "type": "object",
+    "label": "11",
+    "objectName": "Object 11 — Replace Me",
+    "objectNumber": "11",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-12",
+    "x": 64.82,
+    "y": 7.83,
+    "type": "object",
+    "label": "12",
+    "objectName": "Object 12 — Replace Me",
+    "objectNumber": "12",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-13",
+    "x": 68.16,
+    "y": 7.83,
+    "type": "object",
+    "label": "13",
+    "objectName": "Object 13 — Replace Me",
+    "objectNumber": "13",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-14",
+    "x": 76.38,
+    "y": 7.83,
+    "type": "object",
+    "label": "14",
+    "objectName": "Object 14 — Replace Me",
+    "objectNumber": "14",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-15",
+    "x": 86.32,
+    "y": 7.83,
+    "type": "object",
+    "label": "15",
+    "objectName": "Object 15 — Replace Me",
+    "objectNumber": "15",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-16",
+    "x": 92.96,
+    "y": 15.13,
+    "type": "object",
+    "label": "16",
+    "objectName": "Object 16 — Replace Me",
+    "objectNumber": "16",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-17",
+    "x": 92.96,
+    "y": 25,
+    "type": "object",
+    "label": "17",
+    "objectName": "Object 17 — Replace Me",
+    "objectNumber": "17",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-18",
+    "x": 92.96,
+    "y": 35,
+    "type": "object",
+    "label": "18",
+    "objectName": "Object 18 — Replace Me",
+    "objectNumber": "18",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-19",
+    "x": 92.96,
+    "y": 45,
+    "type": "object",
+    "label": "19",
+    "objectName": "Object 19 — Replace Me",
+    "objectNumber": "19",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-20",
+    "x": 92.96,
+    "y": 55,
+    "type": "object",
+    "label": "20",
+    "objectName": "Object 20 — Replace Me",
+    "objectNumber": "20",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-21",
+    "x": 92.96,
+    "y": 65,
+    "type": "object",
+    "label": "21",
+    "objectName": "Object 21 — Replace Me",
+    "objectNumber": "21",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-22",
+    "x": 92.96,
+    "y": 73.17,
+    "type": "object",
+    "label": "22",
+    "objectName": "Object 22 — Replace Me",
+    "objectNumber": "22",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-23",
+    "x": 92.96,
+    "y": 76.08,
+    "type": "object",
+    "label": "23",
+    "objectName": "Object 23 — Replace Me",
+    "objectNumber": "23",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-24",
+    "x": 92.96,
+    "y": 79,
+    "type": "object",
+    "label": "24",
+    "objectName": "Object 24 — Replace Me",
+    "objectNumber": "24",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-25",
+    "x": 92.96,
+    "y": 85.08,
+    "type": "object",
+    "label": "25",
+    "objectName": "Object 25 — Replace Me",
+    "objectNumber": "25",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-26",
+    "x": 86.4,
+    "y": 93.67,
+    "type": "object",
+    "label": "26",
+    "objectName": "Object 26 — Replace Me",
+    "objectNumber": "26",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-27",
+    "x": 76.47,
+    "y": 93.67,
+    "type": "object",
+    "label": "27",
+    "objectName": "Object 27 — Replace Me",
+    "objectNumber": "27",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-28",
+    "x": 66.53,
+    "y": 93.67,
+    "type": "object",
+    "label": "28",
+    "objectName": "Object 28 — Replace Me",
+    "objectNumber": "28",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-29",
+    "x": 56.6,
+    "y": 93.67,
+    "type": "object",
+    "label": "29",
+    "objectName": "Object 29 — Replace Me",
+    "objectNumber": "29",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-30",
+    "x": 49.76,
+    "y": 93.67,
+    "type": "object",
+    "label": "30",
+    "objectName": "Object 30 — Replace Me",
+    "objectNumber": "30",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-31",
+    "x": 46.5,
+    "y": 93.67,
+    "type": "object",
+    "label": "31",
+    "objectName": "Object 31 — Replace Me",
+    "objectNumber": "31",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-32",
+    "x": 43.08,
+    "y": 93.67,
+    "type": "object",
+    "label": "32",
+    "objectName": "Object 32 — Replace Me",
+    "objectNumber": "32",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-33",
+    "x": 36.64,
+    "y": 93.67,
+    "type": "object",
+    "label": "33",
+    "objectName": "Object 33 — Replace Me",
+    "objectNumber": "33",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-47",
+    "x": 7.25,
+    "y": 49.88,
+    "type": "object",
+    "label": "47",
+    "objectName": "Object 47 — Replace Me",
+    "objectNumber": "47",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-40b",
+    "x": 43.24,
+    "y": 26.75,
+    "type": "object",
+    "label": "40",
+    "objectName": "Object 40 — Replace Me",
+    "objectNumber": "40",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-3",
+    "x": 33.1,
+    "y": 39.75,
+    "type": "object",
+    "label": "3",
+    "objectName": "Object 3 — Replace Me",
+    "objectNumber": "3",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-2",
+    "x": 36.48,
+    "y": 43.5,
+    "type": "object",
+    "label": "2",
+    "objectName": "Object 2 — Replace Me",
+    "objectNumber": "2",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-4",
+    "x": 33.1,
+    "y": 47.58,
+    "type": "object",
+    "label": "4",
+    "objectName": "Object 4 — Replace Me",
+    "objectNumber": "4",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-7",
+    "x": 33.1,
+    "y": 55.75,
+    "type": "object",
+    "label": "7",
+    "objectName": "Object 7 — Replace Me",
+    "objectNumber": "7",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-5",
+    "x": 36.44,
+    "y": 54.17,
+    "type": "object",
+    "label": "5",
+    "objectName": "Object 5 — Replace Me",
+    "objectNumber": "5",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-6",
+    "x": 36.44,
+    "y": 57.33,
+    "type": "object",
+    "label": "6",
+    "objectName": "Object 6 — Replace Me",
+    "objectNumber": "6",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-8",
+    "x": 34.77,
+    "y": 62.17,
+    "type": "object",
+    "label": "8",
+    "objectName": "Object 8 — Replace Me",
+    "objectNumber": "8",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-45",
+    "x": 45.03,
+    "y": 75.88,
+    "type": "object",
+    "label": "45",
+    "objectName": "Object 45 — Replace Me",
+    "objectNumber": "45",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-44",
+    "x": 63.68,
+    "y": 52.67,
+    "type": "object",
+    "label": "44",
+    "objectName": "Object 44 — Replace Me",
+    "objectNumber": "44",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-43",
+    "x": 63.68,
+    "y": 55.5,
+    "type": "object",
+    "label": "43",
+    "objectName": "Object 43 — Replace Me",
+    "objectNumber": "43",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-42",
+    "x": 63.68,
+    "y": 58.17,
+    "type": "object",
+    "label": "42",
+    "objectName": "Object 42 — Replace Me",
+    "objectNumber": "42",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-41",
+    "x": 63.68,
+    "y": 60.83,
+    "type": "object",
+    "label": "41",
+    "objectName": "Object 41 — Replace Me",
+    "objectNumber": "41",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-40",
+    "x": 63.68,
+    "y": 63.5,
+    "type": "object",
+    "label": "40",
+    "objectName": "Object 40 — Replace Me",
+    "objectNumber": "40",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-39",
+    "x": 63.68,
+    "y": 66.17,
+    "type": "object",
+    "label": "39",
+    "objectName": "Object 39 — Replace Me",
+    "objectNumber": "39",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-38",
+    "x": 63.68,
+    "y": 68.83,
+    "type": "object",
+    "label": "38",
+    "objectName": "Object 38 — Replace Me",
+    "objectNumber": "38",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-37",
+    "x": 63.68,
+    "y": 71.5,
+    "type": "object",
+    "label": "37",
+    "objectName": "Object 37 — Replace Me",
+    "objectNumber": "37",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-36",
+    "x": 63.68,
+    "y": 74.17,
+    "type": "object",
+    "label": "36",
+    "objectName": "Object 36 — Replace Me",
+    "objectNumber": "36",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-35",
+    "x": 63.68,
+    "y": 76.83,
+    "type": "object",
+    "label": "35",
+    "objectName": "Object 35 — Replace Me",
+    "objectNumber": "35",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  },
+  {
+    "id": "gallery233-object-34",
+    "x": 63.68,
+    "y": 79.5,
+    "type": "object",
+    "label": "34",
+    "objectName": "Object 34 — Replace Me",
+    "objectNumber": "34",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": [
+      "placeholder",
+      "gallery 233"
+    ]
+  }
+]

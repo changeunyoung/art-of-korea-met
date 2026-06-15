@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #2b2b2b;
+}
+
+/* Shared museum-style section heading underline */
+.section-rule {
+  width: 48px;
+  height: 1px;
+  background-color: #6b7280;
+  opacity: 0.4;
+}
+
+/* Subtle, slow transitions only — per design direction */
+.transition-museum {
+  transition-property: all;
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar for the catalogue feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #e7e7e7;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d6e3f7;
+}

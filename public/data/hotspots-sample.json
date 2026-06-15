@@ -1,0 +1,24 @@
+[
+  {
+    "id": "hotspot-sample-1",
+    "x": 25.0,
+    "y": 40.0,
+    "objectName": "Sample Object — Replace Me",
+    "objectNumber": "0000.0.0",
+    "period": "Period (e.g. Joseon Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": ["placeholder", "sample"]
+  },
+  {
+    "id": "hotspot-sample-2",
+    "x": 65.0,
+    "y": 55.0,
+    "objectName": "Sample Object — Replace Me",
+    "objectNumber": "0000.0.0",
+    "period": "Period (e.g. Goryeo Dynasty)",
+    "description": "Replace with a factual description of the object: medium, dimensions, date.",
+    "curatorialInterpretation": "Replace with your research team's interpretation of why this object is placed here and what that placement communicates to visitors.",
+    "keywords": ["placeholder", "sample"]
+  }
+]

@@ -1,0 +1,12 @@
+[PLACEHOLDER CURATORIAL LABEL TEXT]
+
+Replace this file with the actual curatorial label text collected from the
+Korean Gallery at The Metropolitan Museum of Art. You can also paste text
+directly into the Text Analysis page, or upload a CSV containing multiple
+label texts.
+
+This sample exists only to demonstrate the word cloud, frequency chart,
+common terms list, and thematic category features of the Text Analysis page.
+Sample sample sample placeholder placeholder museum museum gallery gallery
+gallery object object object collection collection display display visitor
+visitor interpretation interpretation curator curator label label label.

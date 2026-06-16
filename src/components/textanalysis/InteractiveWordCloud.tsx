@@ -121,14 +121,12 @@ export default function InteractiveWordCloud({
 
     const max = displayed[0].value;
     const min = displayed[displayed.length - 1].value;
-    const maxFont = Math.max(32, Math.min(88, size.width / 9));
+    const maxFont = Math.max(28, Math.min(68, size.width / 12));
     const minFont = 11;
     const scaleFont = (value: number) => {
       if (max === min) return (maxFont + minFont) / 2;
       const ratio = (value - min) / (max - min);
-      // Slightly convex curve so the handful of top words stand out clearly
-      // from the mid/low-frequency mass, instead of a flat linear spread.
-      return minFont + Math.pow(ratio, 1.4) * (maxFont - minFont);
+      return minFont + Math.pow(ratio, 1.1) * (maxFont - minFont);
     };
 
     // Visual hierarchy tiers, by rank (displayed is sorted by frequency desc):
@@ -152,12 +150,12 @@ export default function InteractiveWordCloud({
     // computing collision boxes — fonts can render very slightly larger
     // than `measureText` predicts (hinting/sub-pixel differences), so this
     // safety margin guarantees the actual glyphs never touch.
-    const SAFETY = 1.06;
+    const SAFETY = 1.22;
 
     const seeds: SeedWord[] = displayed.map((w, i) => ({
       text: w.text,
       value: w.value,
-      size: scaleFont(w.value) * (i < topCount ? 1.15 : 1) * SAFETY,
+      size: scaleFont(w.value) * (i < topCount ? 1.06 : 1) * SAFETY,
     }));
 
     // A slightly wide oval (museum-panel proportions): cap the spiral's
@@ -176,7 +174,7 @@ export default function InteractiveWordCloud({
     const layoutGen = cloud<SeedWord>()
       .size([cloudW, cloudH])
       .words(seeds)
-      .padding(1.5)
+      .padding(6)
       .rotate((_d, i) => {
         if (i < topCount) return 0; // largest words stay horizontal
         return hashText(_d.text ?? "") % 5 === 0 ? 90 : 0; // ~18% vertical overall

@@ -1,0 +1,12 @@
+{
+  "page": "map",
+  "blocks": [
+    {
+      "id": "page-heading",
+      "type": "page-heading",
+      "eyebrow": "Method 01 — Spatial Mapping",
+      "title": "Interactive Map",
+      "description": "Annotated floor plan of the Korean Gallery. Each hotspot marks an object's position and records the curatorial reasoning behind its placement."
+    }
+  ]
+}

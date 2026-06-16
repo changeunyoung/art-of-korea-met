@@ -1,0 +1,12 @@
+{
+  "page": "timeline",
+  "blocks": [
+    {
+      "id": "page-heading",
+      "type": "page-heading",
+      "eyebrow": "Method 02 — Historical Framing",
+      "title": "Timeline",
+      "description": "A chronological view of the dynasties, objects, and narratives presented in the Korean Gallery. Click any point on the timeline to read more about that moment."
+    }
+  ]
+}

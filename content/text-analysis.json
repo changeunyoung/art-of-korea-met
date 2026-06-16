@@ -1,0 +1,12 @@
+{
+  "page": "text-analysis",
+  "blocks": [
+    {
+      "id": "page-heading",
+      "type": "page-heading",
+      "eyebrow": "Method 03 — Curatorial Language",
+      "title": "Text Analysis",
+      "description": "How Does the Korean Gallery Describe Korean Art?"
+    }
+  ]
+}

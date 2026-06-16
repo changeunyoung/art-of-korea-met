@@ -1,0 +1,59 @@
+{
+  "page": "home",
+  "blocks": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "image": "/images/hero-moon-jar.svg",
+      "imageAlt": "Korean Moon Jar, Joseon Dynasty white porcelain — placeholder image",
+      "eyebrow": "A Digital Humanities Capstone Project",
+      "title": "Art of Korea",
+      "subtitle": "at the Metropolitan Museum of Art",
+      "tagline": "Making Curatorial Structures Visible",
+      "scrollLabel": "Scroll"
+    },
+    {
+      "id": "intro",
+      "type": "intro",
+      "label": "Introduction",
+      "leadParagraph": "Museum galleries are not neutral spaces. Visitors do not simply encounter objects — they encounter them through a sequence of curatorial decisions: where an object is placed, how a room is organized, which path a body is guided to walk, and which words are chosen to explain what is seen.",
+      "bodyParagraphs": [
+        "This project examines the Korean Gallery at The Metropolitan Museum of Art as a constructed interpretive environment. By mapping the placement of objects, tracing visitor movement through the gallery, charting the historical timeline presented to the public, and analyzing the language of curatorial labels, this site makes visible the structures that quietly shape how Korean art is understood by museum visitors."
+      ]
+    },
+    {
+      "id": "research-question",
+      "type": "research-question",
+      "eyebrow": "Research Question",
+      "title": "How do curatorial structures shape understanding?",
+      "body": "How do object placement, gallery layout, and curatorial text in the Korean Gallery at the Metropolitan Museum of Art shape visitors' understanding of Korean art?"
+    },
+    {
+      "id": "methods",
+      "type": "methods",
+      "eyebrow": "Methods",
+      "title": "Three approaches to an invisible structure",
+      "description": "Each method below offers a different lens on the same gallery — together, they reveal how spatial design, historical framing, and language work in concert to shape interpretation.",
+      "cards": [
+        {
+          "index": "01 — Spatial Mapping",
+          "title": "Interactive Map",
+          "description": "Explore an annotated floor plan of the Korean Gallery. Each hotspot reveals an object's placement, period, and the curatorial reasoning behind its position in the room.",
+          "href": "/map"
+        },
+        {
+          "index": "02 — Historical Framing",
+          "title": "Timeline",
+          "description": "A chronological view of the dynasties, objects, and narratives presented to visitors — drawn directly from gallery and exhibition records.",
+          "href": "/timeline"
+        },
+        {
+          "index": "03 — Curatorial Language",
+          "title": "Text Analysis",
+          "description": "A close reading of curatorial label text, surfacing recurring vocabulary and the thematic categories through which Korean art is framed.",
+          "href": "/text-analysis"
+        }
+      ]
+    }
+  ]
+}

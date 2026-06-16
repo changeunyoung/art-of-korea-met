@@ -1,52 +1,18 @@
-"use client";
+import { readContent } from "@/lib/content";
+import { isAdmin } from "@/lib/auth";
+import PageEditor from "@/components/admin/PageEditor";
+import TimelineInteractive from "@/components/timeline/TimelineInteractive";
 
-import { useEffect, useMemo, useState } from "react";
-import SectionHeading from "@/components/SectionHeading";
-import TimelineDisplay from "@/components/timeline/TimelineDisplay";
-import TimelineEntryModal from "@/components/timeline/TimelineEntryModal";
-import { TimelineEntry } from "@/lib/types";
-import { loadDefaultTimeline } from "@/lib/timelineData";
-
-export default function TimelinePage() {
-  const [entries, setEntries] = useState<TimelineEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedEntry, setSelectedEntry] = useState<TimelineEntry | null>(null);
-
-  useEffect(() => {
-    loadDefaultTimeline()
-      .then(setEntries)
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
-
-  const sortedEntries = useMemo(() => {
-    return [...entries].sort((a, b) => {
-      const yearA = parseInt(a.year, 10);
-      const yearB = parseInt(b.year, 10);
-      if (isNaN(yearA) || isNaN(yearB)) return a.year.localeCompare(b.year);
-      return yearA - yearB;
-    });
-  }, [entries]);
-
+export default async function TimelinePage() {
+  const blocks = readContent("timeline");
+  const admin = await isAdmin();
   return (
     <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
-      <SectionHeading
-        eyebrow="Method 02 — Historical Framing"
-        title="Timeline"
-        description="A chronological view of the dynasties, objects, and narratives presented in the Korean Gallery. Click any point on the timeline to read more about that moment."
-      />
-
-      <div className="mt-12">
-        <div className="bg-white border border-light-gray px-2 md:px-6 py-10">
-          {loading ? (
-            <p className="text-center text-text-gray py-20">Loading timeline…</p>
-          ) : (
-            <TimelineDisplay entries={sortedEntries} onSelectEntry={setSelectedEntry} />
-          )}
+      <PageEditor page="timeline" initialBlocks={blocks} isAdmin={admin}>
+        <div className="mt-12">
+          <TimelineInteractive />
         </div>
-      </div>
-
-      <TimelineEntryModal entry={selectedEntry} onClose={() => setSelectedEntry(null)} />
+      </PageEditor>
     </div>
   );
 }

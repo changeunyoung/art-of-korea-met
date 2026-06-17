@@ -19,7 +19,7 @@ export default function HotspotEditorPanel({
     return (
       <div className="h-full flex flex-col items-center justify-center text-center px-8 py-16 text-text-gray">
         <p className="text-xs uppercase tracking-widest2 mb-3">Edit Mode</p>
-        <p className="font-serif text-xl leading-relaxed">
+        <p className="font-sans text-xl leading-relaxed">
           Click anywhere on the map to place a new hotspot, or select an
           existing hotspot to edit its details. Drag hotspots to reposition them.
         </p>

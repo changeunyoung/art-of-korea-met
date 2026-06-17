@@ -93,7 +93,7 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 border-b border-light-gray pb-6 mb-6">
         <div>
           <p className="text-xs uppercase tracking-widest2 text-text-gray mb-2">Selected Word</p>
-          <h3 className="font-serif text-3xl text-ink capitalize">{selectedWord}</h3>
+          <h3 className="font-display text-3xl text-ink capitalize">{selectedWord}</h3>
         </div>
         <div className="flex gap-8">
           <div>

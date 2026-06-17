@@ -8,17 +8,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ART OF KOREA — Met Korean Gallery palette
-        background: "#F8F8F8", // Primary background
-        "background-soft": "#EAF2FF", // Secondary background
-        accent: "#D6E3F7", // Accent blue
-        "light-gray": "#E7E7E7",
-        "text-gray": "#6B7280",
-        ink: "#2B2B2B",
+        // ART OF KOREA — Korean landscape palette
+        background: "#F4F7FA",        // cool off-white, like sky edge
+        "background-soft": "#E4EEF5", // soft sky blue
+        accent: "#A8C9DF",            // sky blue from the illustration
+        "accent-dark": "#6A90AA",     // deeper wave blue
+        "light-gray": "#D8E2EA",      // mountain outline gray
+        "text-gray": "#5E7282",       // muted blue-gray
+        ink: "#1E2D3D",               // deep navy (darkest wave)
+        "ink-soft": "#3A506B",        // softer navy
+        "sky": "#B8D4E4",             // hero sky blue
       },
       fontFamily: {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "Helvetica", "Arial", "sans-serif"],
+        display: ["var(--font-display)", "Impact", "sans-serif"],
       },
       letterSpacing: {
         widest2: "0.25em",

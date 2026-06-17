@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import Image from "next/image";
+import HeroSection from "@/components/hero/HeroSection";
 import AdminBar from "./AdminBar";
 import AddBlockButton from "./AddBlockButton";
 import BlockControls from "./BlockControls";
@@ -79,21 +80,7 @@ function ImageReplaceOverlay({ onUpload }: { onUpload: (url: string) => void }) 
 // ─── Block renderers (editable) ────────────────────────────────────────────
 
 function EditHero({ block, update }: { block: HeroBlock; update: (b: HeroBlock) => void }) {
-  return (
-    <section className="relative w-full h-[100vh] -mt-20 flex items-center justify-center overflow-hidden">
-      <div className="relative w-full h-full">
-        <Image src={block.image} alt={block.imageAlt} fill priority className="object-cover" />
-        <ImageReplaceOverlay onUpload={(url) => update({ ...block, image: url })} />
-      </div>
-      <div className="absolute inset-0 bg-background/40" />
-      <div className="relative z-10 text-center px-6">
-        <EditableText tag="p" value={block.eyebrow} onChange={(v) => update({ ...block, eyebrow: v })} className="text-xs md:text-sm uppercase tracking-widest2 text-text-gray mb-6 block" />
-        <EditableText tag="h1" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-serif text-5xl md:text-7xl tracking-wide text-ink block" />
-        <EditableText tag="p" value={block.subtitle} onChange={(v) => update({ ...block, subtitle: v })} className="mt-4 text-base md:text-lg uppercase tracking-widest2 text-text-gray block" />
-        <EditableText tag="p" value={block.tagline} onChange={(v) => update({ ...block, tagline: v })} className="mt-8 font-serif italic text-xl md:text-2xl text-ink block" />
-      </div>
-    </section>
-  );
+  return <HeroSection />;
 }
 
 function EditIntro({ block, update }: { block: IntroBlock; update: (b: IntroBlock) => void }) {
@@ -101,7 +88,7 @@ function EditIntro({ block, update }: { block: IntroBlock; update: (b: IntroBloc
     <section className="mx-auto max-w-content px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-3xl">
         <EditableText tag="p" value={block.label} onChange={(v) => update({ ...block, label: v })} className="text-xs uppercase tracking-widest2 text-text-gray mb-4 block" />
-        <EditableText tag="p" value={block.leadParagraph} onChange={(v) => update({ ...block, leadParagraph: v })} multiline className="font-serif text-2xl md:text-3xl leading-relaxed text-ink block" />
+        <EditableText tag="p" value={block.leadParagraph} onChange={(v) => update({ ...block, leadParagraph: v })} multiline className="font-sans text-2xl md:text-3xl leading-relaxed text-ink block" />
         {block.bodyParagraphs.map((p, i) => (
           <EditableText
             key={i}
@@ -131,8 +118,8 @@ function EditResearchQuestion({ block, update }: { block: ResearchQuestionBlock;
         </div>
         {/* Inline edit of heading via contentEditable overlays */}
         <div className="relative">
-          <p className="mt-8 max-w-3xl font-serif text-xl md:text-2xl leading-relaxed text-ink hidden">{block.body}</p>
-          <EditableText tag="p" value={block.body} onChange={(v) => update({ ...block, body: v })} multiline className="mt-8 max-w-3xl font-serif text-xl md:text-2xl leading-relaxed text-ink block" />
+          <p className="mt-8 max-w-3xl font-sans text-xl md:text-2xl leading-relaxed text-ink hidden">{block.body}</p>
+          <EditableText tag="p" value={block.body} onChange={(v) => update({ ...block, body: v })} multiline className="mt-8 max-w-3xl font-sans text-xl md:text-2xl leading-relaxed text-ink block" />
         </div>
       </div>
     </section>
@@ -147,7 +134,7 @@ function EditMethods({ block, update }: { block: MethodsBlock; update: (b: Metho
         {block.cards.map((card, i) => (
           <div key={i} className="relative group/card border border-light-gray bg-white p-6 md:p-8 flex flex-col gap-4 hover:bg-background-soft transition-museum">
             <EditableText tag="p" value={card.index} onChange={(v) => { const next = [...block.cards]; next[i] = { ...next[i], index: v }; update({ ...block, cards: next }); }} className="text-xs uppercase tracking-widest2 text-text-gray block" />
-            <EditableText tag="h3" value={card.title} onChange={(v) => { const next = [...block.cards]; next[i] = { ...next[i], title: v }; update({ ...block, cards: next }); }} className="font-serif text-xl md:text-2xl text-ink block" />
+            <EditableText tag="h3" value={card.title} onChange={(v) => { const next = [...block.cards]; next[i] = { ...next[i], title: v }; update({ ...block, cards: next }); }} className="font-display text-xl md:text-2xl text-ink block" />
             <EditableText tag="p" value={card.description} onChange={(v) => { const next = [...block.cards]; next[i] = { ...next[i], description: v }; update({ ...block, cards: next }); }} multiline className="text-text-gray text-sm leading-relaxed block" />
           </div>
         ))}
@@ -160,7 +147,7 @@ function EditPageHeading({ block, update }: { block: PageHeadingBlock; update: (
   return (
     <div>
       <EditableText tag="p" value={block.eyebrow} onChange={(v) => update({ ...block, eyebrow: v })} className="text-xs uppercase tracking-widest2 text-text-gray mb-1 block" />
-      <EditableText tag="h1" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-serif text-4xl md:text-5xl text-ink mb-4 block" />
+      <EditableText tag="h1" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-display text-4xl md:text-5xl text-ink mb-4 block" />
       <EditableText tag="p" value={block.description} onChange={(v) => update({ ...block, description: v })} multiline className="text-text-gray leading-relaxed block" />
     </div>
   );
@@ -170,10 +157,10 @@ function EditMethodSection({ block, update }: { block: MethodSectionBlock; updat
   return (
     <section className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12">
       <div>
-        <EditableText tag="span" value={block.number} onChange={(v) => update({ ...block, number: v })} className="font-serif text-4xl text-text-gray" />
+        <EditableText tag="span" value={block.number} onChange={(v) => update({ ...block, number: v })} className="font-display text-4xl text-text-gray" />
       </div>
       <div>
-        <EditableText tag="h2" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-serif text-2xl md:text-3xl mb-4 block" />
+        <EditableText tag="h2" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-display text-2xl md:text-3xl mb-4 block" />
         <div className="section-rule mb-5" />
         <div className="space-y-4 text-text-gray leading-relaxed max-w-2xl">
           {block.paragraphs.map((p, i) => (
@@ -194,7 +181,7 @@ function EditMethodSection({ block, update }: { block: MethodSectionBlock; updat
 
 function EditHeading({ block, update }: { block: HeadingBlock; update: (b: HeadingBlock) => void }) {
   const Tag = block.level;
-  const sizeClass = block.level === "h2" ? "font-serif text-2xl md:text-3xl" : "font-serif text-xl md:text-2xl";
+  const sizeClass = block.level === "h2" ? "font-display text-2xl md:text-3xl" : "font-display text-xl md:text-2xl";
   return (
     <div className="mx-auto max-w-content px-6 md:px-10 py-4">
       <div className="flex gap-2 mb-2 text-xs">
@@ -277,7 +264,7 @@ function EditCard({ block, update }: { block: CardBlock; update: (b: CardBlock) 
   return (
     <div className="mx-auto max-w-content px-6 md:px-10 py-4">
       <div className="border border-light-gray bg-white p-6">
-        <EditableText tag="h3" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-serif text-xl text-ink mb-2 block" />
+        <EditableText tag="h3" value={block.title} onChange={(v) => update({ ...block, title: v })} className="font-display text-xl text-ink mb-2 block" />
         <EditableText tag="p" value={block.body} onChange={(v) => update({ ...block, body: v })} multiline className="text-text-gray leading-relaxed block" />
         <input value={block.href ?? ""} onChange={(e) => update({ ...block, href: e.target.value })} placeholder="링크 URL (선택)" className="mt-3 w-full border border-light-gray px-2 py-1 text-xs text-text-gray focus:outline-none focus:border-ink" />
       </div>
@@ -318,19 +305,7 @@ function EditSpacer({ block, update }: { block: SpacerBlock; update: (b: SpacerB
 // ─── Read-only block renders (identical to original pages) ─────────────────
 
 function ReadHero({ block }: { block: HeroBlock }) {
-  return (
-    <section className="relative w-full h-[100vh] -mt-20 flex items-center justify-center overflow-hidden">
-      <Image src={block.image} alt={block.imageAlt} fill priority className="object-cover" />
-      <div className="absolute inset-0 bg-background/40" />
-      <div className="relative z-10 text-center px-6 animate-fadeInSlow">
-        <p className="text-xs md:text-sm uppercase tracking-widest2 text-text-gray mb-6">{block.eyebrow}</p>
-        <h1 className="font-serif text-5xl md:text-7xl tracking-wide text-ink">{block.title}</h1>
-        <p className="mt-4 text-base md:text-lg uppercase tracking-widest2 text-text-gray">{block.subtitle}</p>
-        <p className="mt-8 font-serif italic text-xl md:text-2xl text-ink">{block.tagline}</p>
-      </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-text-gray text-xs uppercase tracking-widest2 animate-fadeIn">{block.scrollLabel}</div>
-    </section>
-  );
+  return <HeroSection />;
 }
 
 function ReadIntro({ block }: { block: IntroBlock }) {
@@ -338,7 +313,7 @@ function ReadIntro({ block }: { block: IntroBlock }) {
     <section className="mx-auto max-w-content px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-3xl">
         <p className="text-xs uppercase tracking-widest2 text-text-gray mb-4">{block.label}</p>
-        <p className="font-serif text-2xl md:text-3xl leading-relaxed text-ink">{block.leadParagraph}</p>
+        <p className="font-sans text-2xl md:text-3xl leading-relaxed text-ink">{block.leadParagraph}</p>
         {block.bodyParagraphs.map((p, i) => (
           <p key={i} className="mt-6 text-text-gray leading-relaxed">{p}</p>
         ))}
@@ -352,7 +327,7 @@ function ReadResearchQuestion({ block }: { block: ResearchQuestionBlock }) {
     <section className="bg-background-soft">
       <div className="mx-auto max-w-content px-6 md:px-10 py-20 md:py-28">
         <SectionHeading eyebrow={block.eyebrow} title={block.title} />
-        <p className="mt-8 max-w-3xl font-serif text-xl md:text-2xl leading-relaxed text-ink">{block.body}</p>
+        <p className="mt-8 max-w-3xl font-sans text-xl md:text-2xl leading-relaxed text-ink">{block.body}</p>
       </div>
     </section>
   );
@@ -378,9 +353,9 @@ function ReadPageHeading({ block }: { block: PageHeadingBlock }) {
 function ReadMethodSection({ block }: { block: MethodSectionBlock }) {
   return (
     <section className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-6 md:gap-12">
-      <div><span className="font-serif text-4xl text-text-gray">{block.number}</span></div>
+      <div><span className="font-display text-4xl text-text-gray">{block.number}</span></div>
       <div>
-        <h2 className="font-serif text-2xl md:text-3xl mb-4">{block.title}</h2>
+        <h2 className="font-display text-2xl md:text-3xl mb-4">{block.title}</h2>
         <div className="section-rule mb-5" />
         <div className="space-y-4 text-text-gray leading-relaxed max-w-2xl">
           {block.paragraphs.map((p, i) => (
@@ -394,7 +369,7 @@ function ReadMethodSection({ block }: { block: MethodSectionBlock }) {
 
 function ReadHeading({ block }: { block: HeadingBlock }) {
   const Tag = block.level;
-  const sizeClass = block.level === "h2" ? "font-serif text-2xl md:text-3xl" : "font-serif text-xl md:text-2xl";
+  const sizeClass = block.level === "h2" ? "font-display text-2xl md:text-3xl" : "font-display text-xl md:text-2xl";
   return (
     <div className="mx-auto max-w-content px-6 md:px-10 py-4">
       <Tag className={`${sizeClass} text-${block.align} text-ink`}>{block.text}</Tag>
@@ -436,7 +411,7 @@ function ReadImageGrid({ block }: { block: ImageGridBlock }) {
 function ReadCard({ block }: { block: CardBlock }) {
   const inner = (
     <div className="border border-light-gray bg-white p-6 hover:bg-background-soft transition-museum">
-      <h3 className="font-serif text-xl text-ink mb-2">{block.title}</h3>
+      <h3 className="font-display text-xl text-ink mb-2">{block.title}</h3>
       <p className="text-text-gray leading-relaxed">{block.body}</p>
     </div>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import clsx from "clsx";
@@ -18,25 +19,18 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-light-gray">
-      <div className="mx-auto max-w-content px-6 md:px-10 h-20 flex items-center justify-between">
-        <Link href="/" className="flex flex-col leading-tight group">
-          <span className="font-serif text-lg md:text-xl tracking-widest2 uppercase text-ink group-hover:opacity-70 transition-museum">
-            Art of Korea
-          </span>
-          <span className="text-[10px] md:text-xs text-text-gray tracking-widest2 uppercase">
-            The Metropolitan Museum of Art
-          </span>
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-[100] px-4 md:px-8 pt-4">
+      <div className="mx-auto max-w-content px-6 md:px-10 h-12 flex items-center justify-between bg-background/80 backdrop-blur-md border border-light-gray rounded-full shadow-sm">
+        <Link href="/" className="group hover:opacity-75 transition-museum" />
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={clsx(
-                "text-sm uppercase tracking-widest2 transition-museum hover:text-ink",
+                "text-xs uppercase tracking-wider transition-museum hover:text-ink [font-family:var(--font-display)]",
                 pathname === link.href ? "text-ink border-b border-ink pb-1" : "text-text-gray"
               )}
             >

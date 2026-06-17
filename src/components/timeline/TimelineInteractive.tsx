@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import TimelineDisplay from "./TimelineDisplay";
 import TimelineEntryModal from "./TimelineEntryModal";
+import ScrollFrame from "./ScrollFrame";
 import { TimelineEntry } from "@/lib/types";
 import { loadDefaultTimeline } from "@/lib/timelineData";
 
@@ -29,13 +30,15 @@ export default function TimelineInteractive() {
 
   return (
     <>
-      <div className="bg-white border border-light-gray px-2 md:px-6 py-10">
-        {loading ? (
-          <p className="text-center text-text-gray py-20">Loading timeline…</p>
-        ) : (
-          <TimelineDisplay entries={sortedEntries} onSelectEntry={setSelectedEntry} />
-        )}
-      </div>
+      <ScrollFrame>
+        <div className="px-4 md:px-8 pt-40 pb-24">
+          {loading ? (
+            <p className="text-center text-text-gray py-20">Loading timeline…</p>
+          ) : (
+            <TimelineDisplay entries={sortedEntries} onSelectEntry={setSelectedEntry} />
+          )}
+        </div>
+      </ScrollFrame>
       <TimelineEntryModal entry={selectedEntry} onClose={() => setSelectedEntry(null)} />
     </>
   );

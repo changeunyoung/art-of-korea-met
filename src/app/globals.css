@@ -3,45 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", Helvetica, Arial, sans-serif;
+  --font-serif: "Inter", Georgia, serif;
+  --font-sans: "Source Code Pro", monospace;
+  --font-display: "Bebas Neue", Impact, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: #f8f8f8;
-  color: #2b2b2b;
+.timeline-scroll-hide::-webkit-scrollbar {
+  display: none;
 }
 
-/* Shared museum-style section heading underline */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+body {
+  background-color: #F4F7FA;
+  color: #1E2D3D;
+}
+
+/* Section heading rule */
 .section-rule {
   width: 48px;
   height: 1px;
-  background-color: #6b7280;
+  background-color: #6A90AA;
   opacity: 0.4;
 }
 
-/* Subtle, slow transitions only — per design direction */
+/* Subtle, slow transitions */
 .transition-museum {
   transition-property: all;
   transition-duration: 700ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom scrollbar for the catalogue feel */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8f8f8;
+  background: #E4EEF5;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e7e7e7;
+  background: #A8C9DF;
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d6e3f7;
+  background: #6A90AA;
 }

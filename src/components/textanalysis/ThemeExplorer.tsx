@@ -103,7 +103,7 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
             )}
           >
             <div className="text-ink">{ICONS[theme.name]}</div>
-            <h3 className="mt-4 font-serif text-lg text-ink">{theme.name}</h3>
+            <h3 className="mt-4 font-display text-lg text-ink">{theme.name}</h3>
             <p className="mt-2 text-sm text-text-gray leading-relaxed">{theme.description}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {theme.keywords.map((kw) => (

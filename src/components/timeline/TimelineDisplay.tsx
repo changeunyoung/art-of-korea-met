@@ -11,7 +11,7 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
   if (entries.length === 0) {
     return (
       <div className="py-20 text-center text-text-gray">
-        <p className="font-serif text-xl">No timeline entries match this filter.</p>
+        <p className="font-display text-xl">No timeline entries match this filter.</p>
       </div>
     );
   }
@@ -19,9 +19,9 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
   return (
     <>
       {/* Desktop: horizontal scrollable timeline */}
-      <div className="hidden md:block relative overflow-x-auto pb-6">
-        <div className="relative min-w-max flex items-start gap-0 pt-10 px-4">
-          <div className="absolute top-[52px] left-0 right-0 h-px bg-light-gray" />
+      <div className="hidden md:block relative overflow-x-auto pb-16">
+        <div className="relative min-w-max flex items-start gap-0 pt-10 px-8">
+          <div className="absolute top-[45px] left-0 right-0 h-px bg-light-gray" />
           {entries.map((entry, i) => (
             <button
               key={`${entry.year}-${i}`}
@@ -33,11 +33,11 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
                 <span className="w-2.5 h-2.5 rounded-full bg-ink z-10 transition-museum group-hover:scale-150 group-hover:bg-accent group-hover:ring-4 group-hover:ring-accent/40" />
               </div>
               <div className="mt-6 text-center transition-museum group-hover:-translate-y-1">
-                <p className="font-serif text-2xl">{entry.year}</p>
-                <p className="mt-2 font-serif text-lg leading-snug group-hover:underline">
+                <p className="font-display text-4xl tracking-widest">{entry.year}</p>
+                <p className="mt-1 font-display text-xl tracking-wide leading-tight group-hover:underline">
                   {entry.title}
                 </p>
-                <p className="mt-2 text-sm text-text-gray leading-relaxed line-clamp-3">
+                <p className="mt-2 font-sans text-xs text-text-gray leading-relaxed line-clamp-3">
                   {entry.description}
                 </p>
                 <span className="mt-3 inline-block text-[10px] uppercase tracking-widest2 text-text-gray opacity-0 group-hover:opacity-100 transition-museum">
@@ -46,6 +46,7 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
               </div>
             </button>
           ))}
+          <div className="shrink-0 w-8" />
         </div>
       </div>
 
@@ -61,11 +62,11 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
               className="group relative pl-8 text-left w-full cursor-pointer"
             >
               <span className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-ink transition-museum group-active:scale-125" />
-              <p className="font-serif text-2xl">{entry.year}</p>
-              <p className="mt-1 font-serif text-lg leading-snug group-hover:underline">
+              <p className="font-display text-4xl tracking-widest">{entry.year}</p>
+              <p className="mt-1 font-display text-xl tracking-wide leading-tight group-hover:underline">
                 {entry.title}
               </p>
-              <p className="mt-2 text-sm text-text-gray leading-relaxed line-clamp-3">
+              <p className="mt-2 font-sans text-xs text-text-gray leading-relaxed line-clamp-3">
                 {entry.description}
               </p>
               <span className="mt-2 inline-block text-[10px] uppercase tracking-widest2 text-text-gray">

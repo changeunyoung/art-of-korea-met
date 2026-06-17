@@ -43,9 +43,12 @@ export default function TimelineEntryModal({ entry, onClose }: TimelineEntryModa
         {isExhibition && (
           <p className="text-xs uppercase tracking-widest2 text-accent mb-3">Exhibition</p>
         )}
-        <p className="font-serif text-4xl md:text-5xl">{entry.year}</p>
+        <p className="font-display text-4xl md:text-5xl">{entry.year}</p>
+        {entry.displayDate && entry.displayDate !== entry.year && (
+          <p className="mt-1 text-sm text-text-gray tracking-wide">{entry.displayDate}</p>
+        )}
         <div className="section-rule my-5" />
-        <h3 className="font-serif text-2xl md:text-3xl leading-snug mb-4">{entry.title}</h3>
+        <h3 className="font-display text-2xl md:text-3xl leading-snug mb-4">{entry.title}</h3>
         <p className="text-text-gray leading-relaxed">{entry.description}</p>
 
         {entry.media && (

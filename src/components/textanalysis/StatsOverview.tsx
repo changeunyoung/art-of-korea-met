@@ -53,7 +53,7 @@ export default function StatsOverview({ totalLabels, totalWords, uniqueWords }: 
           key={stat.label}
           className="group relative bg-white px-6 py-10 text-center transition-museum hover:bg-background-soft"
         >
-          <p className="font-serif text-4xl md:text-5xl text-ink">
+          <p className="font-display text-4xl md:text-5xl text-ink">
             <CountUpValue value={stat.value} />
           </p>
           <p className="relative mt-3 text-xs uppercase tracking-widest2 text-text-gray">

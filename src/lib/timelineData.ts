@@ -12,6 +12,7 @@ function rowsToEntries(rows: Record<string, unknown>[]): TimelineEntry[] {
       title: String(row["Title"] ?? "").trim(),
       description: String(row["Description"] ?? "").trim(),
       category: String(row["Category"] ?? "").trim(),
+      displayDate: String(row["Display Date"] ?? "").trim() || undefined,
       media: String(row["Media"] ?? "").trim(),
       mediaCredit: String(row["Media Credit"] ?? "").trim(),
       mediaCaption: String(row["Media Caption"] ?? "").trim(),

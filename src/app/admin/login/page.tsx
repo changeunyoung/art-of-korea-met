@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
         <p className="text-xs uppercase tracking-widest2 text-text-gray mb-2 text-center">
           Art of Korea at the Met
         </p>
-        <h1 className="font-serif text-3xl text-ink text-center mb-10">Admin</h1>
+        <h1 className="font-display text-3xl text-ink text-center mb-10">Admin</h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

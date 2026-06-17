@@ -16,6 +16,10 @@ export interface Hotspot {
   description: string;
   curatorialInterpretation: string;
   keywords: string[];
+  /** Korean title (Hangul + Hanja) */
+  koreanName?: string;
+  /** URL to the Met Museum collection page (or YouTube for video objects) */
+  metUrl?: string;
 }
 
 export interface TimelineEntry {
@@ -24,6 +28,8 @@ export interface TimelineEntry {
   description: string;
   /** "Exhibition" for special exhibitions, or "" for other historical events */
   category: string;
+  /** Pre-formatted date range, e.g. "Mar. 17, 2009 – Jun. 21, 2009" */
+  displayDate?: string;
   /** URL to an associated image or video for this entry (optional) */
   media: string;
   /** Credit line for the media (optional) */

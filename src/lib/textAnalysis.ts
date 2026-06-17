@@ -103,26 +103,39 @@ export function getThemeForWord(word: string): string | null {
 
 // Splits the full label text into sentences and returns up to `maxResults`
 // sentences that contain the given word (case-insensitive, whole-word match).
-export function findExcerpts(fullText: string, word: string, maxResults = 8): string[] {
-  const sentences = fullText
-    .replace(/\s+/g, " ")
-    .split(/(?<=[.!?])\s+/)
-    .map((s) => s.trim())
-    .filter(Boolean);
+export function findExcerpts(fullText: string, word: string, maxResults?: number): string[] {
+  // Split on newlines first to preserve credit lines, then split each chunk by sentence boundaries
+  const lines = fullText.split(/\n/);
+  const segments: string[] = [];
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    // Further split long lines into sentences
+    const sentences = trimmed.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean);
+    segments.push(...sentences);
+  }
 
   const pattern = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
 
-  return sentences.filter((sentence) => pattern.test(sentence)).slice(0, maxResults);
+  const matched = segments.filter((s) => pattern.test(s));
+  return maxResults !== undefined ? matched.slice(0, maxResults) : matched;
 }
 
 // Finds objects whose name or description contains the given word
 // (case-insensitive, whole-word match).
-export function findRelatedObjects<T extends { name: string; description: string }>(
+export function findRelatedObjects<T extends { name: string; description: string; period?: string; material?: string; credit?: string }>(
   objects: T[],
   word: string
 ): T[] {
   const pattern = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
-  return objects.filter((obj) => pattern.test(obj.name) || pattern.test(obj.description));
+  return objects.filter(
+    (obj) =>
+      pattern.test(obj.name) ||
+      pattern.test(obj.description) ||
+      pattern.test(obj.period ?? "") ||
+      pattern.test(obj.material ?? "") ||
+      pattern.test(obj.credit ?? "")
+  );
 }
 
 // Loads the full curatorial label text used for the Context Viewer.
@@ -135,6 +148,19 @@ export async function loadLabelFullText(): Promise<string> {
 export async function loadLabelObjects<T = unknown>(): Promise<T[]> {
   const res = await fetch("/data/label-objects.json");
   return res.json();
+}
+
+export async function loadWallTexts<T = unknown>(): Promise<T[]> {
+  const res = await fetch("/data/wall-texts.json");
+  return res.json();
+}
+
+export function findRelatedWallTexts<T extends { title: string; text: string }>(
+  wallTexts: T[],
+  word: string
+): T[] {
+  const pattern = new RegExp(`\\b${word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+  return wallTexts.filter((wt) => pattern.test(wt.title) || pattern.test(wt.text));
 }
 
 export async function loadDefaultFrequencies(): Promise<WordFrequency[]> {

@@ -1,14 +1,17 @@
 "use client";
 
-import { useMemo } from "react";
-import { WordFrequency, LabelObject } from "@/lib/types";
-import { getThemeForWord, findExcerpts, findRelatedObjects, tokenize, STOPWORDS } from "@/lib/textAnalysis";
+import { useMemo, useState } from "react";
+import { WordFrequency, LabelObject, WallText, Hotspot } from "@/lib/types";
+import { getThemeForWord, findExcerpts, findRelatedObjects, findRelatedWallTexts, tokenize, STOPWORDS } from "@/lib/textAnalysis";
+import WordDefinition from "./WordDefinition";
+import HotspotInfoPanel from "@/components/map/HotspotInfoPanel";
 
 interface ContextPanelProps {
   selectedWord: string | null;
   frequencies: WordFrequency[];
   fullText: string;
   objects: LabelObject[];
+  wallTexts: WallText[];
   onSelectWord: (word: string) => void;
 }
 
@@ -41,7 +44,78 @@ function highlightWord(text: string, word: string) {
   );
 }
 
-export default function ContextPanel({ selectedWord, frequencies, fullText, objects, onSelectWord }: ContextPanelProps) {
+function ClickableExcerpt({ text, selectedWord, onSelectWord }: { text: string; selectedWord: string; onSelectWord: (w: string) => void }) {
+  // Split into alternating word / non-word segments
+  const parts = text.split(/(\b[a-zA-Z'-]+\b)/g);
+  return (
+    <>
+      {parts.map((part, i) => {
+        const isWord = /^[a-zA-Z'-]+$/.test(part);
+        if (!isWord) return <span key={i}>{part}</span>;
+        const isSelected = part.toLowerCase() === selectedWord.toLowerCase();
+        if (isSelected) {
+          return (
+            <mark key={i} className="bg-accent text-ink px-0.5 cursor-pointer" onClick={() => onSelectWord(part.toLowerCase())}>
+              {part}
+            </mark>
+          );
+        }
+        return (
+          <span
+            key={i}
+            onClick={() => onSelectWord(part.toLowerCase())}
+            className="cursor-pointer hover:underline hover:text-ink transition-museum"
+          >
+            {part}
+          </span>
+        );
+      })}
+    </>
+  );
+}
+
+const EXCERPTS_PER_PAGE = 5;
+const OBJECTS_PER_PAGE = 3;
+const WALL_TEXTS_PER_PAGE = 3;
+
+function labelObjectToHotspot(obj: LabelObject): Hotspot {
+  return {
+    id: obj.id,
+    x: 0, y: 0,
+    type: "object",
+    label: String(obj.number ?? ""),
+    objectName: obj.name,
+    objectNumber: String(obj.number ?? ""),
+    period: obj.period,
+    description: obj.description,
+    curatorialInterpretation: "",
+    keywords: [],
+    koreanName: obj.koreanName,
+    metUrl: obj.url,
+  };
+}
+
+function wallTextToHotspot(wt: WallText): Hotspot {
+  return {
+    id: wt.id,
+    x: 0, y: 0,
+    type: "wallText",
+    label: wt.label,
+    objectName: wt.title,
+    objectNumber: "",
+    period: "",
+    description: wt.text,
+    curatorialInterpretation: "",
+    keywords: [],
+  };
+}
+
+export default function ContextPanel({ selectedWord, frequencies, fullText, objects, wallTexts, onSelectWord }: ContextPanelProps) {
+  const [excerptPage, setExcerptPage] = useState(0);
+  const [objectPage, setObjectPage] = useState(0);
+  const [wallTextPage, setWallTextPage] = useState(0);
+  const [modalHotspot, setModalHotspot] = useState<Hotspot | null>(null);
+
   const frequency = useMemo(
     () => frequencies.find((f) => f.text === selectedWord?.toLowerCase())?.value ?? 0,
     [frequencies, selectedWord]
@@ -49,14 +123,21 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
 
   const theme = useMemo(() => (selectedWord ? getThemeForWord(selectedWord) : null), [selectedWord]);
 
-  const excerpts = useMemo(
-    () => (selectedWord ? findExcerpts(fullText, selectedWord, 8) : []),
-    [fullText, selectedWord]
-  );
+  const excerpts = useMemo(() => {
+    setExcerptPage(0);
+    setObjectPage(0);
+    setWallTextPage(0);
+    return selectedWord ? findExcerpts(fullText, selectedWord) : [];
+  }, [fullText, selectedWord]);
 
   const relatedObjects = useMemo(
     () => (selectedWord ? findRelatedObjects(objects, selectedWord) : []),
     [objects, selectedWord]
+  );
+
+  const relatedWallTexts = useMemo(
+    () => (selectedWord ? findRelatedWallTexts(wallTexts, selectedWord) : []),
+    [wallTexts, selectedWord]
   );
 
   const relatedKeywords = useMemo(() => {
@@ -82,7 +163,7 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
     return (
       <div className="mt-6 bg-background-soft border border-light-gray px-8 py-12 text-center animate-fadeInSlow">
         <p className="text-text-gray">
-          Select a word from the Word Cloud to explore its meaning, context, and related objects.
+          Click a word to explore its context.
         </p>
       </div>
     );
@@ -107,66 +188,205 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
         </div>
       </div>
 
+      {/* Row 1: Label Contexts (left) + Related Objects & Wall Texts (right) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Left: Label Contexts */}
         <div>
-          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Label Contexts</p>
+          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
+            Label Contexts
+            {excerpts.length > 0 && (
+              <span className="ml-2 normal-case tracking-normal text-text-gray">({excerpts.length})</span>
+            )}
+          </p>
           {excerpts.length > 0 ? (
-            <ul className="space-y-3">
-              {excerpts.map((excerpt, i) => (
-                <li key={i} className="text-sm text-ink leading-relaxed border-l-2 border-accent pl-3">
-                  &ldquo;...{highlightWord(excerpt, selectedWord)}...&rdquo;
-                </li>
-              ))}
-            </ul>
+            <>
+              <ul className="space-y-3">
+                {excerpts.slice(excerptPage * EXCERPTS_PER_PAGE, (excerptPage + 1) * EXCERPTS_PER_PAGE).map((excerpt, i) => (
+                  <li key={excerptPage * EXCERPTS_PER_PAGE + i} className="text-sm text-ink leading-relaxed border-l-2 border-accent pl-3">
+                    &ldquo;...<ClickableExcerpt text={excerpt} selectedWord={selectedWord} onSelectWord={onSelectWord} />...&rdquo;
+                  </li>
+                ))}
+              </ul>
+              {excerpts.length > EXCERPTS_PER_PAGE && (
+                <div className="flex items-center justify-between mt-4 pt-3 border-t border-light-gray">
+                  <button
+                    onClick={() => setExcerptPage((p) => Math.max(0, p - 1))}
+                    disabled={excerptPage === 0}
+                    className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    ← Prev
+                  </button>
+                  <span className="text-xs text-text-gray">
+                    {excerptPage + 1} / {Math.ceil(excerpts.length / EXCERPTS_PER_PAGE)}
+                  </span>
+                  <button
+                    onClick={() => setExcerptPage((p) => Math.min(Math.ceil(excerpts.length / EXCERPTS_PER_PAGE) - 1, p + 1))}
+                    disabled={excerptPage >= Math.ceil(excerpts.length / EXCERPTS_PER_PAGE) - 1}
+                    className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                  >
+                    Next →
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
             <p className="text-sm text-text-gray">No label excerpts found for this word.</p>
           )}
-
-          {relatedKeywords.length > 0 && (
-            <div className="mt-6">
-              <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Related Keywords</p>
-              <div className="flex flex-wrap gap-2">
-                {relatedKeywords.map((kw) => (
-                  <button
-                    key={kw}
-                    onClick={() => onSelectWord(kw)}
-                    className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum"
-                  >
-                    {kw}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
-        <div>
-          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Related Objects</p>
-          {relatedObjects.length > 0 ? (
-            <ul className="space-y-3">
-              {relatedObjects.slice(0, 6).map((obj) => (
-                <li key={obj.id} className="border border-light-gray p-3 transition-museum hover:border-ink">
-                  <p className="text-sm text-ink">{obj.name}</p>
-                  <p className="text-xs text-text-gray mt-1">
-                    {obj.period}{obj.material ? ` · ${obj.material}` : ""}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-text-gray">No related objects found for this word.</p>
-          )}
-
-          <div className="mt-6">
-            <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Interpretation</p>
-            <p className="text-sm text-ink leading-relaxed bg-background-soft p-4 border border-light-gray">
-              {theme
-                ? INTERPRETATION_TEMPLATES[theme](selectedWord)
-                : `The word "${selectedWord}" appears ${frequency} times across the Korean Gallery's object labels.`}
+        {/* Right: Related Objects + Related Wall Texts */}
+        <div className="space-y-6">
+          <div>
+            <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
+              Related Objects
+              {relatedObjects.length > 0 && (
+                <span className="ml-2 normal-case tracking-normal text-text-gray">({relatedObjects.length})</span>
+              )}
             </p>
+            {relatedObjects.length > 0 ? (
+              <>
+                <ul className="space-y-2">
+                  {relatedObjects.slice(objectPage * OBJECTS_PER_PAGE, (objectPage + 1) * OBJECTS_PER_PAGE).map((obj) => (
+                    <li key={obj.id} className="border border-light-gray p-3 transition-museum hover:border-ink cursor-pointer" onClick={() => setModalHotspot(labelObjectToHotspot(obj))}>
+                      <div className="flex items-start gap-2">
+                        {obj.number != null && (
+                          <span className="shrink-0 text-[10px] uppercase tracking-widest2 border border-light-gray px-1.5 py-0.5 text-text-gray mt-0.5">{obj.number}</span>
+                        )}
+                        <div>
+                          <p className="text-sm text-ink leading-snug">{obj.name}</p>
+                          <p className="text-xs text-text-gray mt-0.5">
+                            {obj.period}{obj.material ? ` · ${obj.material}` : ""}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                {relatedObjects.length > OBJECTS_PER_PAGE && (
+                  <div className="flex items-center justify-between mt-4 pt-3 border-t border-light-gray">
+                    <button
+                      onClick={() => setObjectPage((p) => Math.max(0, p - 1))}
+                      disabled={objectPage === 0}
+                      className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      ← Prev
+                    </button>
+                    <span className="text-xs text-text-gray">
+                      {objectPage + 1} / {Math.ceil(relatedObjects.length / OBJECTS_PER_PAGE)}
+                    </span>
+                    <button
+                      onClick={() => setObjectPage((p) => Math.min(Math.ceil(relatedObjects.length / OBJECTS_PER_PAGE) - 1, p + 1))}
+                      disabled={objectPage >= Math.ceil(relatedObjects.length / OBJECTS_PER_PAGE) - 1}
+                      className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <p className="text-sm text-text-gray">No object labels contain this word.</p>
+            )}
+          </div>
+
+          <div>
+            <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
+              Related Wall Texts
+              {relatedWallTexts.length > 0 && (
+                <span className="ml-2 normal-case tracking-normal text-text-gray">({relatedWallTexts.length})</span>
+              )}
+            </p>
+            {relatedWallTexts.length > 0 ? (
+              <>
+                <ul className="space-y-3">
+                  {relatedWallTexts.slice(wallTextPage * WALL_TEXTS_PER_PAGE, (wallTextPage + 1) * WALL_TEXTS_PER_PAGE).map((wt) => (
+                    <li key={wt.id} className="border border-light-gray p-3 transition-museum hover:border-ink cursor-pointer" onClick={() => setModalHotspot(wallTextToHotspot(wt))}>
+                      <div className="flex items-start gap-2">
+                        <span className="shrink-0 text-[10px] uppercase tracking-widest2 border border-light-gray px-1.5 py-0.5 text-text-gray mt-0.5">{wt.label}</span>
+                        <div>
+                          <p className="text-sm text-ink leading-snug">{wt.title}</p>
+                          <p className="text-xs text-text-gray mt-1 leading-relaxed line-clamp-3">
+                            {highlightWord(wt.text.slice(0, 200) + (wt.text.length > 200 ? "…" : ""), selectedWord)}
+                          </p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                {relatedWallTexts.length > WALL_TEXTS_PER_PAGE && (
+                  <div className="flex items-center justify-between mt-4 pt-3 border-t border-light-gray">
+                    <button
+                      onClick={() => setWallTextPage((p) => Math.max(0, p - 1))}
+                      disabled={wallTextPage === 0}
+                      className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      ← Prev
+                    </button>
+                    <span className="text-xs text-text-gray">
+                      {wallTextPage + 1} / {Math.ceil(relatedWallTexts.length / WALL_TEXTS_PER_PAGE)}
+                    </span>
+                    <button
+                      onClick={() => setWallTextPage((p) => Math.min(Math.ceil(relatedWallTexts.length / WALL_TEXTS_PER_PAGE) - 1, p + 1))}
+                      disabled={wallTextPage >= Math.ceil(relatedWallTexts.length / WALL_TEXTS_PER_PAGE) - 1}
+                      className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum disabled:opacity-30 disabled:cursor-not-allowed"
+                    >
+                      Next →
+                    </button>
+                  </div>
+                )}
+              </>
+            ) : (
+              <p className="text-sm text-text-gray">No wall texts contain this word.</p>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Row 2: Definition (full width) */}
+      <WordDefinition word={selectedWord} />
+
+      {/* Row 3: Interpretation (full width) */}
+      <div className="mt-8 pt-8 border-t border-light-gray">
+        <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Interpretation</p>
+        <p className="text-sm text-ink leading-relaxed bg-background-soft p-4 border border-light-gray">
+          {theme
+            ? INTERPRETATION_TEMPLATES[theme](selectedWord)
+            : `The word "${selectedWord}" appears ${frequency} times across the Korean Gallery's object labels.`}
+        </p>
+      </div>
+
+      {/* Row 4: Related Keywords (full width) */}
+      {relatedKeywords.length > 0 && (
+        <div className="mt-6">
+          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Related Keywords</p>
+          <div className="flex flex-wrap gap-2">
+            {relatedKeywords.map((kw) => (
+              <button
+                key={kw}
+                onClick={() => onSelectWord(kw)}
+                className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum"
+              >
+                {kw}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Hotspot detail modal */}
+      {modalHotspot && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 backdrop-blur-sm"
+          onClick={() => setModalHotspot(null)}
+        >
+          <div
+            className="relative bg-white w-full max-w-md max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <HotspotInfoPanel hotspot={modalHotspot} onClose={() => setModalHotspot(null)} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,15 +13,17 @@ import {
   loadDefaultFrequencies,
   loadLabelFullText,
   loadLabelObjects,
+  loadWallTexts,
   getThemeForWord,
   tokenize,
 } from "@/lib/textAnalysis";
-import { WordFrequency, LabelObject } from "@/lib/types";
+import { WordFrequency, LabelObject, WallText } from "@/lib/types";
 
 export default function TextAnalysisInteractive() {
   const [frequencies, setFrequencies] = useState<WordFrequency[]>([]);
   const [fullText, setFullText] = useState("");
   const [objects, setObjects] = useState<LabelObject[]>([]);
+  const [wallTexts, setWallTexts] = useState<WallText[]>([]);
   const [displayedTerms, setDisplayedTerms] = useState(50);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
@@ -31,6 +33,7 @@ export default function TextAnalysisInteractive() {
     loadDefaultFrequencies().then(setFrequencies).catch(() => {});
     loadLabelFullText().then(setFullText).catch(() => {});
     loadLabelObjects<LabelObject>().then(setObjects).catch(() => {});
+    loadWallTexts<WallText>().then(setWallTexts).catch(() => {});
   }, []);
 
   const handleSelectWord = (word: string) => setSelectedWord(word.toLowerCase());
@@ -72,7 +75,7 @@ export default function TextAnalysisInteractive() {
               onSelectWord={handleSelectWord}
               selectedTheme={selectedTheme}
             />
-            <ContextPanel selectedWord={selectedWord} frequencies={frequencies} fullText={fullText} objects={objects} onSelectWord={handleSelectWord} />
+            <ContextPanel selectedWord={selectedWord} frequencies={frequencies} fullText={fullText} objects={objects} wallTexts={wallTexts} onSelectWord={handleSelectWord} />
           </div>
         </section>
 

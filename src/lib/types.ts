@@ -45,9 +45,19 @@ export interface WordFrequency {
 
 export interface LabelObject {
   id: string;
+  number?: number;
   name: string;
   period: string;
   material: string;
   credit: string;
   description: string;
+  koreanName?: string;
+  url?: string;
+}
+
+export interface WallText {
+  id: string;
+  label: string;
+  title: string;
+  text: string;
 }

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "arts-of-korea-intro",
+    "label": "A / B",
+    "title": "Arts of Korea",
+    "text": "This space reflects Korea as a crossroads where adaptability and resilience have shaped political and cultural formation. Through displays of art dating from prehistory to the present, this gallery demonstrates the innovation within the peninsula as well as relationships and influences beyond it. Emerging as a unified nation in the seventh century, Korea sits on a peninsula that occupies a strategic location in northeast Asia. This geography has played a critical role in its cultural development and art history. Positioned at the eastern end of the ancient trade route known as the Silk Road, the people of Korea have received, transformed, and passed on artistic styles as well as philosophies and religions. Buddhism, Daoism, and Confucianism have all been sources of inspiration, demonstrating Korea's openness to different traditions and ideas. The moon jar, a humble yet elegant vessel formed from two hemispheres, has become a national symbol. Its form embodies the quest for a harmonious balance between two opposed yet connected halves. The iconic shape is also a potent metaphor for Korea's modern history as the site of global geopolitical struggles that have resulted in occupation, war, and its division into two linked but separate nations."
+  },
+  {
+    "id": "flip-sides",
+    "label": "C",
+    "title": "Flip Sides: Seeing Korean Art Anew",
+    "text": "Objects have multiple characteristics and aspects—they have many sides. Yet museums and galleries often present a single, carefully chosen view that emphasizes what is considered a work's best angle. By displaying only one perspective, complex design choices, construction techniques, and utility can go unnoticed. Flip Sides challenges that convention by highlighting the multiple sides of each artwork, inviting viewers to look closely and discover features that are otherwise hidden or difficult to see. Bringing together approximately fifty objects from The Met collection, more than half of which are on view for the first time, Flip Sides provides special insight into the forms, materials, and styles of Korean art. Using X-ray scans, magnified details, photographs, and atypical display methods, the exhibition exposes interior structures, surface treatments, repairs, and traces of use. These various angles and interpretive tools reveal artistic innovation and technical mastery, encouraging inquisitive viewers to engage more deeply and see Korean art anew. This exhibition is made possible by The Kun-Hee Lee Fund for Korean Art."
+  },
+  {
+    "id": "donor-acknowledgment",
+    "label": "D",
+    "title": "Donor Acknowledgment",
+    "text": "The establishment of and program for this gallery have been made possible by The Korea Foundation and The Kun-Hee Lee Fund for Korean Art. The refurbishment of this gallery was made possible by the Ministry of Culture, Sports and Tourism of the Republic of Korea."
+  }
+]

@@ -316,7 +316,14 @@ export default function InteractiveWordCloud({
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => onSearchQueryChange(e.target.value)}
+            onChange={(e) => {
+              const val = e.target.value;
+              onSearchQueryChange(val);
+              const trimmed = val.trim().toLowerCase();
+              if (trimmed && source.some((f) => f.text === trimmed)) {
+                onSelectWord(trimmed);
+              }
+            }}
             placeholder="e.g. Buddhist, Celadon, Goryeo"
             className="w-full border border-light-gray bg-white px-3 py-2 text-sm text-ink focus:outline-none focus:border-ink transition-museum"
           />
@@ -415,7 +422,7 @@ export default function InteractiveWordCloud({
                     fontSize: `${word.fontSize}px`,
                     fontWeight: emphasized ? 700 : word.tier === 1 ? 700 : word.tier === 2 ? 500 : 400,
                     fill: emphasized ? HIGHLIGHT_COLOR : word.color,
-                    textDecoration: emphasized ? "underline" : "none",
+                    textDecoration: "none",
                     filter: isSelected ? "drop-shadow(0 0 6px rgba(91,127,166,0.55))" : "none",
                     opacity,
                   }}

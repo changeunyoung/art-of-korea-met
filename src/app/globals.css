@@ -5,7 +5,6 @@
 :root {
   --font-serif: "Inter", Georgia, serif;
   --font-sans: "Source Code Pro", monospace;
-  --font-display: var(--font-montserrat), "Montserrat", sans-serif;
 }
 
 html {

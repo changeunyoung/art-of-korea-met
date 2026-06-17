@@ -110,13 +110,13 @@ export default function HeroSection() {
       >
         <h1
           className="font-black text-white leading-none tracking-tight uppercase"
-          style={{ fontSize: "clamp(60px, 9.5vw, 140px)", fontFamily: "var(--font-hero)", textShadow: "0 2px 24px rgba(0,0,0,0.25), 0 1px 4px rgba(0,0,0,0.15)" }}
+          style={{ fontSize: "clamp(60px, 9.5vw, 140px)", fontFamily: "var(--font-display)", textShadow: "0 2px 24px rgba(0,0,0,0.25), 0 1px 4px rgba(0,0,0,0.15)" }}
         >
           Art of Korea
         </h1>
         <motion.p
           className="text-white uppercase tracking-widest mt-4"
-          style={{ fontSize: "clamp(10px, 1vw, 13px)", fontFamily: "var(--font-hero)", letterSpacing: "0.22em", opacity: 0.85, textShadow: "0 1px 8px rgba(0,0,0,0.2)" }}
+          style={{ fontSize: "clamp(10px, 1vw, 13px)", fontFamily: "var(--font-display)", letterSpacing: "0.22em", opacity: 0.85, textShadow: "0 1px 8px rgba(0,0,0,0.2)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.85 }}
           transition={{ duration: 1, delay: 0.5 }}

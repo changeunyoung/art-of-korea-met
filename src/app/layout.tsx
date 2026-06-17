@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
+import { Montserrat, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+
+const display = Montserrat({
+  subsets: ["latin"],
+  weight: ["700", "800", "900"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const sans = Source_Code_Pro({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ART OF KOREA | The Metropolitan Museum of Art — Curatorial Structures",
@@ -17,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans bg-background text-ink antialiased cursor-none">
+      <body className={`${display.variable} ${sans.variable} font-sans bg-background text-ink antialiased cursor-none`}>
         <CustomCursor />
         <Navbar />
         <main className="min-h-screen pt-20">{children}</main>

@@ -134,7 +134,7 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
   const deckW = SPREAD * (N - 1) + CARD_W;
 
   return (
-    <div className="w-full" style={{ overflowX: "auto", overflowY: "visible" }}>
+    <div className="w-full" style={{ overflow: "visible" }}>
       <div
         ref={containerRef}
         className="relative mx-auto"
@@ -153,7 +153,9 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
           const ty = isActive ? -22 : abs * 5;
           const rot = offset * 2.8;
           const scale = isActive ? 1.07 : Math.max(0.87, 1 - abs * 0.024);
-          const z = N + 2 - abs;
+          // Active card gets a dramatically higher z-index so it always paints above all siblings,
+          // regardless of any 3D rendering order effects from the fan rotation transforms.
+          const z = isActive ? 100 : N + 1 - abs;
           const shadow = isActive
             ? "0 28px 72px rgba(0,0,0,0.13), 0 10px 28px rgba(0,0,0,0.07)"
             : "0 6px 18px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04)";
@@ -174,12 +176,21 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                 boxShadow: shadow,
                 cursor: "pointer",
                 borderRadius: CARD_RADIUS,
+                // Solid white background prevents cards from being see-through during
+                // the flip (when both faces are edge-on at 90°, the outer div shows).
+                background: "white",
+                // overflow: hidden clips any child content to the card bounds.
+                // Safe here — card outer is NOT the parent of the preserve-3d flip inner.
+                overflow: "hidden",
+                // isolation: isolate guarantees a self-contained stacking context so
+                // z-index ordering is never influenced by ancestor 3D rendering contexts.
+                isolation: "isolate",
               }}
               onClick={() => onSelectTheme(isFiltering ? null : theme.name)}
             >
               {/* Scene: perspective must live on the PARENT of the preserve-3d element,
                   never on the same element — otherwise backface-visibility breaks. */}
-              <div style={{ width: "100%", height: "100%", perspective: "900px" }}>
+              <div style={{ width: "100%", height: "100%", perspective: "900px", background: "white", borderRadius: CARD_RADIUS }}>
                 {/* Flip container: preserve-3d + rotation only, no overflow/radius here */}
                 <div
                   style={{
@@ -198,7 +209,7 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                       style={{
                         ...faceContentStyle,
                         background: "white",
-                        border: `1px solid ${isFiltering ? "var(--color-accent)" : "#e6e5e0"}`,
+                        border: "1px solid #e6e5e0",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "space-between",
@@ -242,7 +253,7 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                       style={{
                         ...faceContentStyle,
                         background: "white",
-                        border: "1px solid var(--color-accent)",
+                        border: "1px solid #e6e5e0",
                         display: "flex",
                         flexDirection: "column",
                       }}

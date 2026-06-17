@@ -33,7 +33,7 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
                 <span className="w-2.5 h-2.5 rounded-full bg-ink z-10 transition-museum group-hover:scale-150 group-hover:bg-accent group-hover:ring-4 group-hover:ring-accent/40" />
               </div>
               <div className="mt-6 text-center transition-museum group-hover:-translate-y-1">
-                <p className="font-display text-4xl tracking-widest">{entry.year}</p>
+                <p className="font-display text-4xl tracking-widest text-[#7BAEC8]">{entry.year}</p>
                 <p className="mt-1 font-display text-xl tracking-wide leading-tight group-hover:underline">
                   {entry.title}
                 </p>
@@ -62,7 +62,7 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
               className="group relative pl-8 text-left w-full cursor-pointer"
             >
               <span className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full bg-ink transition-museum group-active:scale-125" />
-              <p className="font-display text-4xl tracking-widest">{entry.year}</p>
+              <p className="font-display text-4xl tracking-widest text-[#7BAEC8]">{entry.year}</p>
               <p className="mt-1 font-display text-xl tracking-wide leading-tight group-hover:underline">
                 {entry.title}
               </p>

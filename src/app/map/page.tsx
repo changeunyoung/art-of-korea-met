@@ -23,7 +23,14 @@ export default async function InteractiveMapPage() {
               className="w-full block"
               style={{ transform: "scale(1.06) translateY(-5%)", transformOrigin: "center center" }}
             />
+            {/* bottom */}
             <div className="absolute bottom-0 left-0 right-0" style={{ height: "35%", background: "linear-gradient(to bottom, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
+            {/* top */}
+            <div className="absolute top-0 left-0 right-0" style={{ height: "25%", background: "linear-gradient(to top, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
+            {/* left */}
+            <div className="absolute top-0 left-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to left, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
+            {/* right */}
+            <div className="absolute top-0 right-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to right, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
           </div>
           <MapInteractive />
         </div>

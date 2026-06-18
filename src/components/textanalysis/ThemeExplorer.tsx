@@ -13,34 +13,43 @@ export const THEMES: ThemeDefinition[] = [
     name: "Dynastic History",
     description:
       "How the gallery situates objects within the flow of historical periods and royal dynasties, framing Korean art as a chronicle of succession.",
-    keywords: ["dynasty", "Goryeo", "Joseon", "century", "period", "historical"],
+    keywords: ["dynasty", "Goryeo", "Joseon", "Silla", "century", "period", "kingdom", "royal", "king", "court", "emperor", "palace", "unified", "official", "noble"],
   },
   {
     name: "Materials & Techniques",
     description: "Language that foregrounds the physical materials and specialized craft techniques used to make objects, valuing artisanal mastery.",
-    keywords: ["bronze", "celadon", "glaze", "inlaid", "porcelain", "stoneware", "silver", "incised", "openwork"],
+    keywords: ["bronze", "celadon", "glaze", "inlaid", "porcelain", "stoneware", "silver", "incised", "openwork", "gilt", "iron", "lacquer", "clay", "kiln", "decorated"],
   },
   {
     name: "Religion & Ritual",
     description: "Language emphasizing religious meaning, ritual function, and spiritual symbolism — particularly Buddhist traditions that shaped Korean art.",
-    keywords: ["Buddhist", "temple", "ritual", "offering", "consecration", "Sanskrit"],
+    keywords: ["Buddhist", "temple", "ritual", "offering", "consecration", "Sanskrit", "lotus", "Buddha", "bodhisattva", "monk", "sutra", "mantra", "incense", "sacred", "auspicious"],
   },
   {
     name: "Everyday Life & Function",
     description: "Language describing how objects were used in daily life and domestic settings, connecting art to lived human experience.",
-    keywords: ["mirror", "bowl", "vessel", "jar", "seal", "box", "container"],
+    keywords: ["mirror", "bowl", "vessel", "jar", "seal", "box", "container", "scroll", "screen", "painting", "folding", "bird", "flower", "dragon", "crane"],
   },
   {
     name: "Collecting History",
     description: "Language revealing how the Met's Korean collection was formed through donors, funds, and acquisitions — the institutional history behind each object.",
-    keywords: ["gift", "purchase", "collection", "fund", "foundation", "Rogers", "acquisition"],
+    keywords: ["gift", "purchase", "collection", "fund", "foundation", "Rogers", "acquisition", "donor", "bequest", "museum", "gallery", "exhibition", "display", "donated", "patron"],
   },
   {
     name: "Cultural Identity",
     description: "Language that emphasizes the continuity and distinctiveness of Korean culture, tradition, and national identity across time.",
-    keywords: ["Korean", "culture", "tradition", "heritage", "identity", "society"],
+    keywords: ["Korean", "culture", "tradition", "heritage", "identity", "society", "Korea", "art", "peninsula", "continuity", "influence", "artistic", "style", "unique", "development"],
   },
 ];
+
+const THEME_SLUG: Record<string, string> = {
+  "Dynastic History": "dynastic-history",
+  "Materials & Techniques": "materials-techniques",
+  "Religion & Ritual": "religion-ritual",
+  "Everyday Life & Function": "everyday-life",
+  "Collecting History": "collecting-history",
+  "Cultural Identity": "cultural-identity",
+};
 
 const ICONS: Record<string, React.ReactNode> = {
   "Dynastic History": (
@@ -82,7 +91,7 @@ const ICONS: Record<string, React.ReactNode> = {
   ),
 };
 
-const CARD_W = 256;
+const CARD_W = 275;
 const CARD_H = 400;
 const SPREAD = 112;
 const CARD_RADIUS = 14;
@@ -115,6 +124,7 @@ interface ThemeExplorerProps {
 
 export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKeyword }: ThemeExplorerProps) {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
+  const [flippedIdx, setFlippedIdx] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -140,12 +150,12 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
         className="relative mx-auto"
         style={{ width: deckW, height: CARD_H + CARD_TOP_OFFSET + 20 }}
         onMouseMove={handleMouseMove}
-        onMouseLeave={() => setActiveIdx(null)}
+        onMouseLeave={() => { setActiveIdx(null); setFlippedIdx(null); }}
       >
         {THEMES.map((theme, i) => {
           const isActive = activeIdx !== null && i === activeIdx;
           const isFiltering = selectedTheme === theme.name;
-          const isFlipped = isFiltering && isActive; // flip = clicked AND cursor is near this card
+          const isFlipped = flippedIdx === i && isActive;
           const refIdx = activeIdx ?? 2; // neutral fan center when no hover
           const offset = i - refIdx;
           const abs = Math.abs(offset);
@@ -186,7 +196,11 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                 // z-index ordering is never influenced by ancestor 3D rendering contexts.
                 isolation: "isolate",
               }}
-              onClick={() => onSelectTheme(isFiltering ? null : theme.name)}
+              onClick={() => {
+                const next = isFiltering ? null : theme.name;
+                onSelectTheme(next);
+                setFlippedIdx(next !== null ? i : null);
+              }}
             >
               {/* Scene: perspective must live on the PARENT of the preserve-3d element,
                   never on the same element — otherwise backface-visibility breaks. */}
@@ -203,85 +217,58 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                     transition: "transform 0.55s cubic-bezier(0.45, 0.05, 0.55, 0.95)",
                   }}
                 >
-                  {/* ── BACK FACE (default visible) — title only ── */}
+                  {/* ── BACK FACE (default visible) — PNG image ── */}
                   <div style={faceStyle}>
                     <div
                       style={{
                         ...faceContentStyle,
-                        background: "white",
-                        border: "1px solid #e6e5e0",
+                        backgroundImage: `url(/images/theme-cards/card-${THEME_SLUG[theme.name]}-back.png)`,
+                        backgroundSize: "95%",
+                        backgroundPosition: "center",
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "space-between",
-                        padding: "28px 24px",
+                        justifyContent: "flex-end",
+                        alignItems: "center",
+                        paddingBottom: "100px",
                       }}
                     >
-                      <div className="flex justify-between items-start">
-                        <span className="text-[10px] tracking-[0.2em] font-mono" style={{ color: "#c8c7c0" }}>
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="text-[10px] uppercase tracking-widest2" style={{ color: "#d4d3cc" }}>
-                          Theme
-                        </span>
-                      </div>
-
-                      <div className="flex flex-col items-center text-center gap-4">
-                        <div style={{ color: "#b4b3aa" }}>{ICONS[theme.name]}</div>
-                        <h3 className="font-display text-xl text-ink leading-tight px-2">
-                          {theme.name}
-                        </h3>
-                        <div className="w-8 border-t" style={{ borderColor: "#e6e5e0" }} />
-                        <p className="text-[11px] text-text-gray leading-relaxed line-clamp-2 px-1">
-                          {theme.description.split("—")[0].trim()}
-                        </p>
-                      </div>
-
-                      <div className="flex justify-center">
-                        <span
-                          className="text-[10px] uppercase tracking-widest2"
-                          style={{ color: isActive ? "#b0b0a8" : "transparent" }}
-                        >
-                          Click to reveal
-                        </span>
-                      </div>
+                      <span
+                        className="text-[10px] uppercase tracking-widest2 transition-museum"
+                        style={{ color: isActive ? "#a0a09a" : "transparent" }}
+                      >
+                        Click to reveal
+                      </span>
                     </div>
                   </div>
 
-                  {/* ── FRONT FACE (visible when flipped) — full content ── */}
+                  {/* ── FRONT FACE (visible when flipped) — PNG frame + text overlay ── */}
                   <div style={{ ...faceStyle, transform: "rotateY(180deg)" }}>
                     <div
                       style={{
                         ...faceContentStyle,
-                        background: "white",
-                        border: "1px solid #e6e5e0",
+                        backgroundImage: `url(/images/theme-cards/card-${THEME_SLUG[theme.name]}-front.png)`,
+                        backgroundSize: "95%",
+                        backgroundPosition: "center",
                         display: "flex",
                         flexDirection: "column",
                       }}
                     >
-                      <div style={{ height: 3, background: "var(--color-accent)", flexShrink: 0 }} />
 
-                      <div className="flex-1 flex flex-col p-6">
-                        <div className="flex items-start justify-between">
-                          <div style={{ color: "var(--color-accent)" }}>{ICONS[theme.name]}</div>
-                          <span className="text-[10px] tracking-[0.2em] font-mono" style={{ color: "#c8c7c0" }}>
-                            {String(i + 1).padStart(2, "0")}
-                          </span>
-                        </div>
-
-                        <h3 className="font-display text-xl text-ink leading-tight mt-4">
+                      <div className="flex-1 flex flex-col p-14 pt-20">
+                        <h3 className="font-display text-[11px] leading-tight text-center" style={{ color: "#7aaec4" }}>
                           {theme.name}
                         </h3>
 
-                        <p className="mt-3 text-sm text-text-gray leading-relaxed flex-1">
+                        <p className="mt-1.5 text-[9px] text-text-gray leading-relaxed flex-1 text-justify">
                           {theme.description}
                         </p>
 
-                        <div className="mt-4 flex flex-wrap gap-1.5">
+                        <div className="mt-2 flex flex-wrap gap-0.5 mb-6">
                           {theme.keywords.map((kw) => (
                             <button
                               key={kw}
                               onClick={(e) => { e.stopPropagation(); onSelectKeyword(kw.toLowerCase()); }}
-                              className="text-[10px] uppercase tracking-widest2 px-2 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum"
+                              className="text-[7px] uppercase tracking-widest2 px-1 py-0.5 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum"
                             >
                               {kw}
                             </button>
@@ -289,21 +276,6 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
                         </div>
                       </div>
 
-                      <div className="px-6 py-3 flex items-center justify-between border-t" style={{ borderColor: "#f0efea" }}>
-                        <span
-                          className="text-[10px] uppercase tracking-widest2"
-                          style={{ color: isFiltering ? "var(--color-accent)" : "#b8b7b0" }}
-                        >
-                          {isFiltering ? "Filtering active" : "Click to filter"}
-                        </span>
-                        <div
-                          className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-                          style={{
-                            background: isFiltering ? "var(--color-accent)" : "transparent",
-                            border: isFiltering ? "none" : "1px solid #d4d3cc",
-                          }}
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -313,9 +285,12 @@ export default function ThemeExplorer({ selectedTheme, onSelectTheme, onSelectKe
         })}
       </div>
 
-      <p className="text-center text-[11px] uppercase tracking-widest2 text-text-gray mt-2 opacity-60">
-        Move cursor to browse · Click to reveal
-      </p>
+      {selectedTheme && (
+        <p className="mt-6 text-center text-xs text-text-gray tracking-wide animate-fadeIn">
+          Filtering by <span className="text-ink font-medium">{selectedTheme}</span> — check the Word Cloud and Top Keywords above
+        </p>
+      )}
+
     </div>
   );
 }

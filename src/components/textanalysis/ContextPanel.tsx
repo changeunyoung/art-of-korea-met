@@ -46,13 +46,14 @@ function highlightWord(text: string, word: string) {
 
 function ClickableExcerpt({ text, selectedWord, onSelectWord }: { text: string; selectedWord: string; onSelectWord: (w: string) => void }) {
   // Split into alternating word / non-word segments
-  const parts = text.split(/(\b[a-zA-Z'-]+\b)/g);
+  const wordPattern = new RegExp(`\\b${selectedWord.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "i");
+  const parts = text.split(/(\b[a-zA-Z0-9]+\b)/g);
   return (
     <>
       {parts.map((part, i) => {
-        const isWord = /^[a-zA-Z'-]+$/.test(part);
+        const isWord = /^[a-zA-Z0-9]+$/.test(part);
         if (!isWord) return <span key={i}>{part}</span>;
-        const isSelected = part.toLowerCase() === selectedWord.toLowerCase();
+        const isSelected = wordPattern.test(part);
         if (isSelected) {
           return (
             <mark key={i} className="bg-accent text-ink px-0.5 cursor-pointer" onClick={() => onSelectWord(part.toLowerCase())}>
@@ -74,7 +75,7 @@ function ClickableExcerpt({ text, selectedWord, onSelectWord }: { text: string; 
   );
 }
 
-const EXCERPTS_PER_PAGE = 5;
+const EXCERPTS_PER_PAGE = 10;
 const OBJECTS_PER_PAGE = 3;
 const WALL_TEXTS_PER_PAGE = 3;
 
@@ -116,11 +117,6 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
   const [wallTextPage, setWallTextPage] = useState(0);
   const [modalHotspot, setModalHotspot] = useState<Hotspot | null>(null);
 
-  const frequency = useMemo(
-    () => frequencies.find((f) => f.text === selectedWord?.toLowerCase())?.value ?? 0,
-    [frequencies, selectedWord]
-  );
-
   const theme = useMemo(() => (selectedWord ? getThemeForWord(selectedWord) : null), [selectedWord]);
 
   const excerpts = useMemo(() => {
@@ -128,6 +124,12 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
     setObjectPage(0);
     setWallTextPage(0);
     return selectedWord ? findExcerpts(fullText, selectedWord) : [];
+  }, [fullText, selectedWord]);
+
+  const frequency = useMemo(() => {
+    if (!selectedWord) return 0;
+    const pattern = new RegExp(`\\b${selectedWord.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "gi");
+    return (fullText.match(pattern) ?? []).length;
   }, [fullText, selectedWord]);
 
   const relatedObjects = useMemo(
@@ -192,11 +194,16 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left: Label Contexts */}
         <div>
-          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
-            Label Contexts
-            {excerpts.length > 0 && (
-              <span className="ml-2 normal-case tracking-normal text-text-gray">({excerpts.length})</span>
-            )}
+          <p className="group relative text-xs uppercase tracking-widest2 text-text-gray mb-3 cursor-default">
+            <span className="transition-museum group-hover:opacity-0">
+              In Context
+              {frequency > 0 && (
+                <span className="ml-2 normal-case tracking-normal">({frequency})</span>
+              )}
+            </span>
+            <span className="absolute inset-x-0 left-0 opacity-0 transition-museum group-hover:opacity-100 normal-case break-words">
+              Where this word appears in the gallery texts
+            </span>
           </p>
           {excerpts.length > 0 ? (
             <>
@@ -237,11 +244,16 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
         {/* Right: Related Objects + Related Wall Texts */}
         <div className="space-y-6">
           <div>
-            <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
-              Related Objects
-              {relatedObjects.length > 0 && (
-                <span className="ml-2 normal-case tracking-normal text-text-gray">({relatedObjects.length})</span>
-              )}
+            <p className="group relative text-xs uppercase tracking-widest2 text-text-gray mb-3 cursor-default">
+              <span className="transition-museum group-hover:opacity-0">
+                Related Objects
+                {relatedObjects.length > 0 && (
+                  <span className="ml-2 normal-case tracking-normal">({relatedObjects.length})</span>
+                )}
+              </span>
+              <span className="absolute inset-x-0 left-0 opacity-0 transition-museum group-hover:opacity-100 normal-case break-words">
+                Object labels that mention this word
+              </span>
             </p>
             {relatedObjects.length > 0 ? (
               <>
@@ -290,11 +302,16 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
-              Related Wall Texts
-              {relatedWallTexts.length > 0 && (
-                <span className="ml-2 normal-case tracking-normal text-text-gray">({relatedWallTexts.length})</span>
-              )}
+            <p className="group relative text-xs uppercase tracking-widest2 text-text-gray mb-3 cursor-default">
+              <span className="transition-museum group-hover:opacity-0">
+                Related Wall Texts
+                {relatedWallTexts.length > 0 && (
+                  <span className="ml-2 normal-case tracking-normal">({relatedWallTexts.length})</span>
+                )}
+              </span>
+              <span className="absolute inset-x-0 left-0 opacity-0 transition-museum group-hover:opacity-100 normal-case break-words">
+                Gallery wall texts that mention this word
+              </span>
             </p>
             {relatedWallTexts.length > 0 ? (
               <>

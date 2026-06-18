@@ -58,11 +58,15 @@ export default function TextAnalysisInteractive() {
       </p>
 
       <div className="mt-12 space-y-16">
-        <section>
+        <section id="stats">
           <StatsOverview totalLabels={totalLabels} totalWords={totalWords} uniqueWords={uniqueWords} />
         </section>
 
-        <section>
+        <div className="flex justify-center">
+          <img src="/images/divider-2.png" alt="" className="w-full max-w-2xl" style={{ filter: "sepia(1) hue-rotate(175deg) saturate(0.6) brightness(0.55) opacity(0.7)" }} />
+        </div>
+
+        <section id="word-cloud">
           <SectionHeading title="Word Cloud" description="The most frequently used words in the Korean Gallery's object labels." />
           <div className="mt-8">
             <InteractiveWordCloud
@@ -74,26 +78,39 @@ export default function TextAnalysisInteractive() {
               selectedWord={selectedWord}
               onSelectWord={handleSelectWord}
               selectedTheme={selectedTheme}
+              onSelectTheme={handleSelectTheme}
             />
             <ContextPanel selectedWord={selectedWord} frequencies={frequencies} fullText={fullText} objects={objects} wallTexts={wallTexts} onSelectWord={handleSelectWord} />
           </div>
         </section>
 
-        <section>
+        <div className="flex justify-center">
+          <img src="/images/divider-2.png" alt="" className="w-full max-w-2xl" style={{ filter: "sepia(1) hue-rotate(175deg) saturate(0.6) brightness(0.55) opacity(0.7)" }} />
+        </div>
+
+        <section id="top-keywords">
           <SectionHeading title="Top Keywords" description="Most frequently occurring words across the Korean Gallery labels." />
           <div className="mt-8">
             <TopKeywordsChart frequencies={topKeywordFrequencies} selectedWord={selectedWord} onSelectWord={handleSelectWord} />
           </div>
         </section>
 
-        <section>
+        <div className="flex justify-center">
+          <img src="/images/divider-2.png" alt="" className="w-full max-w-2xl" style={{ filter: "sepia(1) hue-rotate(175deg) saturate(0.6) brightness(0.55) opacity(0.7)" }} />
+        </div>
+
+        <section id="theme-explorer">
           <SectionHeading title="Theme Explorer" description="Six thematic lenses through which the Korean Gallery frames its objects. Select a theme to filter the analysis above." />
           <div className="mt-8">
             <ThemeExplorer selectedTheme={selectedTheme} onSelectTheme={handleSelectTheme} onSelectKeyword={handleSelectWord} />
           </div>
         </section>
 
-        <section>
+        <div className="flex justify-center">
+          <img src="/images/divider-2.png" alt="" className="w-full max-w-2xl" style={{ filter: "sepia(1) hue-rotate(175deg) saturate(0.6) brightness(0.55) opacity(0.7)" }} />
+        </div>
+
+        <section id="interpretation">
           <SectionHeading title="What Does This Language Tell Us?" description="The patterns revealed by the text analysis help explain how the Korean Gallery constructs meaning through curatorial language." />
           <div className="mt-8">
             <CuratorialInterpretation />

@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import cloud from "d3-cloud";
 import { WordFrequency } from "@/lib/types";
-import { getThemeForWord } from "@/lib/textAnalysis";
+import { getThemeForWord, STOPWORDS } from "@/lib/textAnalysis";
+import { THEMES } from "@/components/textanalysis/ThemeExplorer";
 
 interface InteractiveWordCloudProps {
   frequencies: WordFrequency[];
@@ -14,6 +15,7 @@ interface InteractiveWordCloudProps {
   selectedWord: string | null;
   onSelectWord: (word: string) => void;
   selectedTheme: string | null;
+  onSelectTheme: (theme: string | null) => void;
 }
 
 const TERM_STEPS = [10, 20, 30, 50, 75, 100, 150];
@@ -62,8 +64,10 @@ export default function InteractiveWordCloud({
   selectedWord,
   onSelectWord,
   selectedTheme,
+  onSelectTheme,
 }: InteractiveWordCloudProps) {
   const [hovered, setHovered] = useState<WordFrequency | null>(null);
+  const [themeOpen, setThemeOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [layout, setLayout] = useState<CloudWord[]>([]);
@@ -174,7 +178,7 @@ export default function InteractiveWordCloud({
     const layoutGen = cloud<SeedWord>()
       .size([cloudW, cloudH])
       .words(seeds)
-      .padding(6)
+      .padding(3)
       .rotate((_d, i) => {
         if (i < topCount) return 0; // largest words stay horizontal
         return hashText(_d.text ?? "") % 5 === 0 ? 90 : 0; // ~18% vertical overall
@@ -308,7 +312,7 @@ export default function InteractiveWordCloud({
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div className="flex-1 max-w-sm">
           <label className="block text-xs uppercase tracking-widest2 text-text-gray mb-2">
             Search a Word
@@ -320,7 +324,7 @@ export default function InteractiveWordCloud({
               const val = e.target.value;
               onSearchQueryChange(val);
               const trimmed = val.trim().toLowerCase();
-              if (trimmed && source.some((f) => f.text === trimmed)) {
+              if (trimmed && !STOPWORDS.has(trimmed) && source.some((f) => f.text === trimmed)) {
                 onSelectWord(trimmed);
               }
             }}
@@ -334,36 +338,50 @@ export default function InteractiveWordCloud({
             <label className="text-xs uppercase tracking-widest2 text-text-gray">Terms</label>
             <span className="text-xs text-text-gray">{displayedTerms}</span>
           </div>
-          <input
-            type="range"
-            min={10}
-            max={150}
-            step={1}
-            value={displayedTerms}
-            onChange={(e) => onDisplayedTermsChange(Number(e.target.value))}
-            className="w-full accent-ink"
-          />
-          <div className="flex flex-wrap gap-1 mt-2">
-            {TERM_STEPS.map((step) => (
-              <button
-                key={step}
-                onClick={() => onDisplayedTermsChange(step)}
-                className={`text-xs px-2 py-0.5 border transition-museum ${
-                  displayedTerms === step
-                    ? "border-ink text-ink"
-                    : "border-light-gray text-text-gray hover:border-ink hover:text-ink"
-                }`}
-              >
-                {step}
-              </button>
-            ))}
+          <div className="flex items-center h-9">
+            <input
+              type="range"
+              min={10}
+              max={250}
+              step={1}
+              value={displayedTerms}
+              onChange={(e) => onDisplayedTermsChange(Number(e.target.value))}
+              className="w-full accent-ink"
+            />
           </div>
         </div>
       </div>
 
-      <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">
-        Displaying: {displayed.length} terms · Selected Theme: {selectedTheme ?? "All Themes"}
-      </p>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs uppercase tracking-widest2 text-text-gray">
+          Displaying: {displayed.length} terms · Selected Theme: {selectedTheme ?? "All Themes"}
+        </p>
+        <div className="relative">
+          <button
+            onClick={() => setThemeOpen((v) => !v)}
+            className="text-[10px] uppercase tracking-widest2 px-3 py-1.5 border transition-museum flex items-center gap-2"
+            style={{ borderColor: "#4a90b8", color: "#fff", backgroundColor: "#4a90b8" }}
+          >
+            {selectedTheme ?? "All Themes"}
+            <span className="text-[8px]">▾</span>
+          </button>
+          {themeOpen && (
+            <div className="absolute top-full right-0 mt-1 bg-white border border-light-gray shadow-lg z-20 min-w-[180px]">
+              {[null, ...THEMES.map((t) => t.name)].map((name) => (
+                <button
+                  key={name ?? "all"}
+                  onClick={() => { onSelectTheme(name); setThemeOpen(false); }}
+                  className={`w-full text-left text-[10px] uppercase tracking-widest2 px-3 py-2 transition-museum hover:bg-background-soft ${
+                    selectedTheme === name ? "text-ink font-medium" : "text-text-gray"
+                  }`}
+                >
+                  {name ?? "All Themes"}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
 
       <div
         ref={containerRef}

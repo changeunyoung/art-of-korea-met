@@ -39,10 +39,15 @@ const config: Config = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        dropdownOpen: {
+          "0%": { opacity: "0", transform: "scaleY(0)" },
+          "100%": { opacity: "1", transform: "scaleY(1)" },
+        },
       },
       animation: {
         fadeIn: "fadeIn 1s ease-out forwards",
         fadeInSlow: "fadeInSlow 1.6s ease-out forwards",
+        dropdownOpen: "dropdownOpen 0.18s ease-out forwards",
       },
     },
   },

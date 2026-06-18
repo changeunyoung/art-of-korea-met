@@ -39,11 +39,11 @@ export default function StatsOverview({ totalLabels, totalWords, uniqueWords }: 
   const stats: { label: string; hoverLabel?: string; value: number }[] = [
     {
       label: "Total Labels",
-      hoverLabel: "47 Object Captions · 5 Wall Texts",
+      hoverLabel: "47 object labels + 5 wall texts",
       value: totalLabels,
     },
-    { label: "Total Words", value: totalWords },
-    { label: "Unique Words", value: uniqueWords },
+    { label: "Total Words", hoverLabel: "Total word count in all texts", value: totalWords },
+    { label: "Unique Words", hoverLabel: "How many different words appear", value: uniqueWords },
   ];
 
   return (
@@ -60,7 +60,7 @@ export default function StatsOverview({ totalLabels, totalWords, uniqueWords }: 
             {stat.hoverLabel ? (
               <>
                 <span className="transition-museum group-hover:opacity-0">{stat.label}</span>
-                <span className="absolute inset-x-0 left-0 whitespace-nowrap opacity-0 transition-museum group-hover:opacity-100 normal-case">
+                <span className="absolute inset-x-0 left-0 opacity-0 transition-museum group-hover:opacity-100 normal-case break-words whitespace-pre-line">
                   {stat.hoverLabel}
                 </span>
               </>

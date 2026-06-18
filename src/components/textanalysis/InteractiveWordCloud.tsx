@@ -51,7 +51,7 @@ interface WordBox {
   tier: 1 | 2 | 3;
 }
 
-function aabbOverlap(a: WordBox, b: WordBox, pad = 1): boolean {
+function aabbOverlap(a: WordBox, b: WordBox, pad = 0): boolean {
   return (
     Math.abs(a.x - b.x) < a.hw + b.hw + pad &&
     Math.abs(a.y - b.y) < a.hh + b.hh + pad
@@ -154,7 +154,7 @@ export default function InteractiveWordCloud({
 
     // Collision boxes are slightly larger than the rendered font size to
     // guarantee glyphs never visually touch despite sub-pixel rounding.
-    const SAFETY = 1.15;
+    const SAFETY = 1.05;
 
     // Oval cloud area — wide enough for English text but not a thin strip.
     const aspect = 1.3;
@@ -179,7 +179,7 @@ export default function InteractiveWordCloud({
         const rotate = i < topCount ? 0 : (hashText(w.text) % 5 === 0 ? 90 : 0);
         ctx.font = `${weight} ${fs}px Montserrat, sans-serif`;
         const mw = ctx.measureText(w.text).width;
-        const mh = fs * 1.1;
+        const mh = fs * 0.88;
         // Swap width/height when the word is rendered rotated 90°
         const hw = (rotate === 90 ? mh : mw) / 2;
         const hh = (rotate === 90 ? mw : mh) / 2;

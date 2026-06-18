@@ -335,7 +335,7 @@ function ReadResearchQuestion({ block }: { block: ResearchQuestionBlock }) {
 
 function ReadMethods({ block }: { block: MethodsBlock }) {
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 py-20 md:py-28">
+    <section className="mx-auto max-w-content px-6 md:px-10 pt-32 pb-20 md:pt-40 md:pb-28">
       <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {block.cards.map((card, i) => (

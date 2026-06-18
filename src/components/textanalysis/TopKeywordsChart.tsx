@@ -28,7 +28,7 @@ export default function TopKeywordsChart({ frequencies, selectedWord, onSelectWo
 
   return (
     <div>
-      <div className="bg-white border border-light-gray p-6" style={{ height: 520 }}>
+      <div className="p-6" style={{ height: 520 }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} layout="vertical" margin={{ top: 8, right: 24, left: 8, bottom: 8 }}>
             <CartesianGrid stroke="#E7E7E7" horizontal={false} />

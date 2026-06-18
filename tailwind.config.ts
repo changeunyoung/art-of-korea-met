@@ -23,6 +23,7 @@ const config: Config = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "Helvetica", "Arial", "sans-serif"],
         display: ["var(--font-display)", "Impact", "sans-serif"],
+        borel: ["var(--font-borel)", "cursive"],
       },
       letterSpacing: {
         widest2: "0.25em",

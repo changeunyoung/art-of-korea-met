@@ -333,14 +333,38 @@ function ReadResearchQuestion({ block }: { block: ResearchQuestionBlock }) {
   );
 }
 
+const TAGLINES = [
+  { main: "Examining meaning through", last: "space" },
+  { main: "Examining meaning through", last: "time" },
+  { main: "Examining meaning through", last: "text" },
+];
+
 function ReadMethods({ block }: { block: MethodsBlock }) {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <section className="mx-auto max-w-content px-6 md:px-10 pt-32 pb-20 md:pt-40 md:pb-28">
       <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {block.cards.map((card, i) => (
-          <MethodCard key={i} index={card.index} title={card.title} description={card.description} href={card.href} />
+          <MethodCard
+            key={i}
+            index={card.index}
+            title={card.title}
+            description={card.description}
+            href={card.href}
+            tilt={[6, -6, 2][i]}
+            onHover={() => setHoveredIndex(i)}
+            onLeave={() => setHoveredIndex(null)}
+          />
         ))}
+      </div>
+      <div className="mt-4 text-center h-6">
+        {hoveredIndex !== null && (
+          <p className="text-base text-text-gray transition-museum font-borel">
+            {TAGLINES[hoveredIndex].main}{" "}
+            <span className="text-blue-500">{TAGLINES[hoveredIndex].last}</span>
+          </p>
+        )}
       </div>
     </section>
   );

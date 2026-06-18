@@ -66,7 +66,7 @@ export default function MapCanvas({
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
       className="relative w-full aspect-[1228/1200] overflow-hidden select-none"
-      style={{ backgroundColor: "#E8EAF0", cursor: editMode ? "crosshair" : "default" }}
+      style={{ backgroundColor: "#DDE1E9", cursor: editMode ? "crosshair" : "default" }}
     >
       <Image
         src={mapImage}

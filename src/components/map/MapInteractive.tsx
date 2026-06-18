@@ -21,7 +21,7 @@ export default function MapInteractive() {
   const selectedHotspot = hotspots.find((h) => h.id === selectedId) ?? null;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-0" style={{ backgroundColor: "#E8EAF0" }}>
+    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-0" style={{ backgroundColor: "#DDE1E9" }}>
       <div className="p-4 md:p-6">
         <MapCanvas
           mapImage="/images/gallery-233-floor-plan.svg"

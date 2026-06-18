@@ -33,7 +33,7 @@ export default function MapInteractive() {
           onMoveHotspot={() => {}}
         />
       </div>
-      <div className="border-t lg:border-t-0 lg:border-l border-light-gray min-h-[320px] lg:min-h-[520px]" style={{ backgroundColor: "#DDE1E9" }}>
+      <div className="border-t lg:border-t-0 lg:border-l border-light-gray bg-background-soft min-h-[320px] lg:min-h-[520px]">
         <HotspotInfoPanel hotspot={selectedHotspot} onClose={() => setSelectedId(null)} />
       </div>
     </div>

@@ -11,7 +11,8 @@ export default async function TimelinePage() {
       style={{
         background: "#B2D8F0",
         minHeight: "100vh",
-        paddingTop: "5rem",
+        marginTop: "-80px",
+        paddingTop: "calc(80px + 5rem)",
         paddingBottom: "6rem",
       }}
     >

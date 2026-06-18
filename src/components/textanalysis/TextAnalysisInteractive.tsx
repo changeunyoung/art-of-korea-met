@@ -49,7 +49,7 @@ export default function TextAnalysisInteractive() {
 
   return (
     <>
-      <p className="mt-6 max-w-2xl font-display text-ink leading-snug text-xl md:text-2xl font-semibold">
+      <p className="mt-6 max-w-2xl font-borel leading-snug text-2xl md:text-3xl" style={{ color: "#4A90B8" }}>
         How Does Art of Korea Describe Korean Art?
       </p>
 

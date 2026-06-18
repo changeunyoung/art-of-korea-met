@@ -21,7 +21,7 @@ export default function MapInteractive() {
   const selectedHotspot = hotspots.find((h) => h.id === selectedId) ?? null;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-0 border border-light-gray bg-white">
+    <div className="border border-light-gray bg-white">
       <div className="p-4 md:p-6">
         <MapIsometric
           hotspots={hotspots}
@@ -29,7 +29,7 @@ export default function MapInteractive() {
           onSelect={setSelectedId}
         />
       </div>
-      <div className="border-t lg:border-t-0 lg:border-l border-light-gray bg-background-soft min-h-[320px] lg:min-h-[520px]">
+      <div className="border-t border-light-gray bg-background-soft min-h-[320px]">
         <HotspotInfoPanel hotspot={selectedHotspot} onClose={() => setSelectedId(null)} />
       </div>
     </div>

@@ -21,7 +21,7 @@ export default async function InteractiveMapPage() {
               muted
               playsInline
               className="w-full block"
-              style={{ transform: "scale(1.04)", transformOrigin: "center center" }}
+              style={{ transform: "scale(1.04) translateY(-3%)", transformOrigin: "center center" }}
             />
           </div>
           <MapInteractive />

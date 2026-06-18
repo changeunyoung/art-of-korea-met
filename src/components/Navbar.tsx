@@ -27,6 +27,7 @@ const links: NavLink[] = [
     ],
   },
   { href: "/methodology", label: "Methodology" },
+  { href: "/game", label: "Mini Game" },
 ];
 
 export default function Navbar() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import MapCanvas from "./MapCanvas";
+import MapIsometric from "./MapIsometric";
 import HotspotInfoPanel from "./HotspotInfoPanel";
 import { Hotspot } from "@/lib/types";
 
@@ -23,14 +23,10 @@ export default function MapInteractive() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-0 border border-light-gray bg-white">
       <div className="p-4 md:p-6">
-        <MapCanvas
-          mapImage="/images/gallery-233-floor-plan.svg"
+        <MapIsometric
           hotspots={hotspots}
-          editMode={false}
           selectedId={selectedId}
           onSelect={setSelectedId}
-          onAddHotspot={() => {}}
-          onMoveHotspot={() => {}}
         />
       </div>
       <div className="border-t lg:border-t-0 lg:border-l border-light-gray bg-background-soft min-h-[320px] lg:min-h-[520px]">

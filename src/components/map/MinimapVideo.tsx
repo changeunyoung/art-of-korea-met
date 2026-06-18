@@ -9,40 +9,50 @@ export default function MinimapVideo() {
     const v = videoRef.current;
     if (!v) return;
 
-    let direction = 1;
     let rafId: number;
     let lastTime: number | null = null;
-    const speed = 0.5; // seconds of video per real second
+    let goingForward = true;
 
-    const tick = (now: number) => {
-      const delta = lastTime == null ? 0 : (now - lastTime) / 1000;
-      lastTime = now;
-
-      if (v.duration && v.readyState >= 2) {
-        const next = v.currentTime + direction * speed * delta;
-        v.currentTime = Math.max(0, Math.min(v.duration, next));
-        if (v.currentTime >= v.duration) direction = -1;
-        if (v.currentTime <= 0) direction = 1;
-      }
-
-      rafId = requestAnimationFrame(tick);
+    const playForward = () => {
+      goingForward = true;
+      v.playbackRate = 1;
+      v.play();
     };
 
-    const start = () => { rafId = requestAnimationFrame(tick); };
+    const scrubBackward = (now: number) => {
+      const delta = lastTime == null ? 0 : (now - lastTime) / 1000;
+      lastTime = now;
+      v.currentTime = Math.max(0, v.currentTime - delta);
+      if (v.currentTime <= 0) {
+        lastTime = null;
+        playForward();
+      } else {
+        rafId = requestAnimationFrame(scrubBackward);
+      }
+    };
+
+    const onEnded = () => {
+      goingForward = false;
+      lastTime = null;
+      rafId = requestAnimationFrame(scrubBackward);
+    };
+
+    v.addEventListener("ended", onEnded);
+
+    const start = () => playForward();
     v.addEventListener("canplay", start, { once: true });
     if (v.readyState >= 3) start();
 
     return () => {
       cancelAnimationFrame(rafId);
+      v.removeEventListener("ended", onEnded);
       v.removeEventListener("canplay", start);
+      v.pause();
     };
   }, []);
 
   return (
-    <div
-      className="relative overflow-hidden mx-auto"
-      style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}
-    >
+    <div className="relative overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}>
       <video
         ref={videoRef}
         src="/videos/minimap.mp4"

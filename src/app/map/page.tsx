@@ -32,7 +32,9 @@ export default async function InteractiveMapPage() {
             {/* right */}
             <div className="absolute top-0 right-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to right, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
           </div>
-          <MapInteractive />
+          <div className="mt-24">
+            <MapInteractive />
+          </div>
         </div>
       </PageEditor>
     </div>

@@ -13,7 +13,7 @@ export default async function InteractiveMapPage() {
     <div style={{ backgroundColor: "#DDE1E7", minHeight: "100vh" }}>
     <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
       <PageEditor page="map" initialBlocks={blocks} isAdmin={admin}>
-        <div className="mt-6 rounded-sm overflow-hidden" style={{ backgroundColor: "#DDE1E7" }}>
+        <div className="w-full mt-6 rounded-sm overflow-hidden" style={{ backgroundColor: "#DDE1E7" }}>
           <MinimapVideo />
           <div className="mt-24">
             <MapInteractive />

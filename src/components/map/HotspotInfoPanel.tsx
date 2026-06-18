@@ -17,9 +17,11 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
     return (
       <div className="h-full flex flex-col items-center justify-center text-center px-8 py-16 text-text-gray">
         <p className="text-xs uppercase tracking-widest2 mb-3">Digital Gallery Guide</p>
-        <p className="font-sans text-xl leading-relaxed">
-          Select a hotspot on the map to view information about the object,
-          its placement, and curatorial interpretation.
+        <p className="font-sans text-xl leading-relaxed mb-6">
+          Click a hotspot to view photographs, object labels, and additional information.
+        </p>
+        <p className="font-sans text-[10px] leading-relaxed text-text-gray/60">
+          *All descriptions and label texts are reproduced from The Metropolitan Museum of Art for educational and research purposes. No modifications have been made to the original text. All rights belong to The Metropolitan Museum of Art.
         </p>
       </div>
     );
@@ -47,12 +49,12 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
       <div className="px-8 py-6">
         <div className="flex items-start justify-between mb-4">
           <p className="text-xs uppercase tracking-widest2 text-text-gray">
-            {isWallText ? "Wall Text Panel" : "Object Record"}
+            {isWallText ? "Wall Text Panel" : "Label Text"}
           </p>
           <button
             onClick={onClose}
             aria-label="Close panel"
-            className="text-text-gray hover:text-ink transition-museum text-sm"
+            className="text-ink hover:text-text-gray transition-museum text-sm font-medium"
           >
             Close ×
           </button>

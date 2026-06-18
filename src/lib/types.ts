@@ -2,10 +2,12 @@
 
 export interface Hotspot {
   id: string;
-  /** Position as a percentage (0–100) of the map image width */
   x: number;
-  /** Position as a percentage (0–100) of the map image height */
   y: number;
+  /** Badge width as % of container (from image detection) */
+  w?: number;
+  /** Badge height as % of container (from image detection) */
+  h?: number;
   /** "object" = numbered display case/artwork, "wallText" = lettered wall label panel */
   type: "object" | "wallText";
   /** Short marker label shown on the map (e.g. object number "12" or wall text letter "A") */

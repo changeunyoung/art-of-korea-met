@@ -23,7 +23,6 @@ const links: NavLink[] = [
       { href: "/text-analysis#word-cloud", label: "Word Cloud" },
       { href: "/text-analysis#top-keywords", label: "Top Keywords" },
       { href: "/text-analysis#theme-explorer", label: "Theme Explorer" },
-      { href: "/text-analysis#interpretation", label: "What Does This Language Tell Us?" },
     ],
   },
   { href: "/game", label: "Mini Game" },

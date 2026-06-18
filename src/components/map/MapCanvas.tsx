@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
 import { Hotspot } from "@/lib/types";
 import HotspotMarker from "./HotspotMarker";
 
@@ -65,27 +64,28 @@ export default function MapCanvas({
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
-      className="relative w-full aspect-[1228/1200] overflow-hidden select-none"
-      style={{ backgroundColor: "#DDE1E7", cursor: editMode ? "crosshair" : "default" }}
+      className="relative w-full aspect-square overflow-hidden select-none"
+      style={{ backgroundColor: "#DDE1E7", cursor: editMode ? "crosshair" : "default", boxShadow: "inset 0 0 0 1.5px #E4EEF5" }}
     >
-      <Image
-        src={mapImage}
-        alt="Korean Gallery floor plan"
-        fill
-        unoptimized
-        className="object-contain pointer-events-none"
-      />
-
-      {hotspots.map((hotspot) => (
-        <HotspotMarker
-          key={hotspot.id}
-          hotspot={hotspot}
-          isSelected={hotspot.id === selectedId}
-          isEditing={editMode}
-          onSelect={onSelect}
-          onPointerDown={handlePointerDown}
+      <div className="absolute inset-0" style={{ transform: "scale(1.04)", transformOrigin: "center center" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={mapImage}
+          alt="Korean Gallery floor plan"
+          className="absolute inset-0 w-full h-full object-contain pointer-events-none"
         />
-      ))}
+
+        {hotspots.map((hotspot) => (
+          <HotspotMarker
+            key={hotspot.id}
+            hotspot={hotspot}
+            isSelected={hotspot.id === selectedId}
+            isEditing={editMode}
+            onSelect={onSelect}
+            onPointerDown={handlePointerDown}
+          />
+        ))}
+      </div>
 
       {editMode && (
         <div className="absolute bottom-3 left-3 bg-ink/80 text-background text-[10px] uppercase tracking-widest2 px-3 py-1.5 pointer-events-none">

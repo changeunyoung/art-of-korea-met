@@ -7,7 +7,6 @@ import InteractiveWordCloud from "@/components/textanalysis/InteractiveWordCloud
 import ContextPanel from "@/components/textanalysis/ContextPanel";
 import TopKeywordsChart from "@/components/textanalysis/TopKeywordsChart";
 import ThemeExplorer from "@/components/textanalysis/ThemeExplorer";
-import CuratorialInterpretation from "@/components/textanalysis/CuratorialInterpretation";
 import FinalInsightPanel from "@/components/textanalysis/FinalInsightPanel";
 import {
   loadDefaultFrequencies,
@@ -50,11 +49,8 @@ export default function TextAnalysisInteractive() {
 
   return (
     <>
-      <p className="mt-6 max-w-2xl text-text-gray leading-relaxed text-base md:text-lg">
-        This section explores the language used throughout the Korean Gallery&rsquo;s object
-        labels. By analyzing recurring words, themes, and patterns, visitors can discover how
-        curatorial language shapes the interpretation of Korean art, history, religion,
-        craftsmanship, and cultural identity.
+      <p className="mt-6 max-w-2xl font-display text-ink leading-snug text-xl md:text-2xl font-semibold">
+        How Does Art of Korea Describe Korean Art?
       </p>
 
       <div className="mt-12 space-y-16">
@@ -67,7 +63,7 @@ export default function TextAnalysisInteractive() {
         </div>
 
         <section id="word-cloud">
-          <SectionHeading title="Word Cloud" description="The most frequently used words in the Korean Gallery's object labels." />
+          <SectionHeading title="Word Cloud" description="A visual overview of the most prominent words found in Art of Korea's object labels." />
           <div className="mt-8">
             <InteractiveWordCloud
               frequencies={frequencies}
@@ -89,7 +85,7 @@ export default function TextAnalysisInteractive() {
         </div>
 
         <section id="top-keywords">
-          <SectionHeading title="Top Keywords" description="Most frequently occurring words across the Korean Gallery labels." />
+          <SectionHeading title="Top Keywords" description="The most frequently occurring words across Art of Korea's object labels." />
           <div className="mt-8">
             <TopKeywordsChart frequencies={topKeywordFrequencies} selectedWord={selectedWord} onSelectWord={handleSelectWord} />
           </div>
@@ -100,25 +96,15 @@ export default function TextAnalysisInteractive() {
         </div>
 
         <section id="theme-explorer">
-          <SectionHeading title="Theme Explorer" description="Six thematic lenses through which the Korean Gallery frames its objects. Select a theme to filter the analysis above." />
+          <SectionHeading title="Theme Explorer" description="Six thematic lenses through which Art of Korea frames and interprets its objects. Select a theme to filter the analysis above." />
           <div className="mt-8">
             <ThemeExplorer selectedTheme={selectedTheme} onSelectTheme={handleSelectTheme} onSelectKeyword={handleSelectWord} />
           </div>
         </section>
 
-        <div className="flex justify-center">
-          <img src="/images/divider-2.png" alt="" className="w-full max-w-2xl" style={{ filter: "sepia(1) hue-rotate(175deg) saturate(0.6) brightness(0.55) opacity(0.7)" }} />
-        </div>
-
-        <section id="interpretation">
-          <SectionHeading title="What Does This Language Tell Us?" description="The patterns revealed by the text analysis help explain how the Korean Gallery constructs meaning through curatorial language." />
-          <div className="mt-8">
-            <CuratorialInterpretation />
-          </div>
-        </section>
       </div>
 
-      <div className="mt-16 -mx-6 md:-mx-10">
+      <div className="mt-28 -mx-6 md:-mx-10">
         <FinalInsightPanel />
       </div>
     </>

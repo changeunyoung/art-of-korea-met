@@ -1,8 +1,8 @@
 [
   {
     "id": "gallery233-walltext-A",
-    "x": 23.53,
-    "y": 4.58,
+    "x": 25.7,
+    "y": 6.947,
     "type": "wallText",
     "label": "A",
     "objectName": "ART OF KOREA",
@@ -10,12 +10,18 @@
     "period": "",
     "description": "ART OF KOREA",
     "curatorialInterpretation": "",
-    "keywords": ["gallery 233", "wall text", "title"]
+    "keywords": [
+      "gallery 233",
+      "wall text",
+      "title"
+    ],
+    "w": 4.86,
+    "h": 1.959
   },
   {
     "id": "gallery233-walltext-E",
-    "x": 23.53,
-    "y": 96.67,
+    "x": 25.7,
+    "y": 93.907,
     "type": "wallText",
     "label": "E",
     "objectName": "ART OF KOREA",
@@ -23,12 +29,18 @@
     "period": "",
     "description": "ART OF KOREA",
     "curatorialInterpretation": "",
-    "keywords": ["gallery 233", "wall text", "title"]
+    "keywords": [
+      "gallery 233",
+      "wall text",
+      "title"
+    ],
+    "w": 4.86,
+    "h": 1.678
   },
   {
     "id": "gallery233-walltext-B",
-    "x": 38.19,
-    "y": 26.38,
+    "x": 39.73,
+    "y": 28.294,
     "type": "wallText",
     "label": "B",
     "objectName": "Arts of Korea",
@@ -36,12 +48,21 @@
     "period": "",
     "description": "This space reflects Korea as a crossroads where adaptability and resilience have shaped political and cultural formation. Through displays of art dating from prehistory to the present, this gallery demonstrates the innovation within the peninsula as well as relationships and influences beyond it.\n\nEmerging as a unified nation in the seventh century, Korea sits on a peninsula that occupies a strategic location in northeast Asia. This geography has played a critical role in its cultural development and art history. Positioned at the eastern end of the ancient trade route known as the Silk Road, the people of Korea have received, transformed, and passed on artistic styles as well as philosophies and religions. Buddhism, Daoism, and Confucianism have all been sources of inspiration, demonstrating Korea's openness to different traditions and ideas.\n\nThe moon jar, a humble yet elegant vessel formed from two hemispheres, has become a national symbol. Its form embodies the quest for a harmonious balance between two opposed yet connected halves. The iconic shape is also a potent metaphor for Korea's modern history as the site of global geopolitical struggles that have resulted in occupation, war, and its division into two linked but separate nations.",
     "curatorialInterpretation": "",
-    "keywords": ["gallery 233", "Korea", "Silk Road", "Buddhism", "moon jar", "wall text"]
+    "keywords": [
+      "gallery 233",
+      "Korea",
+      "Silk Road",
+      "Buddhism",
+      "moon jar",
+      "wall text"
+    ],
+    "w": 2.19,
+    "h": 7.391
   },
   {
     "id": "gallery233-walltext-C",
-    "x": 38.19,
-    "y": 75.29,
+    "x": 39.76,
+    "y": 74.237,
     "type": "wallText",
     "label": "C",
     "objectName": "Flip Sides: Seeing Korean Art Anew",
@@ -49,12 +70,20 @@
     "period": "",
     "description": "Objects have multiple characteristics and aspects—they have many sides. Yet museums and galleries often present a single, carefully chosen view that emphasizes what is considered a work's \"best\" angle. By displaying only one perspective, complex design choices, construction techniques, and utility can go unnoticed. Flip Sides challenges that convention by highlighting the multiple sides of each artwork, inviting viewers to look closely and discover features that are otherwise hidden or difficult to see.\n\nBringing together approximately fifty objects from The Met collection, more than half of which are on view for the first time, Flip Sides provides special insight into the forms, materials, and styles of Korean art. Using X-ray scans, magnified details, photographs, and atypical display methods, the exhibition exposes interior structures, surface treatments, repairs, and traces of use. These various angles and interpretive tools reveal artistic innovation and technical mastery, encouraging inquisitive viewers to engage more deeply and see Korean art anew.\n\nThis exhibition is made possible by The Kun-Hee Lee Fund for Korean Art.",
     "curatorialInterpretation": "",
-    "keywords": ["gallery 233", "Flip Sides", "X-ray", "exhibition", "wall text"]
+    "keywords": [
+      "gallery 233",
+      "Flip Sides",
+      "X-ray",
+      "exhibition",
+      "wall text"
+    ],
+    "w": 2.13,
+    "h": 7.391
   },
   {
     "id": "gallery233-walltext-D",
-    "x": 31.27,
-    "y": 90.25,
+    "x": 33.05,
+    "y": 87.699,
     "type": "wallText",
     "label": "D",
     "objectName": "Gallery Acknowledgments",
@@ -62,12 +91,19 @@
     "period": "",
     "description": "The establishment of and program for this gallery have been made possible by The Korea Foundation and The Kun-Hee Lee Fund for Korean Art.\n\nThe refurbishment of this gallery was made possible by the Ministry of Culture, Sports and Tourism of the Republic of Korea.",
     "curatorialInterpretation": "",
-    "keywords": ["gallery 233", "Korea Foundation", "acknowledgment", "wall text"]
+    "keywords": [
+      "gallery 233",
+      "Korea Foundation",
+      "acknowledgment",
+      "wall text"
+    ],
+    "w": 3.04,
+    "h": 1.988
   },
   {
     "id": "gallery233-object-1",
-    "x": 32.98,
-    "y": 3.92,
+    "x": 34.69,
+    "y": 6.792,
     "type": "object",
     "label": "1",
     "objectName": "Tomb guardian in form of a civil official",
@@ -76,13 +112,21 @@
     "period": "Korea, Joseon dynasty (1392–1910), 19th century",
     "description": "Granite\n\nFrom the Collection of Nina and Gordon Bunshaft, Bequest of Nina Bunshaft, 1994 (1995.69)\n\nDuring the Joseon dynasty in Korea, the commemoration of ancestors through ritual took on a new significance. Stone sculptures of human figures and animals were placed around grave mounds to honor and guard the tomb. This example was one of a pair. The figure wears the robe and hat of a civil official. He holds an audience tablet, lifted with both hands and held below his chin. This pose, along with his slightly hunched shoulders, indicates respect and humility.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "granite", "tomb guardian", "civil official", "funerary"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/44273"
+    "keywords": [
+      "Joseon",
+      "granite",
+      "tomb guardian",
+      "civil official",
+      "funerary"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/44273",
+    "w": 3.75,
+    "h": 3.298
   },
   {
     "id": "gallery233-object-2",
-    "x": 36.48,
-    "y": 43.5,
+    "x": 38.01,
+    "y": 43.89,
     "type": "object",
     "label": "2",
     "objectName": "Scroll recording details of Kashyapa production",
@@ -91,12 +135,20 @@
     "period": "Joseon dynasty (1392–1910), dated 1700",
     "description": "Above\n\nThis scroll documents that the Kashyapa sculpture displayed nearby was made in 1700 by monk sculptors.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "scroll", "Kashyapa", "bokjang", "Buddhist"]
+    "keywords": [
+      "Joseon",
+      "scroll",
+      "Kashyapa",
+      "bokjang",
+      "Buddhist"
+    ],
+    "w": 2.5,
+    "h": 13.811
   },
   {
     "id": "gallery233-object-3",
-    "x": 33.1,
-    "y": 39.75,
+    "x": 34.86,
+    "y": 40.427,
     "type": "object",
     "label": "3",
     "objectName": "Dharani texts written in Sanskrit characters",
@@ -105,12 +157,20 @@
     "period": "Joseon dynasty (1392–1910)",
     "description": "From left\n\nDharani texts written in Sanskrit characters, part of the bokjang ritual offerings placed inside the Kashyapa sculpture.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "dharani", "Sanskrit", "Buddhist", "bokjang"]
+    "keywords": [
+      "Joseon",
+      "dharani",
+      "Sanskrit",
+      "Buddhist",
+      "bokjang"
+    ],
+    "w": 2.5,
+    "h": 6.876
   },
   {
     "id": "gallery233-object-4",
-    "x": 33.1,
-    "y": 47.58,
+    "x": 34.86,
+    "y": 47.653,
     "type": "object",
     "label": "4",
     "objectName": "Woodblock prints of the Preface to the Collection of Seon Sources",
@@ -119,12 +179,20 @@
     "period": "Joseon dynasty (1392–1910)",
     "description": "Woodblock prints of the Preface to the Collection of Seon Sources, part of the bokjang ritual offerings placed inside the Kashyapa sculpture.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "woodblock", "Seon", "Buddhist", "bokjang"]
+    "keywords": [
+      "Joseon",
+      "woodblock",
+      "Seon",
+      "Buddhist",
+      "bokjang"
+    ],
+    "w": 2.5,
+    "h": 6.275
   },
   {
     "id": "gallery233-object-5",
-    "x": 36.44,
-    "y": 54.17,
+    "x": 38.05,
+    "y": 53.947,
     "type": "object",
     "label": "5",
     "objectName": "Sabanggyeong (four-directional mirrors)",
@@ -133,12 +201,20 @@
     "period": "Joseon dynasty (1392–1910)",
     "description": "Originally attached to the huryeongtong, these are two of four metal shapes symbolizing mirrors facing the cardinal directions.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "mirror", "cardinal directions", "bokjang", "Buddhist"]
+    "keywords": [
+      "Joseon",
+      "mirror",
+      "cardinal directions",
+      "bokjang",
+      "Buddhist"
+    ],
+    "w": 2.53,
+    "h": 2.444
   },
   {
     "id": "gallery233-object-6",
-    "x": 36.44,
-    "y": 57.33,
+    "x": 38.05,
+    "y": 56.828,
     "type": "object",
     "label": "6",
     "objectName": "Huryeongtong (throat-bell cylinder)",
@@ -147,12 +223,20 @@
     "period": "Joseon dynasty (1392–1910)",
     "description": "This metal container represents the heart of a Buddhist sculpture and once held the obobyeong (五寶甁), five treasure bottles.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "metal", "bokjang", "Buddhist", "ritual"]
+    "keywords": [
+      "Joseon",
+      "metal",
+      "bokjang",
+      "Buddhist",
+      "ritual"
+    ],
+    "w": 2.53,
+    "h": 2.473
   },
   {
     "id": "gallery233-object-7",
-    "x": 33.1,
-    "y": 55.75,
+    "x": 34.86,
+    "y": 55.402,
     "type": "object",
     "label": "7",
     "objectName": "Hwangchopokja (yellow wrapping cloth)",
@@ -161,12 +245,20 @@
     "period": "Joseon dynasty (1392–1910)",
     "description": "Yellow wrapping cloth, part of the bokjang ritual offerings placed inside the Kashyapa sculpture.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "textile", "bokjang", "Buddhist", "ritual"]
+    "keywords": [
+      "Joseon",
+      "textile",
+      "bokjang",
+      "Buddhist",
+      "ritual"
+    ],
+    "w": 2.5,
+    "h": 5.344
   },
   {
     "id": "gallery233-object-8",
-    "x": 34.77,
-    "y": 62.17,
+    "x": 36.58,
+    "y": 61.493,
     "type": "object",
     "label": "8",
     "objectName": "Kashyapa",
@@ -175,13 +267,22 @@
     "period": "Joseon dynasty (1392–1910), dated 1700",
     "description": "Wood with polychrome paint\n\nGift of Abby Aldrich Rockefeller, 1942 (42.25.8)\n\nThis monk figure is Kashyapa (also known as Gaseop), the eldest of the Buddha Shakyamuni's principal disciples. His smiling face and relaxed posture convey benevolence and wisdom. Cavities in the head, torso, and lower body reveal the statue's use in the Buddhist consecration ritual known as bokjang (腹藏), meaning to store or conceal in the abdomen. While an X-ray scan shows that the head is empty, votive offerings discovered in the body are displayed at left.\n\nBokjang is performed when creating or restoring Buddhist images. Along with grains, herbs, spices, textiles, and relics, sacred objects such as sutras and Dharani texts are prepared and placed inside the hollow figure. Prayers transform and sanctify the image, reflecting the intimate connection between materiality and devotion in Korean Buddhism. The scroll at left documents that this Kashyapa was made in 1700 by monk sculptors.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "wood", "Buddhist", "Kashyapa", "bokjang", "X-ray"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/49889"
+    "keywords": [
+      "Joseon",
+      "wood",
+      "Buddhist",
+      "Kashyapa",
+      "bokjang",
+      "X-ray"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/49889",
+    "w": 5.37,
+    "h": 3.608
   },
   {
     "id": "gallery233-object-9",
-    "x": 36.64,
-    "y": 7.83,
+    "x": 38.3,
+    "y": 10.458,
     "type": "object",
     "label": "9",
     "objectName": "Seated bodhisattva (left attendant of a triad)",
@@ -190,13 +291,22 @@
     "period": "Joseon dynasty (1392–1910), ca. mid-17th century",
     "description": "Gilt wood\n\nMary Griggs Burke Collection, Gift of the Mary and Jackson Burke Foundation, 2015 (2015.300.301a–c)\n\nThis figure is a bodhisattva—an enlightened being who has compassionately chosen to remain on earth and guide mortals toward nirvana. X-rays reveal cavities in the statue's head and torso corresponding to rectangular outlines visible from the back. Although the torso is empty, the head contains a bokjang (enclosed ritual offering), a scrunched fibrous material similar to that in the Kashyapa displayed nearby. The figure's hands, carved separately, are removable and absent in the scan.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "gilt wood", "bodhisattva", "Buddhist", "bokjang", "X-ray"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/72485"
+    "keywords": [
+      "Joseon",
+      "gilt wood",
+      "bodhisattva",
+      "Buddhist",
+      "bokjang",
+      "X-ray"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/72485",
+    "w": 5.68,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-10",
-    "x": 46.66,
-    "y": 7.83,
+    "x": 47.83,
+    "y": 10.458,
     "type": "object",
     "label": "10",
     "objectName": "Needle cases and bobbins",
@@ -205,13 +315,21 @@
     "period": "Goryeo dynasty (918–1392), 12th–13th century",
     "description": "Partially gilt silver inlaid with niello; silver\n\nRogers Fund, 1917 and 1922 (17.175.34a, b; 22.141.25)\n\nThese compact needle cases and bobbins exemplify the relationship between form and function. The hollow inner cylinders provide needle storage, and the segments allow the user to wind different threads onto the same spool. One end of the interior bobbin functions as the top of the outer container. Niello flowers and scrolling as well as densely stamped scallop motifs appear on the open case. Incised arabesques and flora adorn the hidden bobbin.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "silver", "niello", "needle case", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57444"
+    "keywords": [
+      "Goryeo",
+      "silver",
+      "niello",
+      "needle case",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57444",
+    "w": 5.71,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-11",
-    "x": 56.6,
-    "y": 7.83,
+    "x": 57.37,
+    "y": 10.458,
     "type": "object",
     "label": "11",
     "objectName": "Incense box",
@@ -220,13 +338,23 @@
     "period": "Joseon dynasty (1392–1910), 14th–15th century",
     "description": "Iron inlaid with gold and silver\n\nRogers Fund, 1921 (21.117.3)\n\nFrom its form to its surface decoration, this incense box with Buddhist elements exemplifies intricate construction and design. On the lid, a gold-inlaid flaming lotus cradles a Buddhist sutra above swirling silver waves (enlarged on the glass). The gilt double-gourd vessel attached to the lid echoes the shape of the three feet and the support below the handle. On the box's underside and edges, elaborate and interlacing silver-inlaid geometric patterns have darkened over time.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "iron", "gold", "silver", "inlay", "Buddhist", "incense"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57378"
+    "keywords": [
+      "Joseon",
+      "iron",
+      "gold",
+      "silver",
+      "inlay",
+      "Buddhist",
+      "incense"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57378",
+    "w": 5.71,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-12",
-    "x": 64.82,
-    "y": 7.83,
+    "x": 65.28,
+    "y": 10.458,
     "type": "object",
     "label": "12",
     "objectName": "Filigree scent container",
@@ -235,13 +363,22 @@
     "period": "Joseon dynasty (1392–1910), 19th century",
     "description": "Silver\n\nRogers Fund, 1922 (22.141.29)\n\nDelicate phoenixes, openwork spirals, and interlacing rings adorn this filigree container for dried flowers and herbs. Once a scented accessory, the vessel would have hung from a hanbok (Korean dress) or a handheld fan. The closing mechanism takes advantage of gravity and the long tradition of maedeup, decorative knotting. When released, the container naturally slides toward the bottom knot, which acts as a stopper.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "silver", "filigree", "phoenix", "maedeup", "hanbok"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57384"
+    "keywords": [
+      "Joseon",
+      "silver",
+      "filigree",
+      "phoenix",
+      "maedeup",
+      "hanbok"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57384",
+    "w": 2.5,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-13",
-    "x": 68.16,
-    "y": 7.83,
+    "x": 68.49,
+    "y": 10.458,
     "type": "object",
     "label": "13",
     "objectName": "Tobacco box",
@@ -250,13 +387,21 @@
     "period": "Joseon dynasty (1392–1910), 19th century",
     "description": "Iron inlaid with silver; brass fittings\n\nRogers Fund, 1922 (22.78)\n\nSmoking became widespread in the late Joseon period, prompting the production of specialized paraphernalia such as this iron tobacco box with silver inlay. Though the lid appears simple—a thin iron sheet with a bent edge—it conceals an interesting locking mechanism. The button near the handle releases a catch on the underside, allowing the cover to slide open. Bird and flower scenes, a stylized character, and dense silver-inlaid geometric motifs form a rich array of auspicious symbols.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "iron", "silver inlay", "tobacco", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/52094"
+    "keywords": [
+      "Joseon",
+      "iron",
+      "silver inlay",
+      "tobacco",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/52094",
+    "w": 2.5,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-14",
-    "x": 76.38,
-    "y": 7.83,
+    "x": 76.43,
+    "y": 10.458,
     "type": "object",
     "label": "14",
     "objectName": "Bowl with phoenixes",
@@ -265,13 +410,21 @@
     "period": "Joseon dynasty (1392–1910), 19th century",
     "description": "Porcelain with mold-impressed decoration under glaze\n\nGift of Samuel T. Peters, 1915 (15.29.27)\n\nThis bowl with an unadorned exterior has a blue-hued glaze that highlights the subtle molded design in the interior. A geometric border frames the two stylized phoenixes.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "porcelain", "phoenix", "white porcelain", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/48136"
+    "keywords": [
+      "Joseon",
+      "porcelain",
+      "phoenix",
+      "white porcelain",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/48136",
+    "w": 5.71,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-15",
-    "x": 86.32,
-    "y": 7.83,
+    "x": 85.97,
+    "y": 10.458,
     "type": "object",
     "label": "15",
     "objectName": "Bowl with floral and abstract motifs and inscription",
@@ -280,13 +433,22 @@
     "period": "Joseon dynasty (1392–1910), dated 1847",
     "description": "Porcelain with underglaze cobalt-blue design\n\nPurchase, Friends of Asian Art Gifts, 2010 (2010.174)\n\nStriking cobalt-blue motifs are this bowl's main decorative feature. Carved into the glaze after firing, the distinctive Hangeul (Korean alphabet) inscription provides important information, stating that this example was one of thirty bowls used at Sunhwa-gung Palace for the 1847 royal wedding of King Heonjong (reigned 1834–49) to his formally selected concubine.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "porcelain", "cobalt-blue", "Hangeul", "royal", "inscription"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/75833"
+    "keywords": [
+      "Joseon",
+      "porcelain",
+      "cobalt-blue",
+      "Hangeul",
+      "royal",
+      "inscription"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/75833",
+    "w": 5.74,
+    "h": 1.93
   },
   {
     "id": "gallery233-object-16",
-    "x": 92.96,
-    "y": 15.13,
+    "x": 92.24,
+    "y": 17.189,
     "type": "object",
     "label": "16",
     "objectName": "Talisman",
@@ -295,13 +457,21 @@
     "period": "Joseon dynasty (1392–1910), 19th century",
     "description": "Stone\n\nRogers Fund, 1917 (17.175.35)\n\nThis talisman's bold curving lines dynamically depict a dragon amid the clouds. Flying in from the top, the creature's body snakes downward, its face and lively eyes nearly at the center. In contrast, the back of the stone (pictured here) bears three sets of five circles along with small scalelike patterns, perhaps an abstract rendering of a dragon's skin. While the object's usage is unknown, its size allows for it to be held in a hand or pocket.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "stone", "talisman", "dragon", "auspicious"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57524"
+    "keywords": [
+      "Joseon",
+      "stone",
+      "talisman",
+      "dragon",
+      "auspicious"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57524",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-17",
-    "x": 92.96,
-    "y": 25,
+    "x": 92.24,
+    "y": 26.606,
     "type": "object",
     "label": "17",
     "objectName": "Dish with inscription and decorated with chrysanthemums and dots",
@@ -310,13 +480,22 @@
     "period": "Joseon dynasty (1392–1910), mid-15th century",
     "description": "Buncheong ware with stamped design\n\nGift of Mr. and Mrs. Samuel Colman, 1893 (93.1.216)\n\nThis dish decorated with chrysanthemums, dots, and lines is an example of buncheong ware, a Korean ceramic produced from the late fourteenth through the mid-sixteenth century. Easily overlooked amid the dense motifs, the inscription in the center roundel, 慶州長興庫 (Gyeongju Jangheunggo), enlarged on the glass, identifies Gyeongju as the city where the dish was made and Jangheunggo as the government bureau that commissioned it.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "buncheong", "ceramic", "chrysanthemum", "inscription", "Gyeongju"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57354"
+    "keywords": [
+      "Joseon",
+      "buncheong",
+      "ceramic",
+      "chrysanthemum",
+      "inscription",
+      "Gyeongju"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57354",
+    "w": 2.44,
+    "h": 5.596
   },
   {
     "id": "gallery233-object-18",
-    "x": 92.96,
-    "y": 35,
+    "x": 92.24,
+    "y": 36.819,
     "type": "object",
     "label": "18",
     "objectName": "Bowl decorated with phoenixes, clouds, and chrysanthemums",
@@ -325,13 +504,22 @@
     "period": "Goryeo dynasty (918–1392), early 14th century",
     "description": "Stoneware with inlaid design under celadon glaze\n\nFletcher Fund, 1927 (27.119.10)\n\nCommon motifs on this bowl create complementary yet distinct interior and exterior designs. White lines at the center and rim separate registers filled with small floral and geometric patterns. In the center, four phoenixes fly among wispy clouds, their beaks and feathers accented in black. The segmented exterior is predominantly decorated with large scrolling patterns, lotus leaves, and four chrysanthemums in roundels.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "inlaid", "phoenix", "chrysanthemum", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57498"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "inlaid",
+      "phoenix",
+      "chrysanthemum",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57498",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-19",
-    "x": 92.96,
-    "y": 45,
+    "x": 92.24,
+    "y": 46.217,
     "type": "object",
     "label": "19",
     "objectName": "Mirror with incised Buddhist triad",
@@ -340,13 +528,22 @@
     "period": "Goryeo dynasty (918–1392), 13th century",
     "description": "Bronze\n\nRogers Fund, 1922 (22.141.13)\n\nUnlike the other mirrors on display, this example bears ornaments on its reflective surface. The back is unadorned except for a small knob. The delicate image incised on the front (enlarged on the glass) depicts a central Amitabha Buddha flanked by bodhisattva, all seated on lotuses. Clouds echo the lines of their flowing robes and lotus motifs frame the triad, completing the composition.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "Buddhist", "Amitabha", "bodhisattva"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/50397"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "Buddhist",
+      "Amitabha",
+      "bodhisattva"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/50397",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-20",
-    "x": 92.96,
-    "y": 55,
+    "x": 92.24,
+    "y": 55.625,
     "type": "object",
     "label": "20",
     "objectName": "Cup with handle",
@@ -355,13 +552,22 @@
     "period": "Goryeo dynasty (918–1392), 13th century",
     "description": "Stoneware with inlaid and molded design under celadon glaze\n\nPurchase, Friends of Asian Art Gifts, 2025 (2025.598)\n\nSculpted fish swim within a foliated rim, their details defined by incised lines (enlarged on the glass). Made with multiple techniques, this unique cup exemplifies a Goryeo-dynasty celadon. Petal patterns and floral motifs on the exterior frame the waterside scene, all rendered using a technique known as sanggam inlay. The cloud-shaped handle was added before glazing. When filled, the cup appears animated with birds and lotuses at the liquid's edge and fish submerged beneath.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "sanggam", "inlay", "fish", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/924892"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "sanggam",
+      "inlay",
+      "fish",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/924892",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-21",
-    "x": 92.96,
-    "y": 65,
+    "x": 92.24,
+    "y": 65.053,
     "type": "object",
     "label": "21",
     "objectName": "Openwork jar with peonies",
@@ -370,13 +576,22 @@
     "period": "Joseon dynasty (1392–1910), late 18th–early 19th century",
     "description": "Porcelain\n\nPurchase, Michael B. Kim and Kyung An Park Gift, 2024 (2024.176)\n\nOpenwork, a decorative technique featuring gaps or holes, usually appears on small scholars' objects or large garden stools. This Joseon-dynasty porcelain openwork jar is a rare example. Four large peonies with twisting branches form a dynamic sculptural lattice. Incised scrolls at the rim, stylized lotus leaves at the base, and a low-relief scepter motif adorn the surface. An X-ray scan reveals the complex structure within—a concealed inner vessel enhances the jar's function and versatility.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "porcelain", "openwork", "peony", "white porcelain", "X-ray"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/910524"
+    "keywords": [
+      "Joseon",
+      "porcelain",
+      "openwork",
+      "peony",
+      "white porcelain",
+      "X-ray"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/910524",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-22",
-    "x": 92.96,
-    "y": 73.17,
+    "x": 92.2,
+    "y": 71.609,
     "type": "object",
     "label": "22",
     "objectName": "Bowl with boys and grapevines",
@@ -385,13 +600,22 @@
     "period": "Goryeo dynasty (918–1392), 12th–13th century",
     "description": "Stoneware with mold-impressed design under celadon glaze\n\nGift of Samuel T. Peters, 1915 (15.29.23)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "boys", "grapevines", "auspicious", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57396"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "boys",
+      "grapevines",
+      "auspicious",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57396",
+    "w": 2.41,
+    "h": 2.473
   },
   {
     "id": "gallery233-object-23",
-    "x": 92.96,
-    "y": 76.08,
+    "x": 92.19,
+    "y": 74.431,
     "type": "object",
     "label": "23",
     "objectName": "Bowl with boys and lotuses",
@@ -400,13 +624,22 @@
     "period": "Goryeo dynasty (918–1392), early 12th century",
     "description": "Stoneware with mold-impressed design under celadon glaze\n\nGift of Sadajiro Yamanaka, 1911 (11.8.6)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "boys", "lotus", "auspicious", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/50352"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "boys",
+      "lotus",
+      "auspicious",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/50352",
+    "w": 2.44,
+    "h": 2.502
   },
   {
     "id": "gallery233-object-24",
-    "x": 92.96,
-    "y": 79,
+    "x": 92.2,
+    "y": 77.244,
     "type": "object",
     "label": "24",
     "objectName": "Bowl with boys and grapevines",
@@ -415,13 +648,22 @@
     "period": "Goryeo dynasty (918–1392), 12th–13th century",
     "description": "Stoneware with inlaid and mold-impressed design under celadon glaze\n\nGift of Samuel T. Peters, 1915 (15.160.18)\n\nPaired with grapes and lotuses, images of boys symbolize hopes for offspring and good fortune. These celadon bowls present all three motifs. At center, the clearest imagery—three boys amid lotuses (enlarged on the glass)—indicates the most successful firing. While the bowl at left lost nearly half of the impression in the kiln, a boy among grapevines remains visible. Similarly misfired, the third example features interior grapevines with boys set in roundels on the exterior and within.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "boys", "grapevines", "sanggam", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57415"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "boys",
+      "grapevines",
+      "sanggam",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57415",
+    "w": 2.41,
+    "h": 2.502
   },
   {
     "id": "gallery233-object-25",
-    "x": 92.96,
-    "y": 85.08,
+    "x": 92.24,
+    "y": 83.868,
     "type": "object",
     "label": "25",
     "objectName": "Tile decorated with birds and flowers",
@@ -430,13 +672,23 @@
     "period": "Goryeo dynasty (918–1392), 13th century",
     "description": "Stoneware with inlaid design under celadon glaze\n\nPurchase, Friends of Asian Art Gifts, 2023 (2023.320)\n\nSanggam decoration adorns this tile. Motifs are incised, inlaid with slip, then glazed and fired to create black-and-white imagery in a celadon blue-green ground. The surface contrasts sharply with the red-brown clay body, revealing the glaze's ability to create color. Among the thinnest Goryeo-dynasty ceramics, few tiles remain intact; this one bears a vertical crack on the back.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "sanggam", "tile", "birds", "flowers", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/895181"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "sanggam",
+      "tile",
+      "birds",
+      "flowers",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/895181",
+    "w": 2.44,
+    "h": 5.567
   },
   {
     "id": "gallery233-object-26",
-    "x": 86.4,
-    "y": 93.67,
+    "x": 85.99,
+    "y": 90.842,
     "type": "object",
     "label": "26",
     "objectName": "Bird-shaped vessel",
@@ -445,13 +697,22 @@
     "period": "Three Kingdoms period (57 BCE–676 CE), 3rd century",
     "description": "Earthenware\n\nPurchase, Lila Acheson Wallace Gift, 1997 (1997.34.1)\n\nFooted bird-shaped vessels such as this one appear in pairs at burial sites on the southern Korean peninsula. The ceramics probably served as ritual funeral objects. X-rays reveal that the head and neck on this example were made separately and attached to the body. The scan shows a hollow interior to hold and decant liquid. Also visible are repairs to the \"mohawk,\" back opening, and fluted base, which is reinforced with a metal staple.",
     "curatorialInterpretation": "",
-    "keywords": ["Three Kingdoms", "earthenware", "bird", "funerary", "X-ray", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/39496"
+    "keywords": [
+      "Three Kingdoms",
+      "earthenware",
+      "bird",
+      "funerary",
+      "X-ray",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/39496",
+    "w": 5.68,
+    "h": 1.843
   },
   {
     "id": "gallery233-object-27",
-    "x": 76.47,
-    "y": 93.67,
+    "x": 76.45,
+    "y": 90.842,
     "type": "object",
     "label": "27",
     "objectName": "Jar with lid",
@@ -460,13 +721,22 @@
     "period": "Joseon dynasty (1392–1910), 19th century",
     "description": "Porcelain\n\nSeymour Fund, 1965 (65.1.1a, b)\n\nThis porcelain jar features a high neck, a rolled-rim mouth, and an evenly glazed surface. The cobalt-blue character on the underside (重, or jung in Korean) may refer to the location for which the jar was commissioned; Junghui-dang, a now-lost building where Emperor Gojong (reigned 1864–1907) received foreign envoys in Seoul's Changgyeonggung Palace. To prevent the glazed underside from adhering during firing, sand was applied to the lid, which was made separately.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "porcelain", "white porcelain", "cobalt-blue", "royal", "Gojong"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57517"
+    "keywords": [
+      "Joseon",
+      "porcelain",
+      "white porcelain",
+      "cobalt-blue",
+      "royal",
+      "Gojong"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57517",
+    "w": 5.68,
+    "h": 1.843
   },
   {
     "id": "gallery233-object-28",
-    "x": 66.53,
-    "y": 93.67,
+    "x": 66.92,
+    "y": 90.842,
     "type": "object",
     "label": "28",
     "objectName": "Bowl decorated with cranes, rain, and chrysanthemums",
@@ -475,13 +745,22 @@
     "period": "Goryeo dynasty (918–1392), early 14th century",
     "description": "Stoneware with inlaid design under celadon glaze\n\nGift of Samuel T. Peters, 1915 (15.160.19)\n\nWith steep sloping sides that form a triangular silhouette, this bowl has a highly visible exterior. The design is nearly identical to that of the bowl decorated with phoenixes, clouds and chrysanthemums (on view nearby). Hash marks and small cranes hint at the interior, where four cranes fly through rain. The minimal yet striking images are rendered with dense, repeated strokes. Echoing an exterior motif, a single chrysanthemum appears in the indented center.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "inlaid", "crane", "chrysanthemum", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57416"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "inlaid",
+      "crane",
+      "chrysanthemum",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57416",
+    "w": 5.65,
+    "h": 1.843
   },
   {
     "id": "gallery233-object-29",
-    "x": 56.6,
-    "y": 93.67,
+    "x": 57.39,
+    "y": 90.842,
     "type": "object",
     "label": "29",
     "objectName": "Bowls with flowers, waves, and a cloud",
@@ -490,13 +769,23 @@
     "period": "Goryeo dynasty (918–1392), 12th century",
     "description": "Stoneware with incised design under celadon glaze\n\nRogers Fund, 1916 (16.122.2) and Museum Accession (X.652)\n\nThough one is slightly larger, these bowls have nearly identical shapes and decorative schemes, suggesting that they were produced at the same kiln. Celadon glaze, pooled in incised lines and darkened during firing, creates the ornamentation. The exterior bears large whimsical flowers and leaves, while dense multidirectional hatches resembling waves cover the interior. A stylized cloud with streaming ends adorns the center. The fine lines make the inner design (enlarged on the glass) difficult to see.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "incised", "flowers", "waves", "cloud", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/52082"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "incised",
+      "flowers",
+      "waves",
+      "cloud",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/52082",
+    "w": 5.68,
+    "h": 1.843
   },
   {
     "id": "gallery233-object-30",
-    "x": 49.76,
-    "y": 93.67,
+    "x": 50.78,
+    "y": 90.764,
     "type": "object",
     "label": "30",
     "objectName": "Marbled covered box",
@@ -505,13 +794,21 @@
     "period": "Goryeo dynasty (918–1392), 12th–13th century",
     "description": "Stoneware with celadon glaze\n\nPurchase, Michael and Kathleen Linburn Gift, 2024 (2024.338a, b)\n\nThis box is displayed open to show glazed and unglazed areas, made with the decorative technique known as marbling. Celadon glaze provides the green hue, while the rim reveals the swirling clay body beneath. Unlike the other celadons in this exhibition, this example's spiral design comes from the intentional blending of clays with different iron contents. The technique creates a charming green pattern when glazed and fired.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "celadon", "marbling", "box", "ceramic"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/910554"
+    "keywords": [
+      "Goryeo",
+      "celadon",
+      "marbling",
+      "box",
+      "ceramic"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/910554",
+    "w": 2.47,
+    "h": 1.872
   },
   {
     "id": "gallery233-object-31",
-    "x": 46.5,
-    "y": 93.67,
+    "x": 47.63,
+    "y": 90.764,
     "type": "object",
     "label": "31",
     "objectName": "Animal-shaped seal",
@@ -520,13 +817,21 @@
     "period": "Goryeo dynasty (918–1392), 12th century",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.36)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "seal", "animal", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57445"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "seal",
+      "animal",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57445",
+    "w": 2.47,
+    "h": 1.872
   },
   {
     "id": "gallery233-object-32",
-    "x": 43.08,
-    "y": 93.67,
+    "x": 44.42,
+    "y": 90.764,
     "type": "object",
     "label": "32",
     "objectName": "Seal",
@@ -535,13 +840,21 @@
     "period": "Goryeo dynasty (918–1392), 12th century",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.55)\n\nThe small seal at right features a remarkably complex design. Two animals stand upright on their hind legs, lifting a circular vessel with their outstretched front paws. Tilting upward, their oversize heads create a dramatic pose. Such imagery recalls the bases of Unified Silla-period large stone lanterns from the eighth and ninth centuries as well as Goryeo-period candlesticks. Like other seals with this motif, the base is octagonal. The character on the bottom (pictured here) is indecipherable.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "seal", "metalwork", "animals"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57455"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "seal",
+      "metalwork",
+      "animals"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57455",
+    "w": 2.47,
+    "h": 1.872
   },
   {
     "id": "gallery233-object-33",
-    "x": 36.64,
-    "y": 93.67,
+    "x": 38.32,
+    "y": 90.842,
     "type": "object",
     "label": "33",
     "objectName": "Seated arhat",
@@ -550,13 +863,22 @@
     "period": "Joseon dynasty (1392–1910), 18th–19th century",
     "description": "Clay, wood, textile, paper, pigment\n\nGift of Abby Aldrich Rockefeller, 1942 (42.25.7)\n\nThis arhat—an enlightened disciple of the Buddha—has a complex construction. Clay modeled over a solid-wood core forms the seated figure, and in some areas, textiles provide structural support with paper overlaid and painted. The Sanskrit characters on the back are similar to those found in the Kashyapa sculpture and on a mirror, both nearby. Unlike other Buddhist sculptures on display, X-ray scans reveal no hidden cavities or offerings.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "clay", "wood", "arhat", "Buddhist", "X-ray"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57386"
+    "keywords": [
+      "Joseon",
+      "clay",
+      "wood",
+      "arhat",
+      "Buddhist",
+      "X-ray"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57386",
+    "w": 5.68,
+    "h": 1.843
   },
   {
     "id": "gallery233-object-34",
-    "x": 63.68,
-    "y": 79.5,
+    "x": 64.18,
+    "y": 78.001,
     "type": "object",
     "label": "34",
     "objectName": "Mirror with tab",
@@ -565,13 +887,20 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1922 (22.141.11)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57491"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57491",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-35",
-    "x": 63.68,
-    "y": 76.83,
+    "x": 64.18,
+    "y": 75.411,
     "type": "object",
     "label": "35",
     "objectName": "Mirror with handle",
@@ -580,13 +909,20 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.30)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57483"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57483",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-36",
-    "x": 63.68,
-    "y": 74.17,
+    "x": 64.18,
+    "y": 72.841,
     "type": "object",
     "label": "36",
     "objectName": "Mirror decorated with palmette and arabesque motifs",
@@ -595,13 +931,22 @@
     "period": "Goryeo dynasty (918–1392), first half of the 12th century",
     "description": "Bronze and silver\n\nRogers Fund, 1911 (11.48.3)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "silver", "mirror", "palmette", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/40405"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "silver",
+      "mirror",
+      "palmette",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/40405",
+    "w": 4.72,
+    "h": 1.814
   },
   {
     "id": "gallery233-object-37",
-    "x": 63.68,
-    "y": 71.5,
+    "x": 64.18,
+    "y": 70.271,
     "type": "object",
     "label": "37",
     "objectName": "Square mirror decorated with sea creatures and clouds",
@@ -610,13 +955,22 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.24)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "sea creatures", "clouds", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57477"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "sea creatures",
+      "clouds",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57477",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-38",
-    "x": 63.68,
-    "y": 68.83,
+    "x": 64.18,
+    "y": 67.681,
     "type": "object",
     "label": "38",
     "objectName": "Mirror decorated with dragons, ritual bronze, and clouds",
@@ -625,13 +979,23 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1922 (22.141.10)\n\nAncient ritual bronzes, used in ceremonies to honor ancestors, have been central to political life throughout Korean history. As symbols of power and authority, they were often decorated with dragon motifs. The scene depicted on this mirror highlights this connection. Two dragons fly downward, flanking and animatedly peering at a steaming bronze tripod cauldron. Clouds and a foliated rim embellish the border.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "dragon", "ritual", "ancestor", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57490"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "dragon",
+      "ritual",
+      "ancestor",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57490",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-39",
-    "x": 63.68,
-    "y": 66.17,
+    "x": 64.18,
+    "y": 65.101,
     "type": "object",
     "label": "39",
     "objectName": "Mirror decorated with lunisolar cosmology",
@@ -640,13 +1004,24 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.25)\n\nThis mirror's five segments depict components of Daoist and Confucian cosmology that were adopted throughout East Asia. The central animals represent the five cardinal directions (ohaeng), followed by the Eight Trigrams (palgwae) with the Ten Heavenly Stems (cheongan), then the Twelve Zodiac Animals. The fourth register depicts thirty-six animals, and the outermost band has the twenty-four solar terms (jeolgi) in seal script, with six terms assigned to each of the four seasons.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "cosmology", "Daoist", "Confucian", "zodiac", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57478"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "cosmology",
+      "Daoist",
+      "Confucian",
+      "zodiac",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57478",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-40",
-    "x": 63.68,
-    "y": 63.5,
+    "x": 64.18,
+    "y": 62.512,
     "type": "object",
     "label": "40",
     "objectName": "Mirror decorated with Sanskrit inscriptions",
@@ -655,13 +1030,23 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.21)\n\nBuddhism arrived in Korea in the fourth century, and by the sixth century, became the peninsula's predominant belief system. It was the state religion during the Goryeo period, when the arts flourished under royal and temple patronage. Buddhist mantras commonly appeared on secular and popular objects. This mirror bears sixteen Sanskrit characters on the inner band and twenty on the outer, some of which comprise \"Om Mani Padme Hum,\" a mantra chanted to gain enlightenment.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "Sanskrit", "Buddhist", "mantra", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57475"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "Sanskrit",
+      "Buddhist",
+      "mantra",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57475",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-46",
-    "x": 43.24,
-    "y": 26.75,
+    "x": 44.64,
+    "y": 28.313,
     "type": "object",
     "label": "46",
     "objectName": "Sanggam-Inlaid Celadon with Artist Lee Sol Chan",
@@ -670,13 +1055,20 @@
     "period": "",
     "description": "Video, color, sound, 2 min., 12 sec.\n\nCourtesy of the National Museum of Korea",
     "curatorialInterpretation": "",
-    "keywords": ["celadon", "sanggam", "video", "National Museum of Korea"],
-    "metUrl": "https://www.youtube.com/watch?v=YM7FhGcR_5E"
+    "keywords": [
+      "celadon",
+      "sanggam",
+      "video",
+      "National Museum of Korea"
+    ],
+    "metUrl": "https://www.youtube.com/watch?v=YM7FhGcR_5E",
+    "w": 1.73,
+    "h": 9.631
   },
   {
     "id": "gallery233-object-41",
-    "x": 63.68,
-    "y": 60.83,
+    "x": 64.18,
+    "y": 59.932,
     "type": "object",
     "label": "41",
     "objectName": "Mirror with handle",
@@ -685,13 +1077,20 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1922 (22.141.12)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57493"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57493",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-42",
-    "x": 63.68,
-    "y": 58.17,
+    "x": 64.18,
+    "y": 57.342,
     "type": "object",
     "label": "42",
     "objectName": "Square mirror decorated with palmette motifs",
@@ -700,13 +1099,21 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.23)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "palmette", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/52093"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "palmette",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/52093",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-43",
-    "x": 63.68,
-    "y": 55.5,
+    "x": 64.18,
+    "y": 54.762,
     "type": "object",
     "label": "43",
     "objectName": "Mirror with handle and decorated with peacock, flowers, and birds",
@@ -715,13 +1122,23 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1917 (17.175.32)",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "peacock", "birds", "flowers", "metalwork"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57484"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "peacock",
+      "birds",
+      "flowers",
+      "metalwork"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57484",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-44",
-    "x": 63.68,
-    "y": 52.67,
+    "x": 64.18,
+    "y": 52.173,
     "type": "object",
     "label": "44",
     "objectName": "Mirror decorated with cranes and birds",
@@ -730,13 +1147,23 @@
     "period": "Goryeo dynasty (918–1392)",
     "description": "Bronze\n\nRogers Fund, 1922 (22.141.16)\n\nBronze mirrors emerged in East Asia during the late Neolithic and Bronze Ages, notably in China, Korea, and Japan. The practical objects were also thought to ward off evil, symbolizing authority, cosmology, and ritual power. Ranging from austere to highly ornamented, these examples display intercultural connections and advances in cast metalwork. While the decorated sides are often exclusively exhibited, the polished surfaces demonstrate their utility, and the interesting weathering and patina reflect the marks of time.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "bronze", "mirror", "crane", "birds", "metalwork", "East Asia"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/57496"
+    "keywords": [
+      "Goryeo",
+      "bronze",
+      "mirror",
+      "crane",
+      "birds",
+      "metalwork",
+      "East Asia"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/57496",
+    "w": 4.72,
+    "h": 1.794
   },
   {
     "id": "gallery233-object-45",
-    "x": 45.03,
-    "y": 75.88,
+    "x": 46.22,
+    "y": 74.15,
     "type": "object",
     "label": "45",
     "objectName": "Rafter finial in the shape of a dragon's head and wind chime",
@@ -745,13 +1172,23 @@
     "period": "Goryeo dynasty (918–1392), 10th century",
     "description": "Gilt bronze\n\nPurchase, The Vincent Astor Foundation Gift, 1999 Benefit Fund, and The Rosenkranz Foundation Inc. Gift, 1999 (1999.263a, b)\n\nThis finial in the shape of a dragon's head would originally have been attached to a corner rafter of a royal hall or a Buddhist temple building (see the photograph at right of a model pagoda that replicates a full-size wood structure from the Goryeo dynasty). The beast's bulging eyes, flaring nostrils, and elaborate scales convey the fierceness and invincibility of this auspicious creature. The small holes at the sides of the neck were probably used to secure the heavy object to the roof. The bell, which functioned as a wind chime, once had a metal-plate clapper inside. The bell would have been suspended from the loop at the mouth of the dragon by a hook. The decorative panels on the lower halves of both faces of the bell feature a swastika (an ancient symbol associated with the Buddha) within a lotus-flower platform. A nearly identical set of a dragon's head and wind chime, the only other comparable extant example, is in the collection of the Leeum Museum of Art in Seoul.",
     "curatorialInterpretation": "",
-    "keywords": ["Goryeo", "gilt bronze", "dragon", "architecture", "Buddhist", "temple", "wind chime"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/50325"
+    "keywords": [
+      "Goryeo",
+      "gilt bronze",
+      "dragon",
+      "architecture",
+      "Buddhist",
+      "temple",
+      "wind chime"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/50325",
+    "w": 3.3,
+    "h": 3.239
   },
   {
     "id": "gallery233-object-47",
-    "x": 7.25,
-    "y": 49.88,
+    "x": 9.13,
+    "y": 50.097,
     "type": "object",
     "label": "47",
     "objectName": "Birds and Flowers",
@@ -760,7 +1197,17 @@
     "period": "Joseon dynasty (1392–1910), late 19th century",
     "description": "Ten-panel folding screen, silk embroidery\n\nMary and Cheney Cowles Collection, Gift of Mary and Cheney Cowles, 2024 (2024.577.5)\n\nEach of these panels presents two pairs of birds in a landscape of rock and flowering trees, illustrating the intersection of painting and embroidery. The finely stitched creatures display a wide range of colors, from bright pink and orange to tan and black. Flowers and leaves are depicted with articulated veins and subtle shading. Inspired by auspicious painting traditions, the rocks appear in fanciful blue, green, and purple hues, outlined in dark thread. Since textiles are highly light sensitive, conservators examined this screen with ultraviolet light, causing the pink thread to glow orange (pictured at right and left). Together with mass spectrometry analysis, this fluorescence reveals the presence of an early synthetic dye developed in the 1880s, confirming the screen's late nineteenth-century date.",
     "curatorialInterpretation": "",
-    "keywords": ["Joseon", "embroidery", "silk", "birds", "flowers", "folding screen", "textile"],
-    "metUrl": "https://www.metmuseum.org/art/collection/search/918072"
+    "keywords": [
+      "Joseon",
+      "embroidery",
+      "silk",
+      "birds",
+      "flowers",
+      "folding screen",
+      "textile"
+    ],
+    "metUrl": "https://www.metmuseum.org/art/collection/search/918072",
+    "w": 2.07,
+    "h": 40.425
   }
 ]

@@ -54,12 +54,16 @@ function ClickableExcerpt({ text, selectedWord, onSelectWord }: { text: string; 
         const isWord = /^[a-zA-Z0-9]+$/.test(part);
         if (!isWord) return <span key={i}>{part}</span>;
         const isSelected = wordPattern.test(part);
+        const isStopword = STOPWORDS.has(part.toLowerCase());
         if (isSelected) {
           return (
             <mark key={i} className="bg-accent text-ink px-0.5 cursor-pointer" onClick={() => onSelectWord(part.toLowerCase())}>
               {part}
             </mark>
           );
+        }
+        if (isStopword) {
+          return <span key={i}>{part}</span>;
         }
         return (
           <span

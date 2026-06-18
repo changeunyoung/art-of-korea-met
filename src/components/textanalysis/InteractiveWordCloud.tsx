@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import cloud from "d3-cloud";
 import { WordFrequency } from "@/lib/types";
 import { getThemeForWord, STOPWORDS } from "@/lib/textAnalysis";
 import { THEMES } from "@/components/textanalysis/ThemeExplorer";
@@ -38,13 +37,25 @@ interface CloudWord extends WordFrequency {
   tier: 1 | 2 | 3;
 }
 
-interface SeedWord {
+// Internal placement box — stores half-dimensions for AABB collision
+interface WordBox {
   text: string;
   value: number;
-  size: number;
-  x?: number;
-  y?: number;
-  rotate?: number;
+  x: number;
+  y: number;
+  hw: number; // half-width of collision box
+  hh: number; // half-height of collision box
+  fontSize: number;
+  rotate: number;
+  color: string;
+  tier: 1 | 2 | 3;
+}
+
+function aabbOverlap(a: WordBox, b: WordBox, pad = 1): boolean {
+  return (
+    Math.abs(a.x - b.x) < a.hw + b.hw + pad &&
+    Math.abs(a.y - b.y) < a.hh + b.hh + pad
+  );
 }
 
 function hashText(text: string): number {
@@ -81,7 +92,8 @@ export default function InteractiveWordCloud({
     return frequencies.filter((f) => getThemeForWord(f.text) === selectedTheme);
   }, [frequencies, selectedTheme]);
 
-  const query = searchQuery.trim().toLowerCase();
+  const rawQuery = searchQuery.trim().toLowerCase();
+  const query = STOPWORDS.has(rawQuery) ? "" : rawQuery;
 
   // Top-N terms by frequency, plus any words elsewhere in the dataset that
   // match the current search query — so users can find and highlight a word
@@ -111,11 +123,8 @@ export default function InteractiveWordCloud({
     return () => observer.disconnect();
   }, []);
 
-  // Run a real d3-cloud (Voyant Cirrus style) layout: the full set of
-  // currently-displayed terms is laid out from scratch with a spiral,
-  // collision-based packing algorithm, biggest words near the center.
-  // Every change to `displayed` (e.g. the Terms slider) triggers a complete
-  // recalculation — no previous coordinates are reused.
+  // Custom layout: AABB bounding-box collision + Archimedean spiral placement
+  // + force-relaxation pass to pull all words toward center after placement.
   useEffect(() => {
     if (size.width === 0 || size.height === 0 || displayed.length === 0) {
       setLayout([]);
@@ -133,15 +142,8 @@ export default function InteractiveWordCloud({
       return minFont + Math.pow(ratio, 1.1) * (maxFont - minFont);
     };
 
-    // Visual hierarchy tiers, by rank (displayed is sorted by frequency desc):
-    // tier 1 — the 5-8 most important words, strong colors, always horizontal.
-    // tier 2 — mid-frequency words, medium tones.
-    // tier 3 — everything else, pale gray, read last.
     const topCount = Math.min(8, Math.max(5, Math.ceil(displayed.length * 0.06)), displayed.length);
-    const midCount = Math.min(
-      displayed.length,
-      topCount + Math.ceil(displayed.length * 0.25)
-    );
+    const midCount = Math.min(displayed.length, topCount + Math.ceil(displayed.length * 0.25));
 
     const tierFor = (i: number): 1 | 2 | 3 => (i < topCount ? 1 : i < midCount ? 2 : 3);
     const colorFor = (i: number, tier: 1 | 2 | 3) => {
@@ -150,135 +152,171 @@ export default function InteractiveWordCloud({
       return LIGHT_COLORS[i % LIGHT_COLORS.length];
     };
 
-    // Reserve a little extra room beyond each word's rendered size when
-    // computing collision boxes — fonts can render very slightly larger
-    // than `measureText` predicts (hinting/sub-pixel differences), so this
-    // safety margin guarantees the actual glyphs never touch.
-    const SAFETY = 1.22;
+    // Collision boxes are slightly larger than the rendered font size to
+    // guarantee glyphs never visually touch despite sub-pixel rounding.
+    const SAFETY = 1.15;
 
-    const seeds: SeedWord[] = displayed.map((w, i) => ({
-      text: w.text,
-      value: w.value,
-      size: scaleFont(w.value) * (i < topCount ? 1.06 : 1) * SAFETY,
-    }));
-
-    // A slightly wide oval (museum-panel proportions): cap the spiral's
-    // bounding box aspect ratio rather than letting it stretch to the full
-    // container width, so the cloud reads as a calm, densely packed blob
-    // instead of either a thin strip or a perfect circle.
+    // Oval cloud area — wide enough for English text but not a thin strip.
     const aspect = 1.3;
     const cloudW = Math.min(size.width, size.height * aspect);
     const cloudH = size.height;
 
-    const weightFor = (i: number) => {
-      const tier = tierFor(i);
-      return tier === 1 ? 700 : tier === 2 ? 500 : 400;
-    };
+    let cancelled = false;
 
-    const layoutGen = cloud<SeedWord>()
-      .size([cloudW, cloudH])
-      .words(seeds)
-      .padding(3)
-      .rotate((_d, i) => {
-        if (i < topCount) return 0; // largest words stay horizontal
-        return hashText(_d.text ?? "") % 5 === 0 ? 90 : 0; // ~18% vertical overall
-      })
-      // Render with Georgia — a serif with well-behaved, predictable glyph
-      // metrics (modest ascenders/descenders, no large decorative swashes).
-      // d3-cloud's canvas-measured collision boxes line up tightly with the
-      // rendered glyphs, so words can pack densely without overlapping.
-      // (Cormorant Garamond's exaggerated swashes made measureText-based
-      // boxes too small relative to what actually renders.)
-      .font("Georgia")
-      .fontWeight((_d, i) => weightFor(i))
-      .fontSize((d) => d.size ?? minFont)
-      .random(() => 0.5)
-      .on("end", (placed) => {
-        const displayedTexts = new Set(displayed.map((w) => w.text));
-        const rankByText = new Map(displayed.map((w, i) => [w.text, i]));
-        const nextMap = new Map<string, CloudWord>();
+    const run = () => {
+      if (cancelled) return;
 
-        placed.forEach((w) => {
-          const text = w.text ?? "";
-          const rank = rankByText.get(text) ?? displayed.length - 1;
-          const tier = tierFor(rank);
-          nextMap.set(text, {
-            text,
-            value: w.value ?? 0,
-            x: w.x ?? 0,
-            y: w.y ?? 0,
-            rotate: w.rotate ?? 0,
-            // Render slightly smaller than the collision box that was
-            // measured, so the safety margin above never shows as overlap.
-            fontSize: (w.size ?? minFont) / SAFETY,
-            color: colorFor(rank, tier),
-            tier,
-          });
-        });
+      // --- Step 1: Measure every word's bounding box via canvas ---
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
 
-        const prevMap = layoutMapRef.current;
-        const removed: CloudWord[] = [];
-        prevMap.forEach((w, text) => {
-          if (!displayedTexts.has(text)) removed.push(w);
-        });
+      const boxes: WordBox[] = displayed.map((w, i) => {
+        const tier = tierFor(i);
+        const weight = tier === 1 ? 700 : tier === 2 ? 500 : 400;
+        const fs = scaleFont(w.value) * (i < topCount ? 1.06 : 1) * SAFETY;
+        // ~20 % of non-top words go vertical to break horizontal monotony
+        const rotate = i < topCount ? 0 : (hashText(w.text) % 5 === 0 ? 90 : 0);
+        ctx.font = `${weight} ${fs}px Montserrat, sans-serif`;
+        const mw = ctx.measureText(w.text).width;
+        const mh = fs * 1.1;
+        // Swap width/height when the word is rendered rotated 90°
+        const hw = (rotate === 90 ? mh : mw) / 2;
+        const hh = (rotate === 90 ? mw : mh) / 2;
+        return { text: w.text, value: w.value, x: 0, y: 0, hw, hh, fontSize: fs, rotate, color: colorFor(i, tier), tier };
+      });
 
-        layoutMapRef.current = nextMap;
-        setLayout(Array.from(nextMap.values()));
+      // --- Step 2: Archimedean spiral placement, largest words first ---
+      // x grows faster than y (aspect ratio e) so the cloud fills a wide oval.
+      const placed: WordBox[] = [];
+      const e = cloudW / cloudH;
+      const maxR = Math.sqrt((cloudW / 2) ** 2 + (cloudH / 2) ** 2);
 
-        if (removed.length > 0) {
-          removed.forEach((w) => {
-            const timer = setTimeout(() => {
-              setExiting((prev) => prev.filter((x) => x.text !== w.text));
-              exitTimers.current.delete(w.text);
-            }, 600);
-            exitTimers.current.set(w.text, timer);
-          });
-          setExiting((prev) => {
-            const merged = new Map(prev.map((w) => [w.text, w]));
-            removed.forEach((w) => merged.set(w.text, { ...w, fading: false }));
-            return Array.from(merged.values());
-          });
+      for (const word of boxes) {
+        if (cancelled) return;
+        let foundPos = false;
+
+        for (let t = 0; t < 10000; t++) {
+          const angle = t * 0.1;
+          const r = angle;
+          if (r > maxR + 50) break; // spiral has passed the canvas entirely
+          const x = e * r * Math.cos(angle);
+          const y = r * Math.sin(angle);
+          if (Math.abs(x) + word.hw > cloudW / 2 || Math.abs(y) + word.hh > cloudH / 2) continue;
+
+          const test: WordBox = { ...word, x, y };
+          if (!placed.some((p) => aabbOverlap(test, p))) {
+            word.x = x;
+            word.y = y;
+            placed.push(word);
+            foundPos = true;
+            break;
+          }
         }
 
-        exitTimers.current.forEach((timer, text) => {
-          if (displayedTexts.has(text)) {
-            clearTimeout(timer);
-            exitTimers.current.delete(text);
-          }
-        });
-        setExiting((prev) => prev.filter((w) => !displayedTexts.has(w.text)));
+        if (!foundPos) {
+          // Couldn't fit — place at center as fallback (will be overlapped)
+          placed.push(word);
+        }
+      }
 
-        setRevealed((prev) => {
-          const next = new Set(prev);
-          let changed = false;
-          prev.forEach((text) => {
-            if (!displayedTexts.has(text)) {
-              next.delete(text);
-              changed = true;
-            }
-          });
-          return changed ? next : prev;
+      // --- Step 3: Force relaxation — pull every word toward (0,0) ---
+      // Each pass tries a small center-ward step; commits only if collision-free.
+      // Stops early when nothing moved (converged).
+      for (let pass = 0; pass < 120; pass++) {
+        if (cancelled) return;
+        let moved = false;
+
+        for (let i = 0; i < placed.length; i++) {
+          const w = placed[i];
+          const dx = -w.x * 0.07;
+          const dy = -w.y * 0.07;
+          if (Math.abs(dx) < 0.08 && Math.abs(dy) < 0.08) continue;
+
+          const nx = w.x + dx;
+          const ny = w.y + dy;
+          if (Math.abs(nx) + w.hw > cloudW / 2 || Math.abs(ny) + w.hh > cloudH / 2) continue;
+
+          const test: WordBox = { ...w, x: nx, y: ny };
+          if (!placed.some((p, j) => j !== i && aabbOverlap(test, p))) {
+            placed[i] = { ...w, x: nx, y: ny };
+            moved = true;
+          }
+        }
+
+        if (!moved) break;
+      }
+
+      if (cancelled) return;
+
+      // --- Step 4: Emit layout ---
+      const displayedTexts = new Set(displayed.map((w) => w.text));
+      const nextMap = new Map<string, CloudWord>();
+
+      placed.forEach((w) => {
+        nextMap.set(w.text, {
+          text: w.text,
+          value: w.value,
+          x: w.x,
+          y: w.y,
+          rotate: w.rotate,
+          fontSize: w.fontSize / SAFETY,
+          color: w.color,
+          tier: w.tier,
         });
       });
 
-    // Wait for the actual rendering font to finish loading before measuring
-    // text widths — otherwise the canvas falls back to a default font on
-    // first render, the collision boxes won't match the rendered glyphs,
-    // and words can end up overlapping.
-    let cancelled = false;
-    const start = () => {
-      if (!cancelled) layoutGen.start();
+      const prevMap = layoutMapRef.current;
+      const removed: CloudWord[] = [];
+      prevMap.forEach((w, text) => {
+        if (!displayedTexts.has(text)) removed.push(w);
+      });
+
+      layoutMapRef.current = nextMap;
+      setLayout(Array.from(nextMap.values()));
+
+      if (removed.length > 0) {
+        removed.forEach((w) => {
+          const timer = setTimeout(() => {
+            setExiting((prev) => prev.filter((x) => x.text !== w.text));
+            exitTimers.current.delete(w.text);
+          }, 600);
+          exitTimers.current.set(w.text, timer);
+        });
+        setExiting((prev) => {
+          const merged = new Map(prev.map((w) => [w.text, w]));
+          removed.forEach((w) => merged.set(w.text, { ...w, fading: false }));
+          return Array.from(merged.values());
+        });
+      }
+
+      exitTimers.current.forEach((timer, text) => {
+        if (displayedTexts.has(text)) {
+          clearTimeout(timer);
+          exitTimers.current.delete(text);
+        }
+      });
+      setExiting((prev) => prev.filter((w) => !displayedTexts.has(w.text)));
+
+      setRevealed((prev) => {
+        const next = new Set(prev);
+        let changed = false;
+        prev.forEach((text) => {
+          if (!displayedTexts.has(text)) { next.delete(text); changed = true; }
+        });
+        return changed ? next : prev;
+      });
     };
+
+    // Wait for Montserrat to finish loading before measuring — the canvas
+    // falls back to a system font otherwise and collision boxes won't match.
     if (typeof document !== "undefined" && document.fonts?.ready) {
-      document.fonts.ready.then(start);
+      document.fonts.ready.then(run);
     } else {
-      start();
+      run();
     }
 
-    return () => {
-      cancelled = true;
-      layoutGen.stop();
-    };
+    return () => { cancelled = true; };
   }, [displayed, size]);
 
   // Trigger the fade-out transition for newly exiting words on the next frame.
@@ -403,7 +441,7 @@ export default function InteractiveWordCloud({
                 dominantBaseline="central"
                 className="select-none transition-museum"
                 style={{
-                  fontFamily: "Georgia, 'Times New Roman', serif",
+                  fontFamily: "Montserrat, sans-serif",
                   transform: `translate(${cx + word.x}px, ${cy + word.y}px) rotate(${word.rotate}deg)`,
                   fontSize: `${word.fontSize}px`,
                   fill: word.color,
@@ -435,7 +473,7 @@ export default function InteractiveWordCloud({
                   onClick={() => onSelectWord(word.text)}
                   className="cursor-pointer select-none transition-museum hover:opacity-80"
                   style={{
-                    fontFamily: "Georgia, 'Times New Roman', serif",
+                    fontFamily: "Montserrat, sans-serif",
                     transform: `translate(${cx + word.x}px, ${cy + word.y}px) rotate(${word.rotate}deg) scale(${scale})`,
                     fontSize: `${word.fontSize}px`,
                     fontWeight: emphasized ? 700 : word.tier === 1 ? 700 : word.tier === 2 ? 500 : 400,

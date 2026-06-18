@@ -13,7 +13,7 @@ export default async function InteractiveMapPage() {
     <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
       <PageEditor page="map" initialBlocks={blocks} isAdmin={admin}>
         <div className="mt-12 rounded-sm overflow-hidden" style={{ backgroundColor: "#E5E8EF" }}>
-          <div className="overflow-hidden mx-auto" style={{ maxWidth: "40%" }}>
+          <div className="overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.6" }}>
             <video
               src="/videos/minimap.mp4"
               autoPlay

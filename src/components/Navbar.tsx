@@ -26,8 +26,8 @@ const links: NavLink[] = [
       { href: "/text-analysis#interpretation", label: "What Does This Language Tell Us?" },
     ],
   },
-  { href: "/methodology", label: "About" },
   { href: "/game", label: "Mini Game" },
+  { href: "/methodology", label: "About" },
 ];
 
 export default function Navbar() {

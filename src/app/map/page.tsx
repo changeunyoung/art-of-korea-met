@@ -9,6 +9,7 @@ export default async function InteractiveMapPage() {
   const blocks = readContent("map");
   const admin = await isAdmin();
   return (
+    <div style={{ backgroundColor: "#DDE1E9", minHeight: "100vh" }}>
     <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
       <PageEditor page="map" initialBlocks={blocks} isAdmin={admin}>
         <div className="mt-12 rounded-sm overflow-hidden" style={{ backgroundColor: "#DDE1E9" }}>
@@ -23,6 +24,7 @@ export default async function InteractiveMapPage() {
           <MapInteractive />
         </div>
       </PageEditor>
+    </div>
     </div>
   );
 }

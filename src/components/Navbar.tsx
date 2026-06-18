@@ -75,13 +75,11 @@ export default function Navbar() {
                 <div
                   className="absolute top-full mt-3 py-1.5 w-[130px] z-50 overflow-hidden pointer-events-none"
                   style={{
-                    backgroundColor: "rgba(245, 244, 242, 0.85)",
-                    backdropFilter: "blur(12px)",
+                    backgroundColor: "rgba(245, 244, 242, 0.75)",
+                    backdropFilter: "blur(8px)",
                     left: "50%",
                     marginLeft: "-65px",
                     transformOrigin: "top center",
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
                     opacity: openDropdown === link.href ? 1 : 0,
                     transform: openDropdown === link.href ? "scaleY(1) translateY(0)" : "scaleY(0.85) translateY(-6px)",
                     transition: "opacity 0.22s cubic-bezier(0.4,0,0.2,1), transform 0.22s cubic-bezier(0.4,0,0.2,1)",

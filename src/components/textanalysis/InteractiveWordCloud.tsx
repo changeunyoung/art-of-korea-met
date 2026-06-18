@@ -214,10 +214,7 @@ export default function InteractiveWordCloud({
           }
         }
 
-        if (!foundPos) {
-          // Couldn't fit — place at center as fallback (will be overlapped)
-          placed.push(word);
-        }
+        // If no position found, skip this word rather than stacking at center
       }
 
       // --- Step 3: Force relaxation — pull every word toward (0,0) ---

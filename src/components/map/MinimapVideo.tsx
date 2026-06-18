@@ -3,19 +3,41 @@
 import { useRef } from "react";
 
 export default function MinimapVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const v = videoRef.current;
+    const c = containerRef.current;
+    if (!v || !c || !v.duration) return;
+    const rect = c.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+    v.currentTime = ratio * v.duration;
+  };
+
+  const handleMouseLeave = () => {
+    const v = videoRef.current;
+    if (!v || !v.duration) return;
+    v.currentTime = v.duration / 2;
+  };
 
   return (
-    <div className="relative overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}>
+    <div
+      ref={containerRef}
+      className="relative overflow-hidden mx-auto"
+      style={{ maxWidth: "40%", aspectRatio: "4 / 2.75", cursor: "ew-resize" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       <video
-        ref={ref}
+        ref={videoRef}
         src="/videos/minimap.mp4"
         muted
         playsInline
         className="w-full block"
         style={{ transform: "scale(1.06) translateY(-5%)", transformOrigin: "center center" }}
         onLoadedMetadata={() => {
-          const v = ref.current;
+          const v = videoRef.current;
           if (!v) return;
           v.currentTime = v.duration / 2;
         }}

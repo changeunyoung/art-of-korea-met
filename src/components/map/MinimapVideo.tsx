@@ -11,44 +11,47 @@ export default function MinimapVideo() {
     const rev = revRef.current;
     if (!fwd || !rev) return;
 
-    const PREBUFFER = 0.08; // seconds before end to start next video
+    fwd.pause();
+    rev.pause();
 
-    const onFwdTimeUpdate = () => {
-      if (fwd.duration && fwd.currentTime >= fwd.duration - PREBUFFER) {
-        rev.currentTime = 0;
-        rev.play();
+    let active: HTMLVideoElement = fwd; // currently visible video
+    let pauseTimer: ReturnType<typeof setTimeout>;
+
+    // logical position 0..1 in the forward direction
+    const getPos = (): number => {
+      if (!active.duration) return 0;
+      return active === fwd
+        ? active.currentTime / active.duration
+        : 1 - active.currentTime / active.duration;
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      clearTimeout(pauseTimer);
+      const goFwd = e.deltaY > 0;
+      const next = goFwd ? fwd : rev;
+
+      if (active !== next) {
+        // direction changed: one seek to sync, then play
+        const pos = getPos();
+        active.pause();
+        active.style.opacity = "0";
+        if (next.duration) {
+          next.currentTime = goFwd ? pos * next.duration : (1 - pos) * next.duration;
+        }
+        next.style.opacity = "1";
+        active = next;
       }
+
+      const nearEnd = next.duration && next.currentTime >= next.duration - 0.05;
+      if (!nearEnd) next.play();
+
+      pauseTimer = setTimeout(() => next.pause(), 200);
     };
 
-    const onRevTimeUpdate = () => {
-      if (rev.duration && rev.currentTime >= rev.duration - PREBUFFER) {
-        fwd.currentTime = 0;
-        fwd.play();
-      }
-    };
-
-    const onFwdPlaying = () => {
-      fwd.style.opacity = "1";
-      rev.style.opacity = "0";
-    };
-
-    const onRevPlaying = () => {
-      rev.style.opacity = "1";
-      fwd.style.opacity = "0";
-    };
-
-    fwd.addEventListener("timeupdate", onFwdTimeUpdate);
-    rev.addEventListener("timeupdate", onRevTimeUpdate);
-    fwd.addEventListener("playing", onFwdPlaying);
-    rev.addEventListener("playing", onRevPlaying);
-
-    fwd.play();
-
+    window.addEventListener("wheel", handleWheel, { passive: true });
     return () => {
-      fwd.removeEventListener("timeupdate", onFwdTimeUpdate);
-      rev.removeEventListener("timeupdate", onRevTimeUpdate);
-      fwd.removeEventListener("playing", onFwdPlaying);
-      rev.removeEventListener("playing", onRevPlaying);
+      window.removeEventListener("wheel", handleWheel);
+      clearTimeout(pauseTimer);
       fwd.pause();
       rev.pause();
     };
@@ -66,13 +69,9 @@ export default function MinimapVideo() {
     <div className="relative overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}>
       <video ref={fwdRef} src="/videos/minimap.mp4"         muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
       <video ref={revRef} src="/videos/minimap-reverse.mp4" muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
-      {/* bottom */}
       <div className="absolute bottom-0 left-0 right-0" style={{ height: "20%", background: "linear-gradient(to bottom, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
-      {/* top */}
       <div className="absolute top-0 left-0 right-0" style={{ height: "25%", background: "linear-gradient(to top, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
-      {/* left */}
       <div className="absolute top-0 left-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to left, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
-      {/* right */}
       <div className="absolute top-0 right-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to right, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
     </div>
   );

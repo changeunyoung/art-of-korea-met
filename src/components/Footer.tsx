@@ -1,18 +1,15 @@
 export default function Footer() {
   return (
     <footer className="border-t border-light-gray bg-background mt-24">
-      <div className="mx-auto max-w-content px-6 md:px-10 py-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div>
-          <p className="font-display text-xl tracking-wide">Art of Korea</p>
-          <p className="text-sm text-text-gray mt-1">
-            Making Curatorial Structures Visible — a digital humanities capstone project.
-          </p>
+      <div className="mx-auto max-w-content px-6 md:px-10 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div className="text-xs text-text-gray leading-relaxed text-justify">
+          <p className="uppercase tracking-widest2">HS313 · Digital Humanities</p>
+          <p className="uppercase tracking-widest2">Capstone Project</p>
+          <p className="mt-3">Clara Eunyoung Chang</p>
+          <p className="mt-3">Taejae University · Spring 2026</p>
         </div>
-        <div className="text-xs text-text-gray uppercase tracking-widest2 leading-relaxed">
-          <p>HS313 · Digital Humanities Capstone</p>
-          <p>The Metropolitan Museum of Art, Korean Gallery</p>
-          {/* TODO: Replace with your name / institution / academic year */}
-          <p className="mt-2">Researcher Name · Institution · Year</p>
+        <div className="flex justify-end flex-1">
+          <img src="/images/logo/logo_2.png" alt="Art of Korea" className="h-40 w-auto -mr-10 md:-mr-16" />
         </div>
       </div>
     </footer>

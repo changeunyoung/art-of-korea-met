@@ -3,65 +3,57 @@
 import { useRef, useEffect } from "react";
 
 export default function MinimapVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const fwdRef = useRef<HTMLVideoElement>(null);
+  const revRef = useRef<HTMLVideoElement>(null);
+  const activeFwd = useRef(true);
 
   useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
+    const fwd = fwdRef.current;
+    const rev = revRef.current;
+    if (!fwd || !rev) return;
 
-    let rafId: number;
-    let lastTime: number | null = null;
-    let goingForward = true;
-
-    const playForward = () => {
-      goingForward = true;
-      v.playbackRate = 1;
-      v.play();
+    const switchToReverse = () => {
+      activeFwd.current = false;
+      fwd.style.opacity = "0";
+      rev.style.opacity = "1";
+      rev.currentTime = 0;
+      rev.play();
     };
 
-    const scrubBackward = (now: number) => {
-      const delta = lastTime == null ? 0 : (now - lastTime) / 1000;
-      lastTime = now;
-      v.currentTime = Math.max(0, v.currentTime - delta);
-      if (v.currentTime <= 0) {
-        lastTime = null;
-        playForward();
-      } else {
-        rafId = requestAnimationFrame(scrubBackward);
-      }
+    const switchToForward = () => {
+      activeFwd.current = true;
+      rev.style.opacity = "0";
+      fwd.style.opacity = "1";
+      fwd.currentTime = 0;
+      fwd.play();
     };
 
-    const onEnded = () => {
-      goingForward = false;
-      lastTime = null;
-      rafId = requestAnimationFrame(scrubBackward);
-    };
+    fwd.addEventListener("ended", switchToReverse);
+    rev.addEventListener("ended", switchToForward);
 
-    v.addEventListener("ended", onEnded);
-
-    const start = () => playForward();
-    v.addEventListener("canplay", start, { once: true });
-    if (v.readyState >= 3) start();
+    fwd.play();
 
     return () => {
-      cancelAnimationFrame(rafId);
-      v.removeEventListener("ended", onEnded);
-      v.removeEventListener("canplay", start);
-      v.pause();
+      fwd.removeEventListener("ended", switchToReverse);
+      rev.removeEventListener("ended", switchToForward);
+      fwd.pause();
+      rev.pause();
     };
   }, []);
 
+  const videoStyle: React.CSSProperties = {
+    position: "absolute",
+    top: 0, left: 0,
+    width: "100%",
+    transform: "scale(1.06) translateY(-5%)",
+    transformOrigin: "center center",
+    transition: "opacity 0.05s",
+  };
+
   return (
     <div className="relative overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}>
-      <video
-        ref={videoRef}
-        src="/videos/minimap.mp4"
-        muted
-        playsInline
-        preload="auto"
-        className="w-full block"
-        style={{ transform: "scale(1.06) translateY(-5%)", transformOrigin: "center center" }}
-      />
+      <video ref={fwdRef} src="/videos/minimap.mp4"      muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
+      <video ref={revRef} src="/videos/minimap-reverse.mp4" muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
       {/* bottom */}
       <div className="absolute bottom-0 left-0 right-0" style={{ height: "20%", background: "linear-gradient(to bottom, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
       {/* top */}

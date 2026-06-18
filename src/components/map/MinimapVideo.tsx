@@ -5,37 +5,50 @@ import { useRef, useEffect } from "react";
 export default function MinimapVideo() {
   const fwdRef = useRef<HTMLVideoElement>(null);
   const revRef = useRef<HTMLVideoElement>(null);
-  const activeFwd = useRef(true);
 
   useEffect(() => {
     const fwd = fwdRef.current;
     const rev = revRef.current;
     if (!fwd || !rev) return;
 
-    const switchToReverse = () => {
-      activeFwd.current = false;
-      fwd.style.opacity = "0";
-      rev.style.opacity = "1";
-      rev.currentTime = 0;
-      rev.play();
+    const PREBUFFER = 0.08; // seconds before end to start next video
+
+    const onFwdTimeUpdate = () => {
+      if (fwd.duration && fwd.currentTime >= fwd.duration - PREBUFFER) {
+        rev.currentTime = 0;
+        rev.play();
+      }
     };
 
-    const switchToForward = () => {
-      activeFwd.current = true;
-      rev.style.opacity = "0";
+    const onRevTimeUpdate = () => {
+      if (rev.duration && rev.currentTime >= rev.duration - PREBUFFER) {
+        fwd.currentTime = 0;
+        fwd.play();
+      }
+    };
+
+    const onFwdPlaying = () => {
       fwd.style.opacity = "1";
-      fwd.currentTime = 0;
-      fwd.play();
+      rev.style.opacity = "0";
     };
 
-    fwd.addEventListener("ended", switchToReverse);
-    rev.addEventListener("ended", switchToForward);
+    const onRevPlaying = () => {
+      rev.style.opacity = "1";
+      fwd.style.opacity = "0";
+    };
+
+    fwd.addEventListener("timeupdate", onFwdTimeUpdate);
+    rev.addEventListener("timeupdate", onRevTimeUpdate);
+    fwd.addEventListener("playing", onFwdPlaying);
+    rev.addEventListener("playing", onRevPlaying);
 
     fwd.play();
 
     return () => {
-      fwd.removeEventListener("ended", switchToReverse);
-      rev.removeEventListener("ended", switchToForward);
+      fwd.removeEventListener("timeupdate", onFwdTimeUpdate);
+      rev.removeEventListener("timeupdate", onRevTimeUpdate);
+      fwd.removeEventListener("playing", onFwdPlaying);
+      rev.removeEventListener("playing", onRevPlaying);
       fwd.pause();
       rev.pause();
     };
@@ -47,12 +60,11 @@ export default function MinimapVideo() {
     width: "100%",
     transform: "scale(1.06) translateY(-5%)",
     transformOrigin: "center center",
-    transition: "opacity 0.05s",
   };
 
   return (
     <div className="relative overflow-hidden mx-auto" style={{ maxWidth: "40%", aspectRatio: "4 / 2.75" }}>
-      <video ref={fwdRef} src="/videos/minimap.mp4"      muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
+      <video ref={fwdRef} src="/videos/minimap.mp4"         muted playsInline preload="auto" style={{ ...videoStyle, opacity: 1 }} />
       <video ref={revRef} src="/videos/minimap-reverse.mp4" muted playsInline preload="auto" style={{ ...videoStyle, opacity: 0 }} />
       {/* bottom */}
       <div className="absolute bottom-0 left-0 right-0" style={{ height: "20%", background: "linear-gradient(to bottom, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />

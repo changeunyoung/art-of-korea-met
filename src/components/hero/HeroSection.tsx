@@ -101,7 +101,7 @@ export default function HeroSection() {
         : window.innerHeight * 1.4;
       const arcViewportY = window.innerHeight * 0.38;
       // stopScrollY = the scroll position at which the arc should freeze
-      const stopScrollY = methodsTop - arcViewportY - 280;
+      const stopScrollY = methodsTop - arcViewportY - 230;
       if (y <= stopScrollY) {
         arcTop.set("0px");
       } else {

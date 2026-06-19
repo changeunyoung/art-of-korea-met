@@ -342,7 +342,7 @@ const TAGLINES = [
 function ReadMethods({ block }: { block: MethodsBlock }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 pt-32 pb-20 md:pt-40 md:pb-28">
+    <section className="mx-auto max-w-content px-6 md:px-10 pt-16 pb-20 md:pt-20 md:pb-28">
       <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {block.cards.map((card, i) => (
@@ -561,8 +561,11 @@ export default function PageEditor({ page, initialBlocks, isAdmin, children }: P
   if (!isAdmin) {
     return (
       <div>
-        {blocks.map((block) => (
-          <RenderBlock key={block.id} block={block} isAdmin={false} update={() => {}} />
+        {blocks.map((block, i) => (
+          <div key={block.id}>
+            <RenderBlock block={block} isAdmin={false} update={() => {}} />
+            {block.type === "hero" && blocks[i + 1]?.type === "methods" && <div style={{ height: "10vh" }} />}
+          </div>
         ))}
         {children}
       </div>

@@ -37,6 +37,7 @@ const links: NavLink[] = [
       { href: "/about#credits", label: "Credits" },
     ],
   },
+  { href: "/survey", label: "Survey" },
 ];
 
 export default function Navbar() {

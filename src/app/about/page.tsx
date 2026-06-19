@@ -145,9 +145,9 @@ function ResearchCarousel() {
 
 export default function AboutPage() {
   return (
-    <div style={{ backgroundColor: "#F4F7FA", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px" }}>
+    <div style={{ backgroundColor: "#ffffff", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px" }}>
       <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-24">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto" style={{ backgroundColor: "#F4F7FA", borderRadius: "24px", padding: "48px 48px" }}>
 
           <h1 className="font-display text-4xl md:text-5xl font-bold text-ink mb-2 text-center">
             Art of Korea at the Met

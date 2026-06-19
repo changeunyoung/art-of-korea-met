@@ -6,7 +6,7 @@ export default function FinalInsightPanel() {
     </div>
     <div className="bg-ink text-white px-8 py-14 md:py-20 text-center">
       <p className="text-xs uppercase tracking-widest2 text-accent mb-4">Key Findings</p>
-      <p className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-sans">
+      <p className="max-w-2xl mx-auto text-lg md:text-xl leading-relaxed font-sans text-justify">
         The text analysis reveals that objects in Art of Korea are frequently framed through dynastic history, material craftsmanship, and cultural context. Recurring references to periods such as Goryeo and Joseon, alongside terms related to ceramics, metalwork, and religious practice, suggest that the gallery emphasizes historical continuity and material tradition. Rather than presenting objects in isolation, the labels consistently situate them within broader cultural and historical narratives.
       </p>
     </div>

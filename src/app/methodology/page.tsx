@@ -13,7 +13,7 @@ export default function AboutPage() {
 
           <section id="about" className="mb-12">
             <p className="text-sm text-text-gray leading-relaxed font-sans">
-              <strong className="text-ink">Art of Korea at the Met: Making Curatorial Structures Visible</strong> is a digital humanities project that examines <strong className="text-ink">Art of Korea, The Metropolitan Museum of Art's permanent galleries dedicated to Korean art,</strong> as an interpretive environment rather than a neutral container of artifacts.
+              <strong className="text-ink">Art of Korea at the Met: Making Curatorial Structures Visible</strong> is a digital humanities project that examines <strong className="text-ink">Art of Korea, The Metropolitan Museum of Art&apos;s permanent galleries dedicated to Korean art,</strong> as an interpretive environment rather than a neutral container of artifacts.
             </p>
             <p className="text-sm text-text-gray leading-relaxed font-sans mt-4">
               The project explores how museums construct meaning through curatorial decisions, including object placement, exhibition design, and interpretive language. By making these often-invisible structures visible, the project encourages visitors to think critically about how museum narratives are created and communicated.
@@ -68,7 +68,7 @@ export default function AboutPage() {
               While the website can reveal intended pathways of interpretation, it cannot fully capture how individual visitors experience, understand, or respond to the gallery. Likewise, digital visualizations cannot completely represent atmosphere, scale, lighting conditions, movement, or emotional responses within the museum environment.
             </p>
             <p className="text-sm text-text-gray leading-relaxed font-sans mt-4">
-              The project therefore analyzes the gallery's interpretive framework rather than measuring visitor reception directly.
+              The project therefore analyzes the gallery&apos;s interpretive framework rather than measuring visitor reception directly.
             </p>
           </section>
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
           <section id="ethics" className="mb-12">
             <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Ethical Considerations</h2>
             <p className="text-sm text-text-gray leading-relaxed font-sans">
-              This project engages critically with the interpretive structures of Art of Korea without claiming to represent the official views of The Metropolitan Museum of Art. All analysis reflects the researcher's interpretation based on field observation, publicly available museum information, and digital humanities methods. Label texts, wall texts, object descriptions, and other museum materials reproduced on this website remain the intellectual property of The Metropolitan Museum of Art and are included for educational and research purposes only.
+              This project engages critically with the interpretive structures of Art of Korea without claiming to represent the official views of The Metropolitan Museum of Art. All analysis reflects the researcher&apos;s interpretation based on field observation, publicly available museum information, and digital humanities methods. Label texts, wall texts, object descriptions, and other museum materials reproduced on this website remain the intellectual property of The Metropolitan Museum of Art and are included for educational and research purposes only.
             </p>
           </section>
 

@@ -16,7 +16,8 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
   if (!hotspot) {
     return (
       <div className="h-full flex flex-col items-center justify-center text-center px-8 py-16 text-text-gray">
-        <p className="text-xs uppercase tracking-widest2 mb-3">Digital Gallery Guide</p>
+        <Image src="/images/logo/logo4.png" alt="logo" width={64} height={64} className="mb-4 opacity-60" />
+        <p className="text-xs uppercase tracking-widest2 mb-3">Map Guide</p>
         <p className="font-sans text-xl leading-relaxed mb-6">
           Click a hotspot to view photographs, object labels, and additional information.
         </p>

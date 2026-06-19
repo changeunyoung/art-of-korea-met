@@ -27,15 +27,14 @@ const links: NavLink[] = [
   },
   { href: "/game", label: "Mini Game" },
   {
-    href: "/methodology",
+    href: "/about",
     label: "About",
     sublinks: [
-      { href: "/methodology#about", label: "About the Project" },
-      { href: "/methodology#research-question", label: "Research Question" },
-      { href: "/methodology#research-process", label: "Research Process" },
-      { href: "/methodology#dh-approach", label: "DH Approach" },
-      { href: "/methodology#limitations", label: "Limitations" },
-      { href: "/methodology#credits", label: "Credits" },
+      { href: "/about#about", label: "About the Project" },
+      { href: "/about#research-question", label: "Research Question" },
+      { href: "/about#research-process", label: "Research Process" },
+      { href: "/about#limitations", label: "Limitations" },
+      { href: "/about#credits", label: "Credits" },
     ],
   },
 ];

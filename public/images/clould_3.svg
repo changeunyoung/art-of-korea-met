@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" width="160" height="110" fill="none">
+  <!-- Top bump row -->
+  <path d="M 30,55 Q 30,38 45,38 Q 48,28 60,28 Q 72,28 75,38 Q 88,38 88,55" stroke="#8AAECF" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Middle layer -->
+  <path d="M 15,72 Q 15,55 30,55 L 88,55 Q 103,55 103,72" stroke="#8AAECF" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Bottom layer -->
+  <path d="M 5,88 Q 5,72 15,72 L 103,72 Q 113,72 113,80 Q 118,72 128,72 Q 140,72 140,83 Q 140,88 132,88 L 5,88" stroke="#8AAECF" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small dots at bottom -->
+  <circle cx="20" cy="93" r="2.5" stroke="#8AAECF" stroke-width="1.8" fill="none"/>
+  <circle cx="60" cy="95" r="1.8" stroke="#8AAECF" stroke-width="1.8" fill="none"/>
+  <circle cx="100" cy="93" r="2.2" stroke="#8AAECF" stroke-width="1.8" fill="none"/>
+  <circle cx="135" cy="90" r="1.5" stroke="#8AAECF" stroke-width="1.8" fill="none"/>
+</svg>

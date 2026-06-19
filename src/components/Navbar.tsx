@@ -26,7 +26,18 @@ const links: NavLink[] = [
     ],
   },
   { href: "/game", label: "Mini Game" },
-  { href: "/methodology", label: "About" },
+  {
+    href: "/methodology",
+    label: "About",
+    sublinks: [
+      { href: "/methodology#about", label: "About the Project" },
+      { href: "/methodology#research-question", label: "Research Question" },
+      { href: "/methodology#research-process", label: "Research Process" },
+      { href: "/methodology#dh-approach", label: "DH Approach" },
+      { href: "/methodology#limitations", label: "Limitations" },
+      { href: "/methodology#credits", label: "Credits" },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -75,12 +86,12 @@ export default function Navbar() {
               {/* Dropdown */}
               {link.sublinks && (
                 <div
-                  className="absolute top-full mt-3 py-1.5 w-[130px] z-50 overflow-hidden pointer-events-none"
+                  className="absolute top-full mt-3 py-1.5 w-[160px] z-50 overflow-hidden pointer-events-none"
                   style={{
                     backgroundColor: "rgba(245, 244, 242, 0.75)",
                     backdropFilter: "blur(8px)",
                     left: "50%",
-                    marginLeft: "-65px",
+                    marginLeft: "-80px",
                     transformOrigin: "top center",
                     opacity: openDropdown === link.href ? 1 : 0,
                     transform: openDropdown === link.href ? "scaleY(1) translateY(0)" : "scaleY(0.85) translateY(-6px)",

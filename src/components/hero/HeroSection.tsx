@@ -12,11 +12,11 @@ interface CircleDef {
 }
 
 const CIRCLES: CircleDef[] = [
-  { id: "white", color: "#ffffff", size: 130, left: "27vw", top: "42vh" },
-  { id: "gray",  color: "#8a9ab5", size: 130, left: "76vw", top: "42vh" },
+  { id: "white", color: "#ffffff", size: 110, left: "27vw", top: "42vh" },
+  { id: "gray",  color: "#8a9ab5", size: 110, left: "76vw", top: "42vh" },
 ];
 
-function ExpandingCircle({ circle }: { circle: CircleDef }) {
+function ExpandingCircle({ circle, onHover, onLeave }: { circle: CircleDef; onHover: () => void; onLeave: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const [origin, setOrigin] = useState({ x: "50%", y: "50%" });
   const [active, setActive] = useState(false);
@@ -29,7 +29,13 @@ function ExpandingCircle({ circle }: { circle: CircleDef }) {
       setOrigin({ x: `${x}px`, y: `${y}px` });
     }
     setActive(true);
-  }, []);
+    onHover();
+  }, [onHover]);
+
+  const handleLeave = useCallback(() => {
+    setActive(false);
+    onLeave();
+  }, [onLeave]);
 
   const radius = circle.size / 2;
 
@@ -68,7 +74,7 @@ function ExpandingCircle({ circle }: { circle: CircleDef }) {
           cursor: "pointer",
         }}
         onMouseEnter={handleEnter}
-        onMouseLeave={() => setActive(false)}
+        onMouseLeave={handleLeave}
       />
     </>
   );
@@ -76,6 +82,7 @@ function ExpandingCircle({ circle }: { circle: CircleDef }) {
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [circleHovered, setCircleHovered] = useState(false);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -125,9 +132,72 @@ export default function HeroSection() {
         </motion.p>
       </motion.div>
 
+      {/* Bird video circle */}
+      <motion.div
+        className="absolute rounded-full overflow-hidden"
+        animate={{ opacity: circleHovered ? 0 : 1 }}
+        transition={circleHovered
+          ? { duration: 0.2, ease: "easeInOut" }
+          : { duration: 0.3, ease: "easeInOut", delay: 0.75 }
+        }
+        style={{
+          left: "27vw",
+          top: "38vh",
+          transform: "translate(-50%, -50%)",
+          width: 352,
+          height: 352,
+          zIndex: 45,
+          WebkitMaskImage: "radial-gradient(circle, black 25%, transparent 65%)",
+          maskImage: "radial-gradient(circle, black 25%, transparent 65%)",
+        }}
+      >
+        <video
+          src="/videos/bird.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          style={{ mixBlendMode: "multiply" }}
+        />
+      </motion.div>
+
+      {/* Circle arc text — white circle: Overview */}
+      <svg
+        className="absolute pointer-events-none"
+        style={{ left: "27vw", top: "42vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
+        viewBox="0 0 160 160"
+      >
+        <defs>
+          <path id="rightArcWhite" d="M 59,116 A 42,42 0 0,0 116,59" />
+        </defs>
+        <text fontSize="13" fill="#8a9ab5" fontFamily="var(--font-display)" fontWeight="700" textAnchor="middle" letterSpacing="1.5">
+          <textPath href="#rightArcWhite" startOffset="50%">Overview</textPath>
+        </text>
+      </svg>
+
+      {/* Circle arc text — gray circle: So What? */}
+      <svg
+        className="absolute pointer-events-none"
+        style={{ left: "76vw", top: "42vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
+        viewBox="0 0 160 160"
+      >
+        <defs>
+          <path id="rightArcGray" d="M 59,116 A 42,42 0 0,0 116,59" />
+        </defs>
+        <text fontSize="13" fill="#ffffff" fontFamily="var(--font-display)" fontWeight="700" textAnchor="middle">
+          <textPath href="#rightArcGray" startOffset="50%">So What?</textPath>
+        </text>
+      </svg>
+
       {/* Expanding circles */}
       {CIRCLES.map((circle) => (
-        <ExpandingCircle key={circle.id} circle={circle} />
+        <ExpandingCircle
+          key={circle.id}
+          circle={circle}
+          onHover={() => setCircleHovered(true)}
+          onLeave={() => setCircleHovered(false)}
+        />
       ))}
     </section>
   );

@@ -11,7 +11,7 @@ export default function AboutPage() {
             Making Curatorial Structures Visible
           </p>
 
-          <section className="mb-12">
+          <section id="about" className="mb-12">
             <p className="text-sm text-text-gray leading-relaxed font-sans">
               <strong className="text-ink">Art of Korea at the Met: Making Curatorial Structures Visible</strong> is a digital humanities project that examines <strong className="text-ink">Art of Korea, The Metropolitan Museum of Art's permanent galleries dedicated to Korean art,</strong> as an interpretive environment rather than a neutral container of artifacts.
             </p>
@@ -22,8 +22,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Research Question</h2>
+          <section id="research-question" className="mb-12">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Research Question</h2>
             <p className="font-borel text-xl text-ink leading-relaxed" style={{ color: "#4A90B8" }}>
               How do object placement, gallery layout, and curatorial text in Art of Korea at The Metropolitan Museum of Art construct narratives about Korean art?
             </p>
@@ -31,8 +31,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Research Process</h2>
+          <section id="research-process" className="mb-12">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Research Process</h2>
             <h3 className="text-sm font-semibold text-ink mb-3">Field Observation</h3>
             <p className="text-sm text-text-gray leading-relaxed font-sans">
               This project began with direct observation of Art of Korea at The Metropolitan Museum of Art. <strong className="text-ink">From January to May 2026, multiple site visits were conducted</strong> to document object placement, gallery layout, interpretive labels, exhibition organization, and visitor circulation patterns. Photographs, sketches, floor plans, and field notes were collected to create a detailed record of the gallery environment.
@@ -44,8 +44,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Digital Humanities Approach</h2>
+          <section id="dh-approach" className="mb-12">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Digital Humanities Approach</h2>
             <p className="text-sm text-text-gray leading-relaxed font-sans">
               This project combines multiple digital humanities methods to examine Art of Korea from different perspectives.
             </p>
@@ -59,8 +59,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Limitations</h2>
+          <section id="limitations" className="mb-12">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Limitations</h2>
             <p className="text-sm text-text-gray leading-relaxed font-sans">
               This project focuses on curatorial structures rather than visitor behavior.
             </p>
@@ -74,8 +74,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section className="mb-12">
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Ethical Considerations</h2>
+          <section id="ethics" className="mb-12">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Ethical Considerations</h2>
             <p className="text-sm text-text-gray leading-relaxed font-sans">
               This project engages critically with the interpretive structures of Art of Korea without claiming to represent the official views of The Metropolitan Museum of Art. All analysis reflects the researcher's interpretation based on field observation, publicly available museum information, and digital humanities methods. Label texts, wall texts, object descriptions, and other museum materials reproduced on this website remain the intellectual property of The Metropolitan Museum of Art and are included for educational and research purposes only.
             </p>
@@ -83,8 +83,8 @@ export default function AboutPage() {
 
           <div className="w-8 h-px bg-light-gray mb-12" />
 
-          <section>
-            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4">Credits</h2>
+          <section id="credits">
+            <h2 className="text-xs uppercase tracking-widest2 text-text-gray mb-4 font-bold">Credits</h2>
             <p className="text-sm text-ink font-sans">Clara Eunyoung Chang</p>
             <p className="text-sm text-text-gray font-sans mt-1">HS313 Digital Humanities Capstone Project</p>
             <p className="text-sm text-text-gray font-sans">Taejae University · Spring 2026</p>

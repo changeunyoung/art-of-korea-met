@@ -14,8 +14,9 @@ export default function MethodCard({ index, title, href, tilt = 0, onHover, onLe
   return (
     <div className="group flex flex-col" onMouseEnter={onHover} onMouseLeave={onLeave}>
       <Link href={href} className="block p-8 transition-museum relative min-h-[420px]">
+        <div className="absolute inset-0 transition-transform duration-300 group-hover:scale-105">
         <div
-          className="absolute inset-0 flex flex-col items-center justify-end pb-40"
+          className="w-full h-full flex flex-col items-center justify-end pb-40"
           style={{ transform: `rotate(${tilt}deg)` }}
         >
           <img
@@ -33,6 +34,7 @@ export default function MethodCard({ index, title, href, tilt = 0, onHover, onLe
               Explore
             </span>
           </div>
+        </div>
         </div>
       </Link>
     </div>

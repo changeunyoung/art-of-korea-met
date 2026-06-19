@@ -358,11 +358,11 @@ function ReadMethods({ block }: { block: MethodsBlock }) {
           />
         ))}
       </div>
-      <div className="mt-4 text-center h-6">
+      <div className="-mt-8 text-center h-6">
         {hoveredIndex !== null && (
           <p className="text-base text-text-gray transition-museum font-borel">
             {TAGLINES[hoveredIndex].main}{" "}
-            <span className="text-blue-500">{TAGLINES[hoveredIndex].last}</span>
+            <span style={{ color: "#7A9BB5" }}>{TAGLINES[hoveredIndex].last}</span>
           </p>
         )}
       </div>

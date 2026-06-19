@@ -12,8 +12,8 @@ interface CircleDef {
 }
 
 const CIRCLES: CircleDef[] = [
-  { id: "white", color: "#ffffff", size: 110, left: "27vw", top: "42vh" },
-  { id: "gray",  color: "#8a9ab5", size: 110, left: "76vw", top: "42vh" },
+  { id: "white", color: "#ffffff", size: 110, left: "27vw", top: "54vh" },
+  { id: "gray",  color: "#8a9ab5", size: 110, left: "76vw", top: "54vh" },
 ];
 
 function ExpandingCircle({ circle, onHover, onLeave }: { circle: CircleDef; onHover: () => void; onLeave: () => void }) {
@@ -126,7 +126,7 @@ export default function HeroSection() {
           style={{ fontSize: "clamp(10px, 1vw, 13px)", fontFamily: "var(--font-display)", letterSpacing: "0.22em", opacity: 0.85, textShadow: "0 1px 8px rgba(0,0,0,0.2)" }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.85 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 1.2, delay: 0.05 }}
         >
           at the Metropolitan Museum of Art
         </motion.p>
@@ -142,7 +142,7 @@ export default function HeroSection() {
         }
         style={{
           left: "27vw",
-          top: "38vh",
+          top: "50vh",
           transform: "translate(-50%, -50%)",
           width: 352,
           height: 352,
@@ -165,7 +165,7 @@ export default function HeroSection() {
       {/* Circle arc text — white circle: Overview */}
       <svg
         className="absolute pointer-events-none"
-        style={{ left: "27vw", top: "42vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
+        style={{ left: "27vw", top: "54vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
         viewBox="0 0 160 160"
       >
         <defs>
@@ -179,7 +179,7 @@ export default function HeroSection() {
       {/* Circle arc text — gray circle: So What? */}
       <svg
         className="absolute pointer-events-none"
-        style={{ left: "76vw", top: "42vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
+        style={{ left: "76vw", top: "54vh", transform: "translate(-50%, -50%)", width: 160, height: 160, zIndex: 51 }}
         viewBox="0 0 160 160"
       >
         <defs>
@@ -199,6 +199,49 @@ export default function HeroSection() {
           onLeave={() => setCircleHovered(false)}
         />
       ))}
+
+      {/* Bottom title — arc text, 3 lines */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none select-none"
+        style={{ zIndex: 10 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.8, delay: 1.4, ease: "easeInOut" }}
+      >
+        <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%", overflow: "visible" }}>
+          <defs>
+            <path id="arc1" d="M 0,230 Q 500,280 1000,230">
+              <animate
+                attributeName="d"
+                values="M 0,230 Q 500,280 1000,230; M 0,230 Q 500,268 1000,230; M 0,230 Q 500,280 1000,230"
+                dur="8s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+                keyTimes="0;0.5;1"
+              />
+            </path>
+            <path id="arc2" d="M 0,268 Q 500,318 1000,268">
+              <animate
+                attributeName="d"
+                values="M 0,268 Q 500,318 1000,268; M 0,268 Q 500,306 1000,268; M 0,268 Q 500,318 1000,268"
+                dur="8s"
+                begin="0.4s"
+                repeatCount="indefinite"
+                calcMode="spline"
+                keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+                keyTimes="0;0.5;1"
+              />
+            </path>
+          </defs>
+          <text fill="#fff9c2" fontFamily="var(--font-borel)" fontSize="34" fontWeight="bold" textAnchor="middle" style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))" }}>
+            <textPath href="#arc1" startOffset="50%">Making Curatorial</textPath>
+          </text>
+          <text fill="#fff9c2" fontFamily="var(--font-borel)" fontSize="34" fontWeight="bold" textAnchor="middle" style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))" }}>
+            <textPath href="#arc2" startOffset="50%">Structures Visible</textPath>
+          </text>
+        </svg>
+      </motion.div>
     </section>
   );
 }

@@ -5,7 +5,7 @@ export default function GamePage() {
       <p className="text-xs uppercase tracking-widest2 text-text-gray [font-family:var(--font-display)] mb-3">
         Mini Game
       </p>
-      <h1 className="text-4xl md:text-5xl font-bold text-ink mb-4 [font-family:var(--font-display)]">
+      <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 [font-family:var(--font-display)]">
         Be the Curator
       </h1>
       <div className="w-8 h-px bg-ink mb-8" />

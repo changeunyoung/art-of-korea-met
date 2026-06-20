@@ -6,9 +6,9 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 const BREAKPOINT = 1024;
 
 // Image dimensions (all 2030px tall):
-//   scroll-left.png:  527px
-//   scroll-paper.png: 3295px
-//   scroll-right.png: 582px
+//   scroll-left.webp:  527px
+//   scroll-paper.webp: 3295px
+//   scroll-right.webp: 582px
 //   Total width:      4404px
 
 const TOTAL_W = 4404;
@@ -101,7 +101,7 @@ export default function ScrollFrame({ children }: { children?: ReactNode }) {
             zIndex: 1, overflow: "visible",
           }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/scroll-paper.png" alt="" draggable={false}
+            <img src="/images/scroll-paper.webp" alt="" draggable={false}
               style={{ width: "100%", height: "100%", display: "block", userSelect: "none" }} />
           </motion.div>
 
@@ -125,7 +125,7 @@ export default function ScrollFrame({ children }: { children?: ReactNode }) {
             width: LEFT_PCT, zIndex: 3, pointerEvents: "none",
           }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/scroll-left.png" alt="" draggable={false}
+            <img src="/images/scroll-left.webp" alt="" draggable={false}
               style={{ width: "100%", height: "100%", display: "block", userSelect: "none" }} />
           </motion.div>
 
@@ -136,7 +136,7 @@ export default function ScrollFrame({ children }: { children?: ReactNode }) {
             width: RIGHT_PCT, zIndex: 3, pointerEvents: "none",
           }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/scroll-right.png" alt="" draggable={false}
+            <img src="/images/scroll-right.webp" alt="" draggable={false}
               style={{ width: "100%", height: "100%", display: "block", userSelect: "none" }} />
           </motion.div>
 

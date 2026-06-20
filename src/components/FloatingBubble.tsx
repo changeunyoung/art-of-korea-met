@@ -90,10 +90,11 @@ export default function FloatingBubble() {
             style={{
               position: "absolute",
               bottom: -80,
-              left: 42,
+              left: -20,
               width: 240,
               opacity: 0.85,
               zIndex: 0,
+              transform: "scaleX(-1)",
               maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)",
               WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 100%)",
             }}

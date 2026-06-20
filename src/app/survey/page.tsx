@@ -186,8 +186,8 @@ function Question({
     <div style={{ marginBottom: "32px" }}>
       <p style={{
         fontFamily: "var(--font-sans), monospace",
-        fontSize: "13px",
-        fontWeight: 600,
+        fontSize: "15px",
+        fontWeight: 700,
         color: "#1C2B3A",
         marginBottom: "4px",
       }}>
@@ -223,8 +223,15 @@ function SectionHeader({ part, title }: { part: string; title: string }) {
 export default function SurveyPage() {
   const [form, setForm] = useState<FormData>(initial);
   const [submitted, setSubmitted] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("survey_submitted") === "true") {
+      setAlreadySubmitted(true);
+    }
+  }, []);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const submitRef = useRef<HTMLButtonElement>(null);
@@ -285,9 +292,26 @@ export default function SurveyPage() {
       setError("Something went wrong. Please try again.");
       console.error(dbErr);
     } else {
+      localStorage.setItem("survey_submitted", "true");
       setSubmitted(true);
     }
   };
+
+  if (alreadySubmitted) {
+    return (
+      <div style={{ backgroundColor: "#fffacb", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ textAlign: "center", padding: "60px 24px" }}>
+          <div style={{ fontSize: "48px", marginBottom: "20px" }}>✓</div>
+          <h1 style={{ fontFamily: "var(--font-display), Montserrat, sans-serif", fontSize: "32px", fontWeight: 800, color: "#1C2B3A", marginBottom: "12px" }}>
+            Already Submitted
+          </h1>
+          <p style={{ fontFamily: "var(--font-sans), monospace", fontSize: "15px", color: "#1C2B3A", opacity: 0.7, lineHeight: 1.8 }}>
+            You have already completed this survey.<br />Thank you for your participation!
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (submitted) {
     return (
@@ -317,7 +341,7 @@ export default function SurveyPage() {
         playsInline
         style={{
           position: "fixed",
-          left: "calc(50% - 370px)",
+          left: "calc(50% - 470px)",
           top: "50%",
           width: 180,
           opacity: 0.75,
@@ -369,9 +393,8 @@ export default function SurveyPage() {
       </div>
 
       {/* Form — uses flex so content is centered in space to the right of the bird */}
-      <div style={{ display: "flex", justifyContent: "center", padding: "0 40px 80px", gap: 0 }}>
-        <div style={{ width: 200, flexShrink: 0 }} />
-        <div style={{ maxWidth: 680, flex: "1 1 0", minWidth: 0, position: "relative", zIndex: 2, backgroundColor: "#fffacb" }}>
+      <div style={{ display: "flex", justifyContent: "center", padding: "0 40px 80px" }}>
+        <div style={{ maxWidth: 680, width: "100%", position: "relative", zIndex: 2, backgroundColor: "#fffacb" }}>
         <form onSubmit={handleSubmit}>
           {/* Part 1 */}
           <div style={{ marginBottom: "48px" }}>

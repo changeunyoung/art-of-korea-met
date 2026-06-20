@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import HeroSection from "@/components/hero/HeroSection";
+import FilmRoll from "@/components/FilmRoll";
 import AdminBar from "./AdminBar";
 import AddBlockButton from "./AddBlockButton";
 import BlockControls from "./BlockControls";
@@ -342,31 +343,35 @@ const TAGLINES = [
 function ReadMethods({ block }: { block: MethodsBlock }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <section className="mx-auto max-w-content px-6 md:px-10 pt-28 pb-20 md:pt-32 md:pb-28">
-      <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
-      <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-        {block.cards.map((card, i) => (
-          <MethodCard
-            key={i}
-            index={card.index}
-            title={card.title}
-            description={card.description}
-            href={card.href}
-            tilt={[6, -6, 2][i]}
-            onHover={() => setHoveredIndex(i)}
-            onLeave={() => setHoveredIndex(null)}
-          />
-        ))}
-      </div>
-      <div className="-mt-8 text-center h-6">
-        {hoveredIndex !== null && (
-          <p className="text-base text-text-gray transition-museum font-sans">
-            {TAGLINES[hoveredIndex].main}{" "}
-            <span style={{ color: "#7A9BB5" }}>{TAGLINES[hoveredIndex].last}</span>
-          </p>
-        )}
-      </div>
-    </section>
+    <>
+      <section className="mx-auto max-w-content px-6 md:px-10 pt-28 pb-20 md:pt-32 md:pb-28">
+        <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {block.cards.map((card, i) => (
+            <MethodCard
+              key={i}
+              index={card.index}
+              title={card.title}
+              description={card.description}
+              href={card.href}
+              tilt={[6, -6, 2][i]}
+              onHover={() => setHoveredIndex(i)}
+              onLeave={() => setHoveredIndex(null)}
+            />
+          ))}
+        </div>
+        <div className="-mt-8 text-center h-6">
+          {hoveredIndex !== null && (
+            <p className="text-base text-text-gray transition-museum font-sans">
+              {TAGLINES[hoveredIndex].main}{" "}
+              <span style={{ color: "#7A9BB5" }}>{TAGLINES[hoveredIndex].last}</span>
+            </p>
+          )}
+        </div>
+      </section>
+      <section style={{ backgroundColor: "#abd8f0", minHeight: "50vh" }} />
+      <FilmRoll />
+    </>
   );
 }
 

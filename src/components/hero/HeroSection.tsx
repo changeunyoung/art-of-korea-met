@@ -239,7 +239,7 @@ export default function HeroSection() {
 
       {/* White circle overlay text */}
       <motion.div
-        className="fixed inset-0 flex items-start justify-center pt-40 pointer-events-none"
+        className="fixed inset-0 flex items-start justify-center pt-52 pointer-events-none"
         style={{ zIndex: 41 }}
         initial={{ opacity: 0 }}
         animate={{ opacity: hoveredCircleId === "white" ? 1 : 0 }}
@@ -282,7 +282,7 @@ export default function HeroSection() {
         className="absolute inset-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.8, delay: 1.4, ease: "easeInOut" }}
+        transition={{ duration: 1.8, delay: 0.8, ease: "easeInOut" }}
       >
         <svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%", overflow: "visible" }}>
           <defs>

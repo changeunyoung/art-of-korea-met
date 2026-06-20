@@ -20,6 +20,11 @@ section[id] {
   to { opacity: 1; }
 }
 
+@keyframes birdFadeIn {
+  from { opacity: 0; }
+  to { opacity: 0.75; }
+}
+
 @keyframes navDropdown {
   from {
     opacity: 0;
@@ -79,9 +84,10 @@ body {
   background: url('/images/logo/foot.webp') center / contain no-repeat;
   cursor: pointer;
   transition: transform 0.1s ease;
+  transform: rotate(90deg);
 }
 .survey-slider::-webkit-slider-thumb:active {
-  transform: scale(1.2);
+  transform: rotate(90deg) scale(1.2);
 }
 .survey-slider::-moz-range-thumb {
   width: 28px;
@@ -90,6 +96,7 @@ body {
   background: url('/images/logo/foot.webp') center / contain no-repeat;
   border: none;
   cursor: pointer;
+  transform: rotate(90deg);
 }
 
 /* Scrollbar */

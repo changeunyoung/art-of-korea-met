@@ -150,7 +150,7 @@ function RadioGroup({
               <img
                 src="/images/logo/foot.webp"
                 alt=""
-                style={{ width: 32, height: 32, objectFit: "contain", filter: "drop-shadow(0px 1px 3px rgba(200,168,0,0.5))" }}
+                style={{ width: 32, height: 32, objectFit: "contain", filter: "drop-shadow(0px 1px 3px rgba(200,168,0,0.5))", transform: "rotate(180deg)" }}
               />
             ) : (
               <span style={{ width: 18, height: 18, borderRadius: "50%", border: "2px solid #1C2B3A33", display: "block" }} />
@@ -273,7 +273,7 @@ export default function SurveyPage() {
   const requiredFields: (keyof FormData)[] = [
     "age_group", "gender", "region", "is_korean",
     "met_visits", "korea_gallery_visits", "korean_art_familiarity", "korean_history_familiarity",
-    "galleries_neutral_before", "artwork_influence", "view_changed", "exhibition_meaning",
+    "galleries_neutral_before", "view_changed", "exhibition_meaning",
     "perspective_part",
   ];
 
@@ -348,6 +348,7 @@ export default function SurveyPage() {
           pointerEvents: "none",
           zIndex: 1,
           transform: "translateY(-50%) scaleX(-1) rotate(90deg)",
+          animation: "birdFadeIn 1.8s ease forwards",
           maskImage: "linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 75%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 75%, transparent 100%)",
           maskComposite: "intersect",
@@ -450,22 +451,17 @@ export default function SurveyPage() {
           <div style={{ marginBottom: "48px" }}>
             <SectionHeader part="Part 3" title="Museum Interpretation" />
 
-            <Question number={9} label="Before exploring this website, did you think museum galleries were neutral spaces?">
+            <Question number={9} label="Before exploring this project, do you think museum galleries are neutral spaces?">
               <RadioGroup name="galleries_neutral_before" value={form.galleries_neutral_before} onChange={set}
                 options={["Yes", "No", "Not sure"]} />
             </Question>
 
-            <Question number={10} label="What most influences your understanding of an artwork?">
-              <RadioGroup name="artwork_influence" value={form.artwork_influence} onChange={set}
-                options={["The object itself", "Museum labels and wall texts", "Gallery design and object placement", "Historical context", "Other visitors"]} />
-            </Question>
-
-            <Question number={11} label="After exploring this project, has your view changed?">
+            <Question number={10} label="After exploring this project, do you think museum galleries are neutral spaces?">
               <RadioGroup name="view_changed" value={form.view_changed} onChange={set}
-                options={["Yes", "Somewhat", "No"]} />
+                options={["Yes", "No", "Not sure"]} />
             </Question>
 
-            <Question number={12} label="Which factor do you think most shapes the meaning of a museum exhibition?">
+            <Question number={11} label="Which factor do you think most shapes the meaning of a museum exhibition?">
               <RadioGroup name="exhibition_meaning" value={form.exhibition_meaning} onChange={set}
                 options={["The objects themselves", "Object placement and spatial design", "Museum labels and wall texts", "Historical context", "A combination of all of these"]} />
             </Question>
@@ -475,12 +471,12 @@ export default function SurveyPage() {
           <div style={{ marginBottom: "48px" }}>
             <SectionHeader part="Part 4" title="Project Reflection" />
 
-            <Question number={13} label="Which part of the project most changed your perspective?">
+            <Question number={12} label="Which part of the project most changed your perspective?">
               <RadioGroup name="perspective_part" value={form.perspective_part} onChange={set}
                 options={["Interactive Map", "Timeline", "Text Analysis", "Mini Game", "None of the above"]} />
             </Question>
 
-            <Question number={14} label="Do you have any additional thoughts, reflections, or feedback about this project?" required={false}>
+            <Question number={13} label="Do you have any additional thoughts, reflections, or feedback about this project?" required={false}>
               <textarea
                 value={form.additional_thoughts}
                 onChange={(e) => set("additional_thoughts", e.target.value)}

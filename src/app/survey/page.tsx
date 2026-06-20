@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { supabase } from "@/lib/supabase";
 
 type FormData = {
@@ -68,7 +68,7 @@ function SliderPillGroup({
                 borderRadius: "9999px",
                 border: "none",
                 backgroundColor: selected ? "#1C2B3A" : "transparent",
-                color: selected ? "#fff9c2" : "#1C2B3A",
+                color: selected ? "#fffacb" : "#1C2B3A",
                 fontFamily: "var(--font-sans), monospace",
                 fontSize: "11px",
                 cursor: "pointer",
@@ -224,6 +224,40 @@ export default function SurveyPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const submitRef = useRef<HTMLButtonElement>(null);
+  const thresholdScrollY = useRef<number | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!submitRef.current || !videoRef.current) return;
+      const rect = submitRef.current.getBoundingClientRect();
+      const mid = window.innerHeight / 2;
+      const videoHeight = videoRef.current.offsetWidth; // rotated 90deg so width becomes height
+
+      let targetTop: number;
+      if (rect.top <= mid + 100) {
+        if (thresholdScrollY.current === null) {
+          thresholdScrollY.current = window.scrollY;
+        }
+        targetTop = mid - (window.scrollY - thresholdScrollY.current);
+      } else {
+        thresholdScrollY.current = null;
+        targetTop = mid;
+      }
+
+      // Clamp: bird bottom (targetTop + videoHeight/2) must not exceed submit button top
+      const maxTop = rect.top - videoHeight / 2;
+      const clampedTop = Math.min(targetTop, maxTop);
+
+      videoRef.current.style.top = `${clampedTop}px`;
+      videoRef.current.style.transform = `translateY(-50%) scaleX(-1) rotate(90deg)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const set = (name: keyof FormData, val: string) =>
     setForm((prev) => ({ ...prev, [name]: val }));
 
@@ -255,7 +289,7 @@ export default function SurveyPage() {
 
   if (submitted) {
     return (
-      <div style={{ backgroundColor: "#fff9c2", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ backgroundColor: "#fffacb", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ textAlign: "center", padding: "60px 24px" }}>
           <div style={{ fontSize: "48px", marginBottom: "20px" }}>🙏</div>
           <h1 style={{ fontFamily: "var(--font-display), Montserrat, sans-serif", fontSize: "32px", fontWeight: 800, color: "#1C2B3A", marginBottom: "12px" }}>
@@ -270,46 +304,72 @@ export default function SurveyPage() {
   }
 
   return (
-    <div style={{ backgroundColor: "#fff9c2", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px" }}>
-      <div style={{ maxWidth: "680px", margin: "0 auto", padding: "48px 24px 80px" }}>
+    <div style={{ backgroundColor: "#fffacb", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px", position: "relative" }}>
+      {/* Walking bird — fixed to left of content area */}
+      <video
+        ref={videoRef}
+        src="/videos/walkingbird.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: "fixed",
+          left: "calc(50% - 370px)",
+          top: "50%",
+          width: 180,
+          opacity: 0.75,
+          pointerEvents: "none",
+          zIndex: 1,
+          transform: "translateY(-50%) scaleX(-1) rotate(90deg)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 75%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 22%, black 78%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 18%, black 75%, transparent 100%)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        }}
+      />
 
-        {/* Header */}
-        <div style={{ marginBottom: "48px" }}>
-          <p style={{ fontFamily: "var(--font-sans), monospace", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#c8a800", marginBottom: "8px", textAlign: "center" }}>
-            Visitor Survey
-          </p>
-          <div style={{ width: "100%", marginBottom: "8px" }}>
-            <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", overflow: "visible" }}>
-              <defs>
-                <path id="survey-arc" d="M 20,90 Q 350,30 680,90">
-                  <animate
-                    attributeName="d"
-                    values="M 20,90 Q 350,30 680,90; M 20,90 Q 350,18 680,90; M 20,90 Q 350,30 680,90"
-                    dur="6s"
-                    repeatCount="indefinite"
-                    calcMode="spline"
-                    keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
-                    keyTimes="0;0.5;1"
-                  />
-                </path>
-              </defs>
-              <text
-                fill="#1C2B3A"
-                fontFamily="var(--font-borel), Borel, cursive"
-                fontSize="58"
-                fontWeight="bold"
-                textAnchor="middle"
-                style={{ filter: "drop-shadow(2px 4px 10px rgba(28,43,58,0.25))" }}
-              >
-                <textPath href="#survey-arc" startOffset="50%">Share Your Perspective</textPath>
-              </text>
-            </svg>
-          </div>
-          <p style={{ fontFamily: "var(--font-sans), monospace", fontSize: "13px", color: "#1C2B3A", opacity: 0.7, lineHeight: 1.8 }}>
-            Thank you for participating in this survey. Survey responses will be used for research purposes only and will be analyzed anonymously.
-          </p>
+      {/* Header — centered on full page */}
+      <div style={{ maxWidth: "680px", margin: "0 auto", padding: "48px 24px 32px" }}>
+        <p style={{ fontFamily: "var(--font-sans), monospace", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#c8a800", marginBottom: "8px", textAlign: "center" }}>
+          Visitor Survey
+        </p>
+        <div style={{ width: "100%", marginBottom: "8px" }}>
+          <svg viewBox="0 0 700 120" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", overflow: "visible" }}>
+            <defs>
+              <path id="survey-arc" d="M 20,90 Q 350,30 680,90">
+                <animate
+                  attributeName="d"
+                  values="M 20,90 Q 350,30 680,90; M 20,90 Q 350,18 680,90; M 20,90 Q 350,30 680,90"
+                  dur="6s"
+                  repeatCount="indefinite"
+                  calcMode="spline"
+                  keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+                  keyTimes="0;0.5;1"
+                />
+              </path>
+            </defs>
+            <text
+              fill="#1C2B3A"
+              fontFamily="var(--font-borel), Borel, cursive"
+              fontSize="58"
+              fontWeight="bold"
+              textAnchor="middle"
+              style={{ filter: "drop-shadow(2px 4px 10px rgba(28,43,58,0.25))" }}
+            >
+              <textPath href="#survey-arc" startOffset="50%">Share Your Perspective</textPath>
+            </text>
+          </svg>
         </div>
+        <p style={{ fontFamily: "var(--font-sans), monospace", fontSize: "13px", color: "#1C2B3A", opacity: 0.7, lineHeight: 1.8, textAlign: "center" }}>
+          Thank you for participating in this survey. Survey responses will be used for research purposes only and will be analyzed anonymously.
+        </p>
+      </div>
 
+      {/* Form — uses flex so content is centered in space to the right of the bird */}
+      <div style={{ display: "flex", justifyContent: "center", padding: "0 40px 80px", gap: 0 }}>
+        <div style={{ width: 200, flexShrink: 0 }} />
+        <div style={{ maxWidth: 680, flex: "1 1 0", minWidth: 0, position: "relative", zIndex: 2, backgroundColor: "#fffacb" }}>
         <form onSubmit={handleSubmit}>
           {/* Part 1 */}
           <div style={{ marginBottom: "48px" }}>
@@ -427,11 +487,12 @@ export default function SurveyPage() {
           )}
 
           <button
+            ref={submitRef}
             type="submit"
             disabled={loading}
             style={{
               backgroundColor: "#1C2B3A",
-              color: "#fff9c2",
+              color: "#fffacb",
               fontFamily: "var(--font-display), Montserrat, sans-serif",
               fontWeight: 700,
               fontSize: "14px",
@@ -447,6 +508,7 @@ export default function SurveyPage() {
             {loading ? "Submitting..." : "Submit Survey"}
           </button>
         </form>
+        </div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ export default function Footer() {
           <p className="mt-3">Taejae University · Spring 2026</p>
         </div>
         <div className="flex justify-end flex-1">
-          <img src="/images/logo/logo2_1.png" alt="Art of Korea" className="h-40 w-auto mr-0" />
+          <img src="/images/logo/logo2_1.webp" alt="Art of Korea" className="h-40 w-auto mr-0" />
         </div>
       </div>
     </footer>

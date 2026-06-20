@@ -148,7 +148,7 @@ function RadioGroup({
           <span style={{ width: 32, height: 32, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
             {value === opt ? (
               <img
-                src="/images/logo/foot.png"
+                src="/images/logo/foot.webp"
                 alt=""
                 style={{ width: 32, height: 32, objectFit: "contain", filter: "drop-shadow(0px 1px 3px rgba(200,168,0,0.5))" }}
               />

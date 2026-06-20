@@ -76,7 +76,7 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: url('/images/logo/foot.png') center / contain no-repeat;
+  background: url('/images/logo/foot.webp') center / contain no-repeat;
   cursor: pointer;
   transition: transform 0.1s ease;
 }
@@ -87,7 +87,7 @@ body {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: url('/images/logo/foot.png') center / contain no-repeat;
+  background: url('/images/logo/foot.webp') center / contain no-repeat;
   border: none;
   cursor: pointer;
 }

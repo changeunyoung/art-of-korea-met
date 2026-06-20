@@ -129,7 +129,7 @@ export default function TimelineDisplay({ entries, onSelectEntry }: TimelineDisp
             onMouseDown={onThumbMouseDown}
           >
             <img
-              src="/images/logo/foot.png"
+              src="/images/logo/foot.webp"
               alt=""
               aria-hidden="true"
               style={{ height: 72, width: 72, transform: "rotate(90deg)" }}

@@ -59,7 +59,7 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-[100] px-4 md:px-8 pt-4">
       <div className="mx-auto max-w-content px-6 md:px-10 h-12 flex items-center justify-between bg-background/80 backdrop-blur-md border border-light-gray rounded-full shadow-sm">
         <Link href="/" className="group hover:opacity-75 transition-museum flex items-center -ml-7">
-          <img src="/images/logo/logo_1.png" alt="Art of Korea" className="h-14 w-auto mt-3" />
+          <img src="/images/logo/logo_1.webp" alt="Art of Korea" className="h-14 w-auto mt-3" />
         </Link>
 
         {/* Desktop nav */}

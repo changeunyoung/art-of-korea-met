@@ -2,7 +2,7 @@ export default function FinalInsightPanel() {
   return (
     <div className="-mt-16">
     <div className="flex justify-center mb-1 translate-x-4">
-      <img src="/images/logo/logo3_2.png" alt="" aria-hidden="true" className="h-[179px] w-auto" />
+      <img src="/images/logo/logo3_2.webp" alt="" aria-hidden="true" className="h-[179px] w-auto" />
     </div>
     <div className="bg-ink text-white px-8 py-14 md:py-20 text-center">
       <p className="text-xs uppercase tracking-widest2 text-accent mb-4">Key Findings</p>

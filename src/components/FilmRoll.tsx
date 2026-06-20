@@ -17,7 +17,7 @@ export default function FilmRoll() {
       <div className="film-track">
         {[0, 1].map(i => (
           <div key={i} style={{ width: 1658, flexShrink: 0 }}>
-            <img src="/images/gallery/scrollbg.png" alt="Korean Gallery" style={{ width: 1658, height: 700, display: "block" }} />
+            <img src="/images/gallery/scrollbg.webp" alt="Korean Gallery" style={{ width: 1658, height: 700, display: "block" }} />
           </div>
         ))}
       </div>

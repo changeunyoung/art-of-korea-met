@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import FloatingBubble from "@/components/FloatingBubble";
+import { Analytics } from "@vercel/analytics/next";
 
 const display = Montserrat({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default function RootLayout({
         <main className="min-h-screen pt-20">{children}</main>
         <Footer />
         <FloatingBubble />
+        <Analytics />
       </body>
     </html>
   );

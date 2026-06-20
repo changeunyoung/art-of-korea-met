@@ -344,7 +344,7 @@ function ReadMethods({ block }: { block: MethodsBlock }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <>
-      <section className="mx-auto max-w-content px-6 md:px-10 pt-28 pb-20 md:pt-32 md:pb-28">
+      <section className="mx-auto max-w-content px-6 md:px-10 pt-28 pb-6 md:pt-32 md:pb-8">
         <SectionHeading eyebrow={block.eyebrow} title={block.title} description={block.description} />
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
           {block.cards.map((card, i) => (
@@ -369,7 +369,7 @@ function ReadMethods({ block }: { block: MethodsBlock }) {
           )}
         </div>
       </section>
-      <section style={{ backgroundColor: "#abd8f0", minHeight: "50vh" }} />
+      <section style={{ backgroundColor: "#abd8f0", minHeight: "67vh" }} />
       <FilmRoll />
     </>
   );

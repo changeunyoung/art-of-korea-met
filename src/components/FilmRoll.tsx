@@ -2,7 +2,7 @@
 
 export default function FilmRoll() {
   return (
-    <div style={{ overflow: "hidden", width: "100%", backgroundColor: "#F4F7FA", paddingTop: "48px", paddingBottom: "48px" }}>
+    <div style={{ overflow: "hidden", width: "100%", backgroundColor: "#F4F7FA", paddingTop: "48px", paddingBottom: "0px" }}>
       <style>{`
         @keyframes film-scroll {
           0%   { transform: translateX(0); }

@@ -387,7 +387,7 @@ function CtaSection() {
         className="mb-auto pl-4 md:pl-8"
         initial={{ opacity: 0, x: -80 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
       >
         <motion.a href="/game" className="group inline-block" whileHover={{ scale: 1.03 }} transition={{ duration: 0.3, ease: "easeOut" }}>
           <h2 className="font-black uppercase leading-none" style={{ fontSize: "clamp(40px, 6vw, 90px)", color: "#ffffff", fontFamily: "var(--font-display)" }}>
@@ -405,7 +405,7 @@ function CtaSection() {
         className="mt-auto self-end text-right pr-4 md:pr-8"
         initial={{ opacity: 0, x: 80 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+        transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
       >
         <motion.a href="/survey" className="group inline-block" whileHover={{ scale: 1.03 }} transition={{ duration: 0.3, ease: "easeOut" }}>
           <h2 className="font-display font-black uppercase leading-none whitespace-nowrap" style={{ fontSize: "clamp(40px, 6vw, 90px)", color: "#ffffff" }}>

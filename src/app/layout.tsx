@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import FloatingBubble from "@/components/FloatingBubble";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const display = Montserrat({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Footer />
         <FloatingBubble />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

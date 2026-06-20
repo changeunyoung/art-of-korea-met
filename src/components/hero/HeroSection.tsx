@@ -163,7 +163,7 @@ export default function HeroSection() {
         }
         style={{
           left: "27vw",
-          top: "50vh",
+          top: "50.5vh",
           transform: "translate(-50%, -50%)",
           width: 352,
           height: 352,

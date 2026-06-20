@@ -25,6 +25,15 @@ section[id] {
   to { opacity: 0.75; }
 }
 
+@keyframes ctaBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.cta-blink {
+  animation: ctaBlink 1.4s ease-in-out infinite;
+}
+
 @keyframes navDropdown {
   from {
     opacity: 0;

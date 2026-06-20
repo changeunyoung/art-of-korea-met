@@ -93,7 +93,6 @@ export default function HeroSection() {
   const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
   const { scrollY } = useScroll();
   const arcTop = useMotionValue("0px");
-  const [arcFixed, setArcFixed] = useState(false);
   useEffect(() => {
     return scrollY.on("change", (y) => {
       const methodsEl = document.querySelector("section[class*='pt-48'], section[class*='pt-56']");
@@ -104,10 +103,8 @@ export default function HeroSection() {
       const stopScrollY = methodsTop - arcViewportY - 230;
       if (y <= stopScrollY) {
         arcTop.set("0px");
-        setArcFixed(false);
       } else {
         arcTop.set(`${stopScrollY - y}px`);
-        setArcFixed(true);
       }
     });
   }, [scrollY, arcTop]);
@@ -318,30 +315,7 @@ export default function HeroSection() {
           <text fill="#fff9c2" fontFamily="var(--font-borel)" fontSize="34" fontWeight="bold" textAnchor="middle" style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.3))" }}>
             <textPath href="#arc2" startOffset="50%">Structures Visible</textPath>
           </text>
-          <text
-            x="500" y="330"
-            fill="#555e6b"
-            fontFamily="var(--font-sans)"
-            fontSize="13"
-            fontWeight="700"
-            textAnchor="middle"
-            letterSpacing="0.04em"
-            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.2))", opacity: arcFixed ? 0.9 : 0, transition: "opacity 0.8s ease" }}
-          >
-            An interactive digital humanities project exploring how object placement, curatorial language,
-          </text>
-          <text
-            x="500" y="348"
-            fill="#555e6b"
-            fontFamily="var(--font-sans)"
-            fontSize="13"
-            fontWeight="700"
-            textAnchor="middle"
-            letterSpacing="0.04em"
-            style={{ filter: "drop-shadow(0 1px 4px rgba(0,0,0,0.2))", opacity: arcFixed ? 0.9 : 0, transition: "opacity 0.8s ease" }}
-          >
-            and exhibition design shape the interpretation of Korean art at The MET.
-          </text>
+
         </svg>
       </motion.div>
       </motion.div>

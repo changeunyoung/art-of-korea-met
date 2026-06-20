@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import HeroSection from "@/components/hero/HeroSection";
 import FilmRoll from "@/components/FilmRoll";
@@ -369,9 +370,53 @@ function ReadMethods({ block }: { block: MethodsBlock }) {
           )}
         </div>
       </section>
-      <section style={{ backgroundColor: "#abd8f0", minHeight: "67vh" }} />
+      <CtaSection />
       <FilmRoll />
     </>
+  );
+}
+
+function CtaSection() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-10% 0px" });
+
+  return (
+    <section ref={ref} style={{ backgroundColor: "#abd8f0", minHeight: "57vh", clipPath: "inset(50px 0)" }} className="relative flex flex-col justify-center py-20 overflow-hidden">
+      {/* Top-left: BE THE CURATOR */}
+      <motion.div
+        className="mb-auto pl-4 md:pl-8"
+        initial={{ opacity: 0, x: -80 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+      >
+        <motion.a href="/game" className="group inline-block" whileHover={{ scale: 1.03 }} transition={{ duration: 0.3, ease: "easeOut" }}>
+          <h2 className="font-black uppercase leading-none" style={{ fontSize: "clamp(40px, 6vw, 90px)", color: "#ffffff", fontFamily: "var(--font-display)" }}>
+            BE THE <span style={{ color: "#fff9c2" }}>CURATOR</span>
+            <span style={{ color: "#fff9c2" }}> &gt;</span>
+          </h2>
+          <div style={{ width: 60, height: 3, backgroundColor: "#fff9c2", marginTop: 12, marginBottom: 10 }} />
+          <p className="cta-blink font-bold uppercase tracking-widest text-white" style={{ fontSize: "clamp(16px, 1.8vw, 24px)", letterSpacing: "0.18em", fontFamily: "var(--font-display)" }}>PLAY GAME</p>
+          <p className="text-white mt-1" style={{ fontSize: "clamp(12px, 1.1vw, 16px)", opacity: 0.75, fontFamily: "var(--font-display)", fontWeight: 300 }}>to create your own exhibition</p>
+        </motion.a>
+      </motion.div>
+
+      {/* Bottom-right: SHARE YOUR PERSPECTIVE */}
+      <motion.div
+        className="mt-auto self-end text-right pr-4 md:pr-8"
+        initial={{ opacity: 0, x: 80 }}
+        animate={inView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
+      >
+        <motion.a href="/survey" className="group inline-block" whileHover={{ scale: 1.03 }} transition={{ duration: 0.3, ease: "easeOut" }}>
+          <h2 className="font-display font-black uppercase leading-none whitespace-nowrap" style={{ fontSize: "clamp(40px, 6vw, 90px)", color: "#ffffff" }}>
+            <span style={{ color: "#fff9c2" }}>&lt; </span>SHARE <span style={{ color: "#fff9c2" }}>YOUR</span> PERSPECTIVE
+          </h2>
+          <div style={{ width: 60, height: 3, backgroundColor: "#fff9c2", marginTop: 12, marginBottom: 10, marginLeft: "auto" }} />
+          <p className="cta-blink font-bold uppercase tracking-widest text-white" style={{ fontSize: "clamp(16px, 1.8vw, 24px)", letterSpacing: "0.18em", fontFamily: "var(--font-display)" }}>START SURVEY</p>
+          <p className="text-white mt-1" style={{ fontSize: "clamp(12px, 1.1vw, 16px)", opacity: 0.75, fontFamily: "var(--font-display)", fontWeight: 300 }}>to help support ongoing research</p>
+        </motion.a>
+      </motion.div>
+    </section>
   );
 }
 

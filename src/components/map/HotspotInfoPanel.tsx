@@ -29,7 +29,7 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
   }
 
   const isWallText = hotspot.type === "wallText";
-  const imgSrc = `/images/hotspots/${hotspot.label}.jpeg`;
+  const imgSrc = `/images/hotspots/${hotspot.label}.webp`;
 
   return (
     <div className="h-full flex flex-col overflow-y-auto animate-fadeIn">

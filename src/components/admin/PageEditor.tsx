@@ -569,7 +569,7 @@ export default function PageEditor({ page, initialBlocks, isAdmin, children }: P
         {blocks.map((block, i) => (
           <div key={block.id}>
             <RenderBlock block={block} isAdmin={false} update={() => {}} />
-            {block.type === "hero" && blocks[i + 1]?.type === "methods" && <div style={{ height: "10vh" }} />}
+            {block.type === "hero" && blocks[i + 1]?.type === "methods" && <div style={{ height: "20vh" }} />}
           </div>
         ))}
         {children}

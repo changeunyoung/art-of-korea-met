@@ -38,7 +38,7 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
         <div className="relative w-full aspect-[4/3] bg-background-soft">
           <Image
             src={imgSrc}
-            alt={hotspot.objectName || ""}
+            alt={[hotspot.objectName, hotspot.period, hotspot.objectNumber].filter(Boolean).join(", ") || "Artwork photograph"}
             fill
             unoptimized
             className="object-contain"

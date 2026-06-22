@@ -319,6 +319,9 @@ function ReadIntro({ block }: { block: IntroBlock }) {
         {block.bodyParagraphs.map((p, i) => (
           <p key={i} className="mt-6 text-text-gray leading-relaxed">{p}</p>
         ))}
+        <p className="mt-6 text-xs leading-relaxed" style={{ color: "#6A90AA" }}>
+          *이 프로젝트는 2026년 1월부터 5월까지의 MET Art of Korea 를 바탕으로 한다.
+        </p>
       </div>
     </section>
   );

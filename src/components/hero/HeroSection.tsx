@@ -258,6 +258,9 @@ export default function HeroSection() {
           <p className="font-sans text-sm leading-relaxed text-text-gray">
             By making these often-invisible structures visible, the project encourages visitors to look beyond individual artifacts and consider how museums actively construct cultural narratives.
           </p>
+          <p className="font-sans text-xs mt-6 leading-relaxed" style={{ color: "#6A90AA" }}>
+            *This project is based on the MET Art of Korea gallery as observed between January and May 2026.
+          </p>
         </div>
       </motion.div>
 

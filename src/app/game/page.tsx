@@ -21,8 +21,8 @@ export default function GamePage() {
         <p className="text-white opacity-70 text-base max-w-lg mb-6 [font-family:var(--font-display)] font-light">
           Step into the role of a museum curator. Choose a theme, place objects, and design your own exhibition of Korean art.
         </p>
-        <div className="mb-10 max-w-lg">
-          <img src="/images/logo/control.png" alt="Controls" style={{ width: 48, height: 48, margin: "0 auto 10px", objectFit: "contain", filter: "brightness(0) saturate(100%) invert(97%) sepia(27%) saturate(500%) hue-rotate(330deg) brightness(103%)" }} />
+        <div className="mb-10" style={{ width: "320px" }}>
+          <img src="/images/logo/control.png" alt="Controls" style={{ width: 48, height: 48, margin: "0 auto 10px", display: "block", objectFit: "contain", filter: "brightness(0) saturate(100%) invert(97%) sepia(27%) saturate(500%) hue-rotate(330deg) brightness(103%)" }} />
           <p className="text-xs uppercase tracking-widest mb-3 [font-family:var(--font-sans)]" style={{ color: "#fff9c2" }}>Controls</p>
           <p className="text-xs mb-2 [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>
             <span className="font-medium">Arrow Keys</span> — Navigate

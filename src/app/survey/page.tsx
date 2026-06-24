@@ -287,7 +287,7 @@ export default function SurveyPage() {
     const { error: dbErr } = await supabase.from("responses").insert([form]);
     setLoading(false);
     if (dbErr) {
-      setError("Something went wrong. Please try again.");
+      setError(`Something went wrong: ${dbErr.message}`);
       console.error(dbErr);
     } else {
       localStorage.setItem("survey_submitted", "true");

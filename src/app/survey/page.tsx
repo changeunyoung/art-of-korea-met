@@ -287,7 +287,7 @@ export default function SurveyPage() {
     const { error: dbErr } = await supabase.from("responses").insert([form]);
     setLoading(false);
     if (dbErr) {
-      setError(`Something went wrong: ${dbErr.message}`);
+      setError("Something went wrong. Please try again.");
       console.error(dbErr);
     } else {
       localStorage.setItem("survey_submitted", "true");
@@ -315,7 +315,7 @@ export default function SurveyPage() {
     return (
       <div style={{ backgroundColor: "#fffacb", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px", display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div style={{ textAlign: "center", padding: "60px 24px" }}>
-          <div style={{ fontSize: "48px", marginBottom: "20px" }}>🙏</div>
+          <img src="/images/logo/foot.webp" alt="foot" style={{ width: 56, height: 56, margin: "0 auto 20px", display: "block" }} />
           <h1 style={{ fontFamily: "var(--font-display), Montserrat, sans-serif", fontSize: "32px", fontWeight: 800, color: "#1C2B3A", marginBottom: "12px" }}>
             Thank You!
           </h1>

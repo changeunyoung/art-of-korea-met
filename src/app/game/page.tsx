@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const GAME_URL = ""; // itch.io embed URL을 여기에 넣으세요
+const GAME_URL = "https://html-classic.itch.zone/html/18050264/WebGL/index.html";
 
 export default function GamePage() {
   const [open, setOpen] = useState(false);

@@ -15,7 +15,6 @@ type FormData = {
   korean_art_familiarity: string;
   korean_history_familiarity: string;
   galleries_neutral_before: string;
-  artwork_influence: string;
   view_changed: string;
   exhibition_meaning: string;
   perspective_part: string;
@@ -32,7 +31,6 @@ const initial: FormData = {
   korean_art_familiarity: "",
   korean_history_familiarity: "",
   galleries_neutral_before: "",
-  artwork_influence: "",
   view_changed: "",
   exhibition_meaning: "",
   perspective_part: "",

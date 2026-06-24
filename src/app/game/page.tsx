@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const GAME_URL = "https://html-classic.itch.zone/html/18050264/WebGL/index.html";
+const GAME_URL = "https://itch.io/embed-upload/18051437?color=333333";
 
 export default function GamePage() {
   const [open, setOpen] = useState(false);

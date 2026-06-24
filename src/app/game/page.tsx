@@ -24,11 +24,11 @@ export default function GamePage() {
         <div className="mb-10 max-w-lg">
           <img src="/images/logo/control.png" alt="Controls" style={{ width: 48, height: 48, margin: "0 auto 10px", objectFit: "contain", filter: "brightness(0) saturate(100%) invert(97%) sepia(27%) saturate(500%) hue-rotate(330deg) brightness(103%)" }} />
           <p className="text-xs uppercase tracking-widest mb-3 [font-family:var(--font-sans)]" style={{ color: "#fff9c2" }}>Controls</p>
-          <p className="text-sm mb-2 [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>
-            <span className="font-medium">Arrow Keys</span> — Move around the gallery
+          <p className="text-xs mb-2 [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>
+            <span className="font-medium">Arrow Keys</span> — Navigate
           </p>
-          <p className="text-sm [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>
-            <span className="font-medium">Spacebar or Left Click</span> — Interact with objects and characters
+          <p className="text-xs [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>
+            <span className="font-medium">Spacebar or Left Click</span> — Interact
           </p>
         </div>
 

@@ -10,7 +10,7 @@ export default function GamePage() {
 
   return (
     <div style={{ backgroundColor: "#2E4A6B", minHeight: "100vh", marginTop: "-80px", paddingTop: "80px" }}>
-      <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20">
+      <div className="mx-auto max-w-content px-6 md:px-10 py-16 md:py-20 flex flex-col items-center text-center">
         <p className="text-xs uppercase tracking-widest2 text-text-gray [font-family:var(--font-display)] mb-3">
           Mini Game
         </p>
@@ -18,9 +18,18 @@ export default function GamePage() {
           Be the Curator
         </h1>
         <div className="w-8 h-px bg-white opacity-30 mb-8" />
-        <p className="text-white opacity-70 text-base max-w-lg mb-10 [font-family:var(--font-display)] font-light">
-          Step into the role of a museum curator. Arrange objects, write labels, and design your own exhibition of Korean art.
+        <p className="text-white opacity-70 text-base max-w-lg mb-6 [font-family:var(--font-display)] font-light">
+          Step into the role of a museum curator. Choose a theme, place objects, and design your own exhibition of Korean art.
         </p>
+        <div className="mb-10 max-w-lg">
+          <p className="text-white opacity-50 text-xs uppercase tracking-widest mb-3 [font-family:var(--font-display)]">Controls</p>
+          <p className="text-white opacity-60 text-sm mb-2 [font-family:var(--font-display)] font-light">
+            <span className="opacity-90 font-medium">Arrow Keys</span> — Move around the gallery
+          </p>
+          <p className="text-white opacity-60 text-sm [font-family:var(--font-display)] font-light">
+            <span className="opacity-90 font-medium">Spacebar or Left Click</span> — Interact with objects and characters
+          </p>
+        </div>
 
         <button
           onClick={() => setOpen(true)}

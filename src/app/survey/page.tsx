@@ -226,7 +226,7 @@ export default function SurveyPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("survey_submitted") === "true") {
+    if (localStorage.getItem("survey_submitted_v2") === "true") {
       setAlreadySubmitted(true);
     }
   }, []);
@@ -290,7 +290,7 @@ export default function SurveyPage() {
       setError("Something went wrong. Please try again.");
       console.error(dbErr);
     } else {
-      localStorage.setItem("survey_submitted", "true");
+      localStorage.setItem("survey_submitted_v2", "true");
       setSubmitted(true);
     }
   };
@@ -450,13 +450,13 @@ export default function SurveyPage() {
             <SectionHeader part="Part 3" title="Museum Interpretation" />
 
             <Question number={9} label="Before exploring this project, do you think museum galleries are neutral spaces?">
-              <RadioGroup name="galleries_neutral_before" value={form.galleries_neutral_before} onChange={set}
-                options={["Yes", "No", "Not sure"]} />
+              <SliderPillGroup name="galleries_neutral_before" value={form.galleries_neutral_before} onChange={set}
+                options={["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"]} />
             </Question>
 
             <Question number={10} label="After exploring this project, do you think museum galleries are neutral spaces?">
-              <RadioGroup name="view_changed" value={form.view_changed} onChange={set}
-                options={["Yes", "No", "Not sure"]} />
+              <SliderPillGroup name="view_changed" value={form.view_changed} onChange={set}
+                options={["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"]} />
             </Question>
 
             <Question number={11} label="Which factor do you think most shapes the meaning of a museum exhibition?">

@@ -108,7 +108,7 @@ function ResearchCarousel() {
           {extended.map((s, i) => (
             <div
               key={i}
-              className="flex-shrink-0 w-full relative bg-white rounded-2xl shadow-sm px-10 pt-8 pb-12 min-h-[360px]"
+              className="flex-shrink-0 w-full relative bg-white rounded-2xl shadow-sm px-4 md:px-10 pt-6 md:pt-8 pb-10 md:pb-12 min-h-[240px] md:min-h-[360px]"
               style={{ scrollSnapAlign: "start" }}
             >
               <h3 className="text-sm font-semibold text-ink mb-4 text-center">{s.title}</h3>

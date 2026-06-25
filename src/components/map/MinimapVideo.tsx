@@ -14,7 +14,7 @@ export default function MinimapVideo() {
         <div className="absolute top-0 left-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to left, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
         <div className="absolute top-0 right-0 bottom-0" style={{ width: "18%", background: "linear-gradient(to right, rgba(221,225,231,0) 0%, rgba(221,225,231,0.85) 60%, #DDE1E7 100%)" }} />
         <p
-          className="absolute top-14 left-0 right-0 text-center text-xs uppercase tracking-widest2 text-blue-500 z-10 drop-shadow-md"
+          className="hidden md:block absolute top-14 left-0 right-0 text-center text-xs uppercase tracking-widest2 text-blue-500 z-10 drop-shadow-md"
           style={{ transform: "translateX(40px) rotate(9deg)", opacity: 0, animation: "fadeIn 1s ease forwards 2s" }}
         >Scroll Down</p>
       </div>

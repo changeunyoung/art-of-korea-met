@@ -136,7 +136,7 @@ export default function HeroSection() {
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.05 }}
       >
         <h1
-          className="font-black text-white leading-none tracking-tight uppercase"
+          className="font-black text-white leading-none tracking-tight uppercase text-center"
           style={{ fontSize: "clamp(60px, 9.5vw, 140px)", fontFamily: "var(--font-display)", textShadow: "0 2px 24px rgba(0,0,0,0.25), 0 1px 4px rgba(0,0,0,0.15)" }}
         >
           Art of Korea

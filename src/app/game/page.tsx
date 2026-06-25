@@ -21,6 +21,9 @@ export default function GamePage() {
         <p className="text-white opacity-70 text-base max-w-lg mb-6 [font-family:var(--font-display)] font-light">
           Step into the role of a museum curator. Choose a theme, place objects, and design your own exhibition of Korean art.
         </p>
+        <p className="text-xs mb-6 [font-family:var(--font-sans)]" style={{ color: "#fff9c2", opacity: 0.5 }}>
+          * This game is designed for desktop web browsers. Mobile devices are not supported.
+        </p>
         <div className="mb-10" style={{ width: "360px", maxWidth: "100%" }}>
           <div style={{ width: 32, height: 32, margin: "0 auto 10px", position: "relative" }}>
             <img src="/images/logo/control.png" alt="Controls" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.9) opacity(0.85)" }} />

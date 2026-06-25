@@ -22,8 +22,8 @@ export default function GamePage() {
           Step into the role of a museum curator. Choose a theme, place objects, and design your own exhibition of Korean art.
         </p>
         <div className="mb-10" style={{ width: "360px", maxWidth: "100%" }}>
-          <div style={{ width: 48, height: 48, margin: "0 auto 10px", position: "relative" }}>
-            <img src="/images/logo/control.png" alt="Controls" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1)" }} />
+          <div style={{ width: 32, height: 32, margin: "0 auto 10px", position: "relative" }}>
+            <img src="/images/logo/control.png" alt="Controls" style={{ width: "100%", height: "100%", objectFit: "contain", filter: "invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.9) opacity(0.85)" }} />
           </div>
           <p className="text-xs uppercase tracking-widest mb-3 [font-family:var(--font-sans)]" style={{ color: "#fff9c2" }}>Controls</p>
           <p className="text-xs mb-2 [font-family:var(--font-sans)] font-light" style={{ color: "#fff9c2", opacity: 0.85 }}>

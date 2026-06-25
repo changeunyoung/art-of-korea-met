@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const GAME_URL = "https://itch.io/embed-upload/18051437?color=333333";
+const GAME_URL = "https://itch.io/embed-upload/18072543?color=333333";
 
 export default function GamePage() {
   const [open, setOpen] = useState(false);

@@ -5,6 +5,7 @@ import { WordFrequency, LabelObject, WallText, Hotspot } from "@/lib/types";
 import { getThemeForWord, findExcerpts, findRelatedObjects, findRelatedWallTexts, tokenize, STOPWORDS } from "@/lib/textAnalysis";
 import WordDefinition from "./WordDefinition";
 import HotspotInfoPanel from "@/components/map/HotspotInfoPanel";
+import KeywordNetworkGraph from "./KeywordNetworkGraph";
 
 interface ContextPanelProps {
   selectedWord: string | null;
@@ -162,7 +163,7 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
     return Array.from(counts.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 6)
-      .map(([word]) => word);
+      .map(([word, count]) => ({ word, count }));
   }, [selectedWord, excerpts, frequencies]);
 
   if (!selectedWord) {
@@ -376,21 +377,16 @@ export default function ContextPanel({ selectedWord, frequencies, fullText, obje
         </p>
       </div>
 
-      {/* Row 4: Related Keywords (full width) */}
+      {/* Row 4: Related Keywords network graph (full width) */}
       {relatedKeywords.length > 0 && (
         <div className="mt-6">
-          <p className="text-xs uppercase tracking-widest2 text-text-gray mb-3">Related Keywords</p>
-          <div className="flex flex-wrap gap-2">
-            {relatedKeywords.map((kw) => (
-              <button
-                key={kw}
-                onClick={() => onSelectWord(kw)}
-                className="text-xs uppercase tracking-widest2 px-3 py-1 border border-light-gray text-text-gray hover:border-ink hover:text-ink transition-museum"
-              >
-                {kw}
-              </button>
-            ))}
-          </div>
+          <p className="group relative text-xs uppercase tracking-widest2 text-text-gray mb-8 cursor-default">
+            <span className="transition-museum group-hover:opacity-0">Related Keywords</span>
+            <span className="absolute inset-x-0 left-0 opacity-0 transition-museum group-hover:opacity-100 normal-case break-words">
+              Words that co-occur with &ldquo;{selectedWord}&rdquo; in the same label excerpts — thicker lines mean stronger co-occurrence. Click a node to explore that word.
+            </span>
+          </p>
+          <KeywordNetworkGraph centerWord={selectedWord} keywords={relatedKeywords} onSelectWord={onSelectWord} />
         </div>
       )}
 

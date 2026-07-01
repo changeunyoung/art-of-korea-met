@@ -355,6 +355,7 @@ export default function InteractiveWordCloud({
           <input
             type="text"
             value={searchQuery}
+            suppressHydrationWarning
             onChange={(e) => {
               const val = e.target.value;
               onSearchQueryChange(val);

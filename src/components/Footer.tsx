@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex justify-end flex-1">
-          <img src="/images/logo/logo_final.webp" alt="Art of Korea" className="h-40 w-auto mr-0" />
+          <img src="/images/logo/logo_final.webp" alt="Art of Korea" className="h-40 w-auto mr-0 mt-3" />
         </div>
       </div>
     </footer>

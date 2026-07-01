@@ -101,6 +101,12 @@ export default function HotspotInfoPanel({ hotspot, onClose }: HotspotInfoPanelP
           </dt>
           <dd className="mt-1 text-ink leading-relaxed">{hotspot.description || "—"}</dd>
         </div>
+        {hotspot.credit && (
+          <div>
+            <dt className="text-xs uppercase tracking-widest2 text-text-gray">Credit Line</dt>
+            <dd className="mt-1 text-ink leading-relaxed">{hotspot.credit}</dd>
+          </div>
+        )}
       </dl>
       </div>
     </div>

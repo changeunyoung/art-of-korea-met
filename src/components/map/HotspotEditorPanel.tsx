@@ -33,7 +33,7 @@ export default function HotspotEditorPanel({
     type: "input" | "textarea" = "input"
   ) => {
     const value = hotspot[key];
-    const stringValue = Array.isArray(value) ? value.join(", ") : (value as string);
+    const stringValue = Array.isArray(value) ? value.join(", ") : ((value as string) ?? "");
 
     const handleChange = (val: string) => {
       if (key === "keywords") {
@@ -104,6 +104,7 @@ export default function HotspotEditorPanel({
         {field("Object Number", "objectNumber")}
         {field("Period", "period")}
         {field("Description", "description", "textarea")}
+        {field("Credit Line", "credit")}
         {field("Curatorial Interpretation", "curatorialInterpretation", "textarea")}
         {field("Keywords (comma-separated)", "keywords")}
 

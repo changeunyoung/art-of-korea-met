@@ -226,7 +226,8 @@ export default function SurveyPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("survey_submitted_v2") === "true") {
+    const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    if (!isLocalhost && localStorage.getItem("survey_submitted_v2") === "true") {
       setAlreadySubmitted(true);
     }
   }, []);

@@ -18,6 +18,8 @@ export interface Hotspot {
   description: string;
   curatorialInterpretation: string;
   keywords: string[];
+  /** Donor/acquisition credit line, e.g. "Gift of ..., 1994 (1995.69)" */
+  credit?: string;
   /** Korean title (Hangul + Hanja) */
   koreanName?: string;
   /** URL to the Met Museum collection page (or YouTube for video objects) */

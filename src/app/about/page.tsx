@@ -248,6 +248,49 @@ export default function AboutPage() {
             <h3 className="text-xs uppercase tracking-widest2 text-text-gray mt-8 mb-3 text-center font-display font-bold">References & Sources</h3>
             <p className="text-sm text-text-gray font-sans">The Metropolitan Museum of Art Collection Database</p>
             <p className="text-sm text-text-gray font-sans mt-1">The Metropolitan Museum of Art Korean Gallery</p>
+
+            <h3 className="text-xs uppercase tracking-widest2 text-text-gray mt-8 mb-3 text-center font-display font-bold">Literature Review</h3>
+            <ul className="space-y-3">
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Alpers, S. (1991). The museum as a way of seeing. In I. Karp &amp; S. D. Lavine (Eds.), <em>Exhibiting cultures: The poetics and politics of museum display</em> (pp. 25–32). Smithsonian Institution Press.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Bal, M. (1996). <em>Double exposures: The subject of cultural analysis</em>. Routledge.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Bennett, T. (1995). <em>The birth of the museum: History, theory, politics</em>. Routledge.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Drucker, J. (2021). <em>The digital humanities coursebook: An introduction to digital methods for research and scholarship</em>. Routledge.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Duncan, C. (1995). <em>Civilizing rituals: Inside public art museums</em>. Routledge.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Gazi, A. (2014). Exhibition ethics: An overview of major issues. <em>Journal of Conservation and Museum Studies, 12</em>(1), Article 4. https://doi.org/10.5334/jcms.1021213
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Medaković, J., Atanacković Jeličić, J., Ecet, D., Nedučin, D., &amp; Krklješ, M. (2024). The interplay between spatial layout and visitor paths in modern museum architecture. <em>Buildings, 14</em>(7), Article 2147. https://doi.org/10.3390/buildings14072147
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                MuseumNext. (2024). <em>What makes a great museum label? The science and art of exhibition text</em>.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Ravelli, L. J. (2006). <em>Museum texts: Communication frameworks</em>. Routledge.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Reitstätter, L., Galter, K., &amp; Bakondi, F. (2022). Looking to read: How visitors use exhibit labels in the art museum. <em>Visitor Studies, 25</em>(2), 127–150. https://doi.org/10.1080/10645578.2021.2018251
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Said, E. W. (1978). <em>Orientalism</em>. Pantheon Books.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Smithsonian Institution. (2021). <em>Guide to interpretive writing for exhibitions</em>.
+              </li>
+              <li className="text-sm text-text-gray leading-relaxed font-sans">
+                Western Australian Museum. (n.d.). <em>Text and labels in museum exhibitions</em>.
+              </li>
+            </ul>
           </section>
 
         </div>
